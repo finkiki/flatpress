@@ -10,7 +10,7 @@ $lang ['admin'] ['plugin'] ['seometataginfo'] = array(
 	'submit' => 'Enregistrer robots.txt',
 
 	// SEO Metatags part
-	'legend_desc' => 'Description et mots-clés Descripción y palabras clave',
+	'legend_desc' => 'Description et mots-clés',
 	'description' => 'Ces détails permettent de les retrouver plus facilement avec les moteurs de recherche et de les afficher sur les médias sociaux. <a class="hint" href="https://fr.wikipedia.org/wiki/Élément_meta" title="Wikipedia" target="_blank">Wikipedia</a>',
 	'input_desc' => 'Insérez la description :',
 	'sample_desc' => 'Articles, guides et plugins relatifs à FlatPress',

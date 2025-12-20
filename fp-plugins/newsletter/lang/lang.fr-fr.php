@@ -40,7 +40,6 @@ $lang ['admin'] ['plugin'] ['newsletter'] = array(
 	'desc_batch' => 'Ici, tu peux définir le nombre d\'abonnés auxquels une newsletter sera envoyée par jour. '. //
 		'Renseigne-toi auprès de ton fournisseur d\'e-mail pour savoir combien d\'e-mails peuvent être envoyés par jour. ' . //
 		'La newsletter est envoyée automatiquement à tous les abonnés au début du mois. ' . //
-		'Wenn gerade kein automatischer Versand läuft, kannst du auch sofort den Newsletterversand anstoßen. ' . //
 		'Si aucun envoi automatique n\'est en cours, tu peux aussi déclencher l\'envoi de la newsletter immédiatement.',
 	'icon_sent_title' => 'Déjà distribué dans cet envoi',
 	'icon_sent_alt' => 'Livré',
