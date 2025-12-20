@@ -62,7 +62,7 @@ $lang ['admin'] ['entry'] ['commentcenter'] = array(
 	'createpol' => 'Création d\'une politique',
 	'some_entries' => 'Certaines entrées',
 	'properties' => 'Entrée avec certaines caractéristiques',
-	'se_desc' => 'Si vous avez choisi l\'option %s, veuillez insérer des messages que vous souhaitez appliquer à cette politique.',
+	'se_desc' => 'Si tu as choisi l\'option %s, veuillez insérer des messages que tu souhaites appliquer à cette politique.',
 	'se_fill' => 'Remplis les champs avec le <a href="admin.php?p=entry">ID</a> des inscriptions (<code>entryYYMMDD-HHMMSS</code>).',
 	'po_title' => 'Caractéristiques',
 	'po_desc' => 'Si tu as choisi l\'option %s, remplis les propriétés.',
@@ -108,7 +108,7 @@ $lang ['admin'] ['entry'] ['commentcenter'] = array(
 
 	// Manage comments page
 	'man_searcht' => 'Rechercher une entrée',
-	'man_searchd' => 'Insérez le <a href="admin.php?p=entry">ID</a> (<code>entryYYMMDD-HHMMSS</code>) du message dont vous souhaitez gérer les commentaires.',
+	'man_searchd' => 'Insère le <a href="admin.php?p=entry">ID</a> (<code>entryYYMMDD-HHMMSS</code>) du message dont tu souhaites gérer les commentaires.',
 	'man_search' => 'Recherche',
 	'man_commfor' => 'Remarques pour %s',
 	'man_spam' => 'Signaler comme spam à Akismet',
@@ -180,7 +180,7 @@ __________________________________________
 %content%
 __________________________________________
 
-Connectez-vous à la zone administrative de votre blog FlatPress et vérifiez le commentaire bloqué dans le centre de commentaires.
+Connecte-toi à la zone administrative de ton blog FlatPress et vérifie le commentaire bloqué dans le centre de commentaires.
 
 Généré automatiquement par
 %blogtitle%

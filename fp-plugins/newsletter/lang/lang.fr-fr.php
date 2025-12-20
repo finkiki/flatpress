@@ -60,7 +60,7 @@ $lang ['plugin'] ['newsletter'] ['errors'] = array (
 
 $lang ['admin'] ['plugin'] ['newsletter'] ['msgs'] = array(
 	1 => 'La newsletter est envoyée à tous les abonnés.',
-	-2 => 'Ce plugin nécessite le plugin LastEntries intégré dans FlatPress. Veuillez l\'activer au préalable dans le domaine des plugins!',
+	-2 => 'Ce plugin nécessite le plugin LastEntries intégré dans FlatPress. Merci de l\'activer au préalable dans le domaine des plugins!',
 	2 => 'Les paramètres ont été enregistrés.'
 );
 ?>

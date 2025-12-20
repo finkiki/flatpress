@@ -18,7 +18,7 @@ $lang ['admin'] ['plugin'] ['prettyurls'] = array(
 	'description2' => 'Cet éditeur permet d\'éditer directement le <code>.htaccess</code> nécessaire au plugin PrettyUrls.<br>' . //
 		'<strong>Remarque:</strong> Seuls les serveurs web compatibles avec NCSA, comme Apache, connaissent le concept des fichiers .htaccess. ' . //
 		'Ton logiciel serveur est: <strong>' . $_SERVER ['SERVER_SOFTWARE'] . '</strong>',
-	'cantsave' => 'Vous ne pouvez pas &eacute;diter ce fichier, parce qu\'il n\'est pas autoris&eacute; en <strong>&eacute;criture</strong>. Vous devez autoriser l\'&eacute;criture du fichier ou copier-coller vers un fichier &agrave; transf&eacute;rer.',
+	'cantsave' => 'Tu ne peux pas &eacute;diter ce fichier, car il n\'est pas autoris&eacute; en <strong>&eacute;criture</strong>. Tu dois autoriser l\'&eacute;criture du fichier ou copier-coller vers un fichier &agrave; transf&eacute;rer.',
 	'mode' => 'Mode',
 	'auto' => 'Automatique',
 	'autodescr' => 'PrettyURLs va tenter de trouver la meilleur configuration',

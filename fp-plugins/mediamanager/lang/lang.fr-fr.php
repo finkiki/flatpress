@@ -5,7 +5,7 @@ $lang ['admin'] ['uploader'] ['submenu'] ['mediamanager'] = 'Responsable des mé
 
 $lang ['admin'] ['uploader'] ['mediamanager'] = array(
 	'head' => 'Responsable des médias',
-	'description' => 'Gérer vos médias',
+	'description' => 'Gérer tes médias',
 
 	'delete' => 'Supprimer',
 	'up' => 'Retour',
