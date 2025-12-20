@@ -1,12 +1,12 @@
 <?php
 $lang ['comments'] ['mail'] = 'Bonjour %toname%,
 
-"%fromname%" %frommail% a post&eacute; un commentaire sur un billet dont le titre est "%entrytitle%".
+"%fromname%" %frommail% a post&eacute; un commentaire sur un article intitul&eacute; "%entrytitle%".
 
-Lien direct vers le commentaire:
+Lien direct vers le commentaire :
 %commentlink%
 
-Voici le commentaire post&eacute;:
+Voici le commentaire post&eacute; :
 ***************
 %content%
 ***************

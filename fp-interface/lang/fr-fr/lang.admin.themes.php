@@ -16,8 +16,8 @@ $lang ['admin'] ['themes'] ['default'] = array(
 );
 
 $lang ['admin'] ['themes'] ['default'] ['msgs'] = array(
-	1 => 'Le th&egrave;me a &eacute;t&eacute; modifi&eacute;.',
-	-1 => 'Une erreur est survenue au moment de la modification du th&egrave;me.',
+	1 => 'Le th&egrave;me a &eacute;t&eacute; chang&eacute; avec succ&egrave;s.',
+	-1 => 'Une erreur est survenue lors du changement de th&egrave;me.',
 	-2 => 'Le th&egrave;me s&eacute;lectionn&eacute; n\'existe pas.'
 );
 
@@ -33,8 +33,8 @@ $lang ['admin'] ['themes'] ['style'] = array(
 );
 
 $lang ['admin'] ['themes'] ['style'] ['msgs'] = array(
-	1 => 'Le style a &eacute;t&eacute; modifi&eacute;.',
-	-1 => 'Une erreur est survenue au moment de la modification du style.',
+	1 => 'Le style a &eacute;t&eacute; chang&eacute; avec succ&egrave;s.',
+	-1 => 'Une erreur est survenue lors du changement de style.',
 	-2 => 'Le style s&eacute;lectionn&eacute; n\'existe pas.'
 );
 ?>
