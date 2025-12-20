@@ -15,7 +15,7 @@ $lang ['admin'] ['plugin'] ['qspam'] = array(
 	'submit' => 'Enregistrer la configuration',
 	'msgs' => array(
 		1 => 'Mots bannis enregistr&eacute;s.',
-		-1 => 'Echec de l\'enregistrement des mots bannis.'
+		-1 => '&Eacute;chec de l\'enregistrement des mots bannis.'
 	)
 );
 ?>
