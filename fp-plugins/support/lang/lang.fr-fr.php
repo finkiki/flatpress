@@ -94,7 +94,7 @@ $lang ['admin'] ['maintain'] ['support'] = array(
 
 	'desc_themesdir' => 'Le répertoire themes doit être protégé en écriture pour les autres en exploitation productive.',
 	'attention_themesdir' => '<p class="attention"><strong>&#8505;</strong> Le répertoire themes peut être écrit par d\'autres !</p>',
-	'success_themesdir' => '<p class="success"><strong>&#10003;</strong> Le répertoire fp-interface ne peut pas être écrit par d\'autres.</p>',
+	'success_themesdir' => '<p class="success"><strong>&#10003;</strong> Le répertoire themes ne peut pas être écrit par d\'autres.</p>',
 
 	'desc_plugindir' => 'Le répertoire fp-plugins doit être protégé en écriture pour les autres en exploitation productive.',
 	'attention_plugindir' => '<p class="attention"><strong>&#8505;</strong> Le répertoire fp-plugins peut être écrit par d\'autres !</p>',
