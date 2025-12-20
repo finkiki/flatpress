@@ -62,7 +62,7 @@ $lang ['admin'] ['entry'] ['commentcenter'] = array(
 	'createpol' => 'Création d\'une politique',
 	'some_entries' => 'Certaines entrées',
 	'properties' => 'Entrée avec certaines caractéristiques',
-	'se_desc' => 'Si tu as choisi l\'option %s, veuillez insérer des messages que tu souhaites appliquer à cette politique.',
+	'se_desc' => 'Si tu as choisi l\'option %s, merci d\'insérer des messages que tu souhaites appliquer à cette politique.',
 	'se_fill' => 'Remplis les champs avec le <a href="admin.php?p=entry">ID</a> des inscriptions (<code>entryYYMMDD-HHMMSS</code>).',
 	'po_title' => 'Caractéristiques',
 	'po_desc' => 'Si tu as choisi l\'option %s, remplis les propriétés.',
@@ -77,8 +77,8 @@ $lang ['admin'] ['entry'] ['commentcenter'] = array(
 	'del_descs' => 'Tu vas supprimer cette politique: ',
 	'del_descm' => 'Tu vas supprimer ces directives: ',
 	'sure' => 'Tu es sûr?',
-	'del_subs' => 'Oui, veuillez supprimer.',
-	'del_subm' => 'Oui, veuillez tous les supprimer.',
+	'del_subs' => 'Oui, merci de supprimer.',
+	'del_subm' => 'Oui, merci de tous les supprimer.',
 	'del_cancel' => 'Non, retour aux réglages.',
 
 	// Approve comments page
@@ -123,7 +123,7 @@ $lang ['admin'] ['entry'] ['commentcenter'] = array(
 
 	// Akismet warnings
 	'akismet_errors' => array(
-		-1 => 'La clé Akismet est vide. Veuillez saisir celle-ci.',
+		-1 => 'La clé Akismet est vide. Merci de saisir celle-ci.',
 		-2 => 'Nous n\'avons pas pu accéder aux serveurs d\'Akismet.',
 		-3 => 'La réponse Akismet a échoué.',
 		-4 => 'La clé Akismet n\'est pas valide.'

@@ -32,6 +32,6 @@ $lang ['admin'] ['uploader'] ['mediamanager'] ['msgs'] = array(
 	1 => 'Fichier supprimé',
 	-1 => 'Erreur de suppression de fichier',
 	-2 => 'Erreur lors de la création d\'une nouvelle galerie',
-	-3 => 'Veuillez préciser le nom de la nouvelle galerie'
+	-3 => 'Merci de préciser le nom de la nouvelle galerie'
 );
 ?>
