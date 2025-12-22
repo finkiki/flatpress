@@ -529,6 +529,17 @@ function do_bbcode_video($action, $attr, $content, $params, $node_object) {
 					'</iframe>' . //
 				'</div>';
 			break;
+		// Rumble
+		case 'rumble':
+			$vid = isset($query ['sec']) ? $query ['sec'] : str_replace('/', '', $vurl ['path']);
+			$output = '<div class="responsive_bbcode_video">' . //
+					'<iframe class="bbcode_video bbcode_video_rumble ' . $floatClass . '" ' . //
+						$src . '="https://rumble.com/embed/' . //
+						'width="' . $width . '" ' . //
+						'height="' . $height . '" ' . //
+						'allow="autoplay; fullscreen">' . //
+					'</iframe>' . //
+				'</div>';
 		// Any video file that can be played with HTML5 <video> element
 		case 'html5':
 		default:
