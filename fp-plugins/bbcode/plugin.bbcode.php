@@ -505,6 +505,19 @@ function do_bbcode_video($action, $attr, $content, $params, $node_object) {
 					'</iframe>' . //
 				'</div>';
 			break;
+				// BitChute
+		case 'bitchute':
+			$output = '<div class="responsive_bbcode_video">' . //
+					'<iframe class="bbcode_video bbcode_video_bitchute ' . $floatClass . '" ' . //
+						$src . '="https://www.bitchute.com/embed/' . $vid . //
+						'width="' . $width . '" ' . //
+						'height="' . $height . '" ' . //
+						'frameborder="0" ' . //
+						'allowfullscreen="allowfullscreen" ' . //
+						'allow="autoplay; fullscreen;">' . //
+					'</iframe>' . //
+				'</div>';
+			break;
 		// Any video file that can be played with HTML5 <video> element
 		case 'html5':
 		default:
