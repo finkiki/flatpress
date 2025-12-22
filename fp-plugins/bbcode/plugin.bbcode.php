@@ -531,15 +531,31 @@ function do_bbcode_video($action, $attr, $content, $params, $node_object) {
 			break;
 		// Rumble
 		case 'rumble':
-			$vid = isset($query ['sec']) ? $query ['sec'] : str_replace('/', '', $vurl ['path']);
+			$path = isset($vurl ['path']) ? trim($vurl ['path'], '/') : '';
+			$segments = $path ? explode('/', $path) : array();
+			$vidSegment = ($segments && $segments [0] === 'embed' && isset($segments [1])) ? $segments [1] : ($segments ? $segments [0] : '');
+			$vid = '';
+			if ($vidSegment && preg_match('/^(v[0-9A-Za-z]+)/', $vidSegment, $matches)) {
+				$vid = $matches [1];
+			}
+			if ($vid === '') {
+				break;
+			}
+			$embedUrl = 'https://rumble.com/embed/' . $vid . '/';
+			if (!empty($vurl ['query'])) {
+				$embedUrl .= '?' . $vurl ['query'];
+			}
 			$output = '<div class="responsive_bbcode_video">' . //
 					'<iframe class="bbcode_video bbcode_video_rumble ' . $floatClass . '" ' . //
-						$src . '="https://rumble.com/embed/' . //
+						$src . '="' . $embedUrl . '" ' . //
 						'width="' . $width . '" ' . //
 						'height="' . $height . '" ' . //
-						'allow="autoplay; fullscreen">' . //
+						'frameborder="0" ' . //
+						'allow="autoplay; fullscreen" ' . //
+						'allowfullscreen="allowfullscreen">' . //
 					'</iframe>' . //
 				'</div>';
+			break;
 		// Any video file that can be played with HTML5 <video> element
 		case 'html5':
 		default:
