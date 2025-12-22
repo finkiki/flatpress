@@ -533,16 +533,10 @@ function do_bbcode_video($action, $attr, $content, $params, $node_object) {
 		case 'rumble':
 			$path = isset($vurl ['path']) ? trim($vurl ['path'], '/') : '';
 			$segments = $path ? array_values(array_filter(explode('/', $path))) : array();
-			$vidSegment = '';
-			if ($segments) {
-				if ($segments [0] === 'embed' && isset($segments [1])) {
-					$vidSegment = $segments [1];
-				} else {
-					$vidSegment = $segments [0];
-				}
-			}
+			$vidSegment = $segments ? (($segments [0] === 'embed' && isset($segments [1])) ? $segments [1] : $segments [0]) : '';
 			// Drop any appended title segment (watch URLs often append "-title")
-			$slugParts = $vidSegment ? preg_split('/[_-]/', $vidSegment, 2) : array();
+			$slugSplitLimit = 2;
+			$slugParts = $vidSegment ? preg_split('/[_-]/', $vidSegment, $slugSplitLimit) : array();
 			$vidCandidate = $slugParts ? $slugParts [0] : '';
 			$vid = ($vidCandidate && preg_match('/^[A-Za-z0-9]+$/', $vidCandidate)) ? $vidCandidate : '';
 			if ($vid === '') {
@@ -552,7 +546,7 @@ function do_bbcode_video($action, $attr, $content, $params, $node_object) {
 			if (!empty($vurl ['query'])) {
 				parse_str($vurl ['query'], $queryParams);
 				if (!empty($queryParams)) {
-					$allowedParams = array('pub', 'autoplay', 'muted', 'loop', 'controls', 't');
+					static $allowedParams = array('pub', 'autoplay', 'muted', 'loop', 'controls', 't');
 					$safeParams = array();
 					foreach ($queryParams as $key => $value) {
 						if (in_array($key, $allowedParams, true) && is_scalar($value)) {
