@@ -535,7 +535,7 @@ function do_bbcode_video($action, $attr, $content, $params, $node_object) {
 			$segments = $path ? explode('/', $path) : array();
 			$vidSegment = ($segments && $segments [0] === 'embed' && isset($segments [1])) ? $segments [1] : ($segments ? $segments [0] : '');
 			$vid = '';
-			if ($vidSegment && preg_match('/^([A-Za-z0-9]+)/', $vidSegment, $matches)) {
+			if ($vidSegment && preg_match('/^([A-Za-z0-9]+)(?:[-_].*)?$/', $vidSegment, $matches)) {
 				$vid = $matches [1];
 			}
 			if ($vid === '') {
@@ -546,9 +546,10 @@ function do_bbcode_video($action, $attr, $content, $params, $node_object) {
 			if (!empty($vurl ['query'])) {
 				$embedUrl .= '?' . $vurl ['query'];
 			}
+			$embedUrlAttr = htmlspecialchars($embedUrl, ENT_QUOTES);
 			$output = '<div class="responsive_bbcode_video">' . //
 					'<iframe class="bbcode_video bbcode_video_rumble ' . $floatClass . '" ' . //
-						$src . '="' . $embedUrl . '" ' . //
+						$src . '="' . $embedUrlAttr . '" ' . //
 						'width="' . $width . '" ' . //
 						'height="' . $height . '" ' . //
 						'frameborder="0" ' . //
