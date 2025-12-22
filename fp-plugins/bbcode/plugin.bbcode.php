@@ -537,15 +537,24 @@ function do_bbcode_video($action, $attr, $content, $params, $node_object) {
 			// Drop any appended title segment (watch URLs often append "-title")
 			$slugParts = $vidSegment ? preg_split('/[_-]/', $vidSegment, 2) : array();
 			$vidCandidate = $slugParts ? $slugParts [0] : '';
-			$vid = ($vidCandidate && preg_match('/^[A-Za-z0-9_-]+$/', $vidCandidate)) ? $vidCandidate : '';
+			$vid = ($vidCandidate && preg_match('/^[A-Za-z0-9]+$/', $vidCandidate)) ? $vidCandidate : '';
 			if ($vid === '') {
 				break;
 			}
-			$embedUrl = 'https://rumble.com/embed/' . htmlspecialchars($vid, ENT_QUOTES) . '/';
+			$embedUrl = 'https://rumble.com/embed/' . rawurlencode($vid) . '/';
 			if (!empty($vurl ['query'])) {
 				parse_str($vurl ['query'], $queryParams);
 				if (!empty($queryParams)) {
-					$embedUrl .= '?' . http_build_query($queryParams);
+					$allowedParams = array('pub', 'autoplay', 'muted', 'loop', 'controls', 't');
+					$safeParams = array();
+					foreach ($queryParams as $key => $value) {
+						if (in_array($key, $allowedParams, true) && (is_scalar($value) || is_null($value))) {
+							$safeParams [$key] = $value;
+						}
+					}
+					if (!empty($safeParams)) {
+						$embedUrl .= '?' . http_build_query($safeParams);
+					}
 				}
 			}
 			$embedUrlAttr = htmlspecialchars($embedUrl, ENT_QUOTES);
