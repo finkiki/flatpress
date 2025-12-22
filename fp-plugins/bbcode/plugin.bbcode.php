@@ -535,13 +535,14 @@ function do_bbcode_video($action, $attr, $content, $params, $node_object) {
 			$segments = $path ? explode('/', $path) : array();
 			$vidSegment = ($segments && $segments [0] === 'embed' && isset($segments [1])) ? $segments [1] : ($segments ? $segments [0] : '');
 			$vid = '';
-			if ($vidSegment && preg_match('/^(v[0-9A-Za-z]+)/', $vidSegment, $matches)) {
+			if ($vidSegment && preg_match('/^([A-Za-z0-9]+)/', $vidSegment, $matches)) {
 				$vid = $matches [1];
 			}
 			if ($vid === '') {
 				break;
 			}
-			$embedUrl = 'https://rumble.com/embed/' . $vid . '/';
+			$safeVid = htmlspecialchars($vid, ENT_QUOTES);
+			$embedUrl = 'https://rumble.com/embed/' . $safeVid . '/';
 			if (!empty($vurl ['query'])) {
 				$embedUrl .= '?' . $vurl ['query'];
 			}
