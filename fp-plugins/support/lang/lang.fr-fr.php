@@ -2,173 +2,173 @@
 $lang ['admin'] ['maintain'] ['submenu'] ['support'] = 'Afficher les données de support';
 
 $lang ['admin'] ['maintain'] ['support'] = array(
-		'title' => 'Données de support',
-		'intro' => 'Pour les rapports de bug et l\'aide, visitez le <a href="https://forum.flatpress.org" target="_blank">FlatPress Forum</a>, ' . //
-		'signalez le bug sur <a href="https://github.com/flatpressblog/flatpress/issues" target="_blank">GitHub</a> ' . //
-		'ou <a href="mailto:hello@flatpress.org">envoyez un e-mail</a>.<br>Insérez ces sorties (copy &#38 ; paste) en anglais ' . //
-		'avec les informations suivantes : Description de l\'erreur, étapes pour la reproduire.',
+	'title' => 'Données de support',
+	'intro' => 'Pour les rapports de bugs et l’aide, visite le <a href="https://forum.flatpress.org" target="_blank">forum FlatPress</a>, ' . //
+		'signale le bug sur <a href="https://github.com/flatpressblog/flatpress/issues" target="_blank">GitHub</a> ' . //
+		'ou <a href="mailto:hello@flatpress.org">envoie un e-mail</a>.<br>Insère ces sorties (copier-coller) en anglais ' . //
+		'avec les informations suivantes : description de l’erreur, étapes pour la reproduire.',
 
 	// output "Setup"
-	'h2_general' => 'General',
-	'h3_setup' => 'Setup',
+	'h2_general' => 'Général',
+	'h3_setup' => 'Configuration',
 
-	'version' => '<p class="output"><strong>FlatPress version:</strong> ',
-	'basedir' => '<p class="output"><strong>Base directory:</strong> ',
-	'blogbaseurl' => '<p class="output"><strong>Blog base URL:</strong> ',
+	'version' => '<p class="output"><strong>Version de FlatPress :</strong> ',
+	'basedir' => '<p class="output"><strong>Répertoire de base :</strong> ',
+	'blogbaseurl' => '<p class="output"><strong>URL de base du blog :</strong> ',
 
-	'pos_theme' => '<p class="output"><strong>Theme:</strong> ',
-	'neg_theme' => '<p class="output"><strong>Theme:</strong> not set (default is leggero)</p>',
+	'pos_theme' => '<p class="output"><strong>Thème :</strong> ',
+	'neg_theme' => '<p class="output"><strong>Thème :</strong> non défini (par défaut : leggero)</p>',
 
-	'pos_style' => '<p class="output"><strong>Style:</strong> ',
-	'neg_style' => '<p class="output"><strong>Style:</strong> default style</p>',
+	'pos_style' => '<p class="output"><strong>Style :</strong> ',
+	'neg_style' => '<p class="output"><strong>Style :</strong> style par défaut</p>',
 
-	'pos_plugins' => '<p class="output"><strong>Activated plugins:</strong> ',
-	'neg_plugins' => '<p class="output"><strong>Activated plugins:</strong> Could not be determined.</p>',
+	'pos_plugins' => '<p class="output"><strong>Plugins activés :</strong> ',
+	'neg_plugins' => '<p class="output"><strong>Plugins activés :</strong> Impossible de déterminer.</p>',
 
 	// output "International"
 	'h3_international' => 'International',
 
-	'pos_LANG_DEFAULT' => '<p class="output"><strong>Language (automatic):</strong> ',
-	'neg_LANG_DEFAULT' => '<p class="output"><strong>Language (automatic): &#8505;</strong> not recognized</p>',
+	'pos_LANG_DEFAULT' => '<p class="output"><strong>Langue (automatique) :</strong> ',
+	'neg_LANG_DEFAULT' => '<p class="output"><strong>Langue (automatique) : &#8505;</strong> non reconnue</p>',
 
-	'pos_lang' => '<p class="output"><strong>Language (set):</strong> ',
-	'neg_lang' => '<p class="output"><strong>Language (set):</strong> not set</p>',
+	'pos_lang' => '<p class="output"><strong>Langue (définie) :</strong> ',
+	'neg_lang' => '<p class="output"><strong>Langue (définie) :</strong> non définie</p>',
 
-	'pos_charset' => '<p class="output"><strong>Character set:</strong> ',
-	'neg_charset' => '<p class="output"><strong>Character set:</strong> not set (default is utf-8)</p>',
+	'pos_charset' => '<p class="output"><strong>Jeu de caractères :</strong> ',
+	'neg_charset' => '<p class="output"><strong>Jeu de caractères :</strong> non défini (utf-8 par défaut)</p>',
 
-	'global_date_time' => '<p class="output"><strong>UTC date, time:</strong> ',
-	'neg_global_date_time' => 'Could not be determined.</p>',
+	'global_date_time' => '<p class="output"><strong>Date, heure UTC :</strong> ',
+	'neg_global_date_time' => 'Impossible de déterminer.</p>',
 
-	'local_date_time' => '<p class="output"><strong>LCL date, time:</strong> ',
-	'neg_local_date_time' => 'Could not be determined.</p>',
+	'local_date_time' => '<p class="output"><strong>Date, heure locale :</strong> ',
+	'neg_local_date_time' => 'Impossible de déterminer.</p>',
 
-	'time_offset' => '<p class="output"><strong>Time offset:</strong> ',
+	'time_offset' => '<p class="output"><strong>Décalage horaire :</strong> ',
 
 	// output "Core files"
-	'h2_permissions' => 'File and directory permissions',
-	'h3_core_files' => 'Core',
+	'h2_permissions' => 'Droits des fichiers et répertoires',
+	'h3_core_files' => 'Noyau',
 
-	'desc_setupfile' => '<p>As soon as the setup has been successfully executed, the setup.php file should be deleted before productive operation.</p>',
-	'error_setupfile' => '<p class="error"><strong>&#33;</strong> The setup file is located in the main directory!</p>',
-	'success_setupfile' => '<p class="success"><strong>&#10003;</strong> The setup file was not found in the main directory.</p>',
+	'desc_setupfile' => '<p>Dès que l’installation a été exécutée avec succès, le fichier setup.php doit être supprimé avant l’exploitation.</p>',
+	'error_setupfile' => '<p class="error"><strong>&#33;</strong> Le fichier setup.php se trouve dans le répertoire principal !</p>',
+	'success_setupfile' => '<p class="success"><strong>&#10003;</strong> Le fichier setup.php n’a pas été trouvé dans le répertoire principal.</p>',
 
-	'desc_defaultsfile' => '<p>The defaults.php file should be write-protected for others in productive operation.</p>',
-	'attention_defaultsfile' => '<p class="attention"><strong>&#8505;</strong> The defaults.php file can be changed!</p>',
-	'success_defaultsfile' => '<p class="success"><strong>&#10003;</strong> The defaults.php file cannot be changed.</p>',
+	'desc_defaultsfile' => '<p>Le fichier defaults.php doit être protégé en écriture pour les autres en production.</p>',
+	'attention_defaultsfile' => '<p class="attention"><strong>&#8505;</strong> Le fichier defaults.php peut être modifié !</p>',
+	'success_defaultsfile' => '<p class="success"><strong>&#10003;</strong> Le fichier defaults.php ne peut pas être modifié.</p>',
 
-	'desc_configdir' => '<p>The config directory should be write-protected for others in productive operation.</p>',
-	'error_configdir' => '<p class="error"><strong>&#33;</strong> The configuration directory can be written to by others!</p>',
-	'success_configdir' => '<p class="success"><strong>&#10003;</strong> The configuration directory cannot be written to by others.</p>',
+	'desc_configdir' => '<p>Le répertoire config doit être protégé en écriture pour les autres en production.</p>',
+	'error_configdir' => '<p class="error"><strong>&#33;</strong> Le répertoire de configuration peut être écrit par d’autres !</p>',
+	'success_configdir' => '<p class="success"><strong>&#10003;</strong> Le répertoire de configuration ne peut pas être écrit par d’autres.</p>',
 
-	'desc_admindir' => '<p>The admin directory should be write-protected for others in productive operation.</p>',
-	'attention_admindir' => '<p class="attention"><strong>&#8505;</strong> The admin directory can be written to by others!</p>',
-	'success_admindir' => '<p class="success"><strong>&#10003;</strong> The admin directory cannot be written to by others.</p>',
+	'desc_admindir' => '<p>Le répertoire admin doit être protégé en écriture pour les autres en production.</p>',
+	'attention_admindir' => '<p class="attention"><strong>&#8505;</strong> Le répertoire admin peut être écrit par d’autres !</p>',
+	'success_admindir' => '<p class="success"><strong>&#10003;</strong> Le répertoire admin ne peut pas être écrit par d’autres.</p>',
 
-	'desc_includesdir' => '<p>The fp-includes directory should be write-protected for others in productive operation.</p>',
-	'attention_includesdir' => '<p class="attention"><strong>&#8505;</strong> The fp-includes directory can be written to by others!</p>',
-	'success_includesdir' => '<p class="success"><strong>&#10003;</strong> The fp-includes directory cannot be written to by others.</p>',
+	'desc_includesdir' => '<p>Le répertoire fp-includes doit être protégé en écriture pour les autres en production.</p>',
+	'attention_includesdir' => '<p class="attention"><strong>&#8505;</strong> Le répertoire fp-includes peut être écrit par d’autres !</p>',
+	'success_includesdir' => '<p class="success"><strong>&#10003;</strong> Le répertoire fp-includes ne peut pas être écrit par d’autres.</p>',
 
 	// output "Configuration file for the webserver"
-	'h3_configwebserver' => 'Configuration file for the webserver',
+	'h3_configwebserver' => 'Fichier de configuration du serveur web',
 
-	'note_configwebserver' => 'The main directory must be writable in order to be able to create or modify an .htaccess file with the PrettyURLs plugin.<br>' . //
-		'<strong>Note:</strong> Only web servers that are NCSA compatible, such as Apache, are familiar with the concept of .htaccess files.',
-	'serversoftware' => 'The server software is <strong>' . $_SERVER ['SERVER_SOFTWARE'] . '</strong>.',
+	'note_configwebserver' => 'Le répertoire principal doit être accessible en écriture pour pouvoir créer ou modifier un fichier .htaccess avec le plugin PrettyURLs.<br>' . //
+		'<strong>Remarque :</strong> Seuls les serveurs web compatibles NCSA, comme Apache, connaissent le concept de fichiers .htaccess.',
+	'serversoftware' => 'Le logiciel serveur est <strong>' . $_SERVER ['SERVER_SOFTWARE'] . '</strong>.',
 
-	'success_maindir' => '<p class="success"><strong>&#10003;</strong> The FlatPress main directory is writable.</p>',
-	'attention_maindir' => '<p class="attention"><strong>&#8505;</strong> The FlatPress main directory is not writable!</p>',
+	'success_maindir' => '<p class="success"><strong>&#10003;</strong> Le répertoire principal de FlatPress est accessible en écriture.</p>',
+	'attention_maindir' => '<p class="attention"><strong>&#8505;</strong> Le répertoire principal de FlatPress n’est pas accessible en écriture !</p>',
 
-	'success_htaccessw' => '<p class="success"><strong>&#10003;</strong> The .htaccess file can be written.</p>',
-	'attention_htaccessw' => '<p class="attention"><strong>&#8505;</strong> The .htaccess file cannot be written!</p>',
+	'success_htaccessw' => '<p class="success"><strong>&#10003;</strong> Le fichier .htaccess peut être écrit.</p>',
+	'attention_htaccessw' => '<p class="attention"><strong>&#8505;</strong> Le fichier .htaccess ne peut pas être écrit !</p>',
 
-	'attention_htaccessn' => '<p class="attention"><strong>&#8505;</strong> A .htaccess file already exists in the main directory!</p>',
-	'success_htaccessn' => '<p class="success"><strong>&#10003;</strong> No .htaccess file was found in the main directory.</p>',
+	'attention_htaccessn' => '<p class="attention"><strong>&#8505;</strong> Un fichier .htaccess existe déjà dans le répertoire principal !</p>',
+	'success_htaccessn' => '<p class="success"><strong>&#10003;</strong> Aucun fichier .htaccess n’a été trouvé dans le répertoire principal.</p>',
 
 	// output "Themes and plugins"
-	'h3_themesplugins' => 'Themes and plugins',
+	'h3_themesplugins' => 'Thèmes et plugins',
 
-	'desc_interfacedir' => 'The fp-interface directory should be write-protected for others in productive operation.',
-	'attention_interfacedir' => '<p class="attention"><strong>&#8505;</strong> The fp-interface directory can be written to by others!</p>',
-	'success_interfacedir' => '<p class="success"><strong>&#10003;</strong> The fp-interface directory cannot be written to by others.</p>',
+	'desc_interfacedir' => 'Le répertoire fp-interface doit être protégé en écriture pour les autres en production.',
+	'attention_interfacedir' => '<p class="attention"><strong>&#8505;</strong> Le répertoire fp-interface peut être écrit par d’autres !</p>',
+	'success_interfacedir' => '<p class="success"><strong>&#10003;</strong> Le répertoire fp-interface ne peut pas être écrit par d’autres.</p>',
 
-	'desc_themesdir' => 'The themes directory should be write-protected for others in productive operation.',
-	'attention_themesdir' => '<p class="attention"><strong>&#8505;</strong> The themes directory can be written to by others!</p>',
-	'success_themesdir' => '<p class="success"><strong>&#10003;</strong> The fp-interface directory cannot be written to by others.</p>',
+	'desc_themesdir' => 'Le répertoire themes doit être protégé en écriture pour les autres en production.',
+	'attention_themesdir' => '<p class="attention"><strong>&#8505;</strong> Le répertoire themes peut être écrit par d’autres !</p>',
+	'success_themesdir' => '<p class="success"><strong>&#10003;</strong> Le répertoire fp-interface ne peut pas être écrit par d’autres.</p>',
 
-	'desc_plugindir' => 'The fp-plugins directory should be write-protected for others in productive operation.',
-	'attention_plugindir' => '<p class="attention"><strong>&#8505;</strong> The fp-plugins directory can be written to by others!</p>',
-	'success_plugindir' => '<p class="success"><strong>&#10003;</strong> The fp-plugins directory cannot be written to by others.</p>',
+	'desc_plugindir' => 'Le répertoire fp-plugins doit être protégé en écriture pour les autres en production.',
+	'attention_plugindir' => '<p class="attention"><strong>&#8505;</strong> Le répertoire fp-plugins peut être écrit par d’autres !</p>',
+	'success_plugindir' => '<p class="success"><strong>&#10003;</strong> Le répertoire fp-plugins ne peut pas être écrit par d’autres.</p>',
 
 	// output "Content directory"
-	'h3_contentdir' => 'Content',
+	'h3_contentdir' => 'Contenu',
 
-	'desc_contentdir' => 'The fp-content directory must be writable for FlatPress to work.',
-	'success_contentdir' => '<p class="success"><strong>&#10003;</strong> The fp-content directory is writable.</p>',
-	'error_contentdir' => '<p class="error"><strong>&#33;</strong> The fp-content directory is not writable!</p>',
+	'desc_contentdir' => 'Le répertoire fp-content doit être accessible en écriture pour que FlatPress fonctionne.',
+	'success_contentdir' => '<p class="success"><strong>&#10003;</strong> Le répertoire fp-content est accessible en écriture.</p>',
+	'error_contentdir' => '<p class="error"><strong>&#33;</strong> Le répertoire fp-content n’est pas accessible en écriture !</p>',
 
-	'desc_imagesdir' => 'This images directory must have write permissions so that you can upload images.',
-	'success_imagesdir' => '<p class="success"><strong>&#10003;</strong> The images directory is writable.</p>',
-	'error_imagesdir' => '<p class="error"><strong>&#33;</strong> The images directory is not writable!</p>',
-	'attention_imagesdir' => '<p class="attention"><strong>&#8505;</strong> The images directory does not exist.</p>',
+	'desc_imagesdir' => 'Ce répertoire images doit avoir des droits d’écriture afin que tu puisses téléverser des images.',
+	'success_imagesdir' => '<p class="success"><strong>&#10003;</strong> Le répertoire images est accessible en écriture.</p>',
+	'error_imagesdir' => '<p class="error"><strong>&#33;</strong> Le répertoire images n’est pas accessible en écriture !</p>',
+	'attention_imagesdir' => '<p class="attention"><strong>&#8505;</strong> Le répertoire images n’existe pas.</p>',
 
-	'desc_thumbsdir' => 'This thumbs directory must have write permissions so that scalable images can be created.',
-	'success_thumbsdir' => '<p class="success"><strong>&#10003;</strong> The images/.thumbs directory is writable.</p>',
-	'error_thumbsdir' => '<p class="error"><strong>&#33;</strong> The images/.thumbs directory is not writable!</p>',
-	'attention_thumbsdir' => '<p class="attention"><strong>&#8505;</strong> The .thumbs directory does not exist, ' . //
-		'but is created automatically as soon as a thumbnail has been created with the Thumbnails plugin.</p>',
+	'desc_thumbsdir' => 'Ce répertoire .thumbs doit avoir des droits d’écriture pour créer des images redimensionnées.',
+	'success_thumbsdir' => '<p class="success"><strong>&#10003;</strong> Le répertoire images/.thumbs est accessible en écriture.</p>',
+	'error_thumbsdir' => '<p class="error"><strong>&#33;</strong> Le répertoire images/.thumbs n’est pas accessible en écriture !</p>',
+	'attention_thumbsdir' => '<p class="attention"><strong>&#8505;</strong> Le répertoire .thumbs n’existe pas, ' . //
+		'mais il est créé automatiquement dès qu’une vignette a été créée avec le plugin Thumbnails.</p>',
 
-	'desc_attachsdir' => 'This upload directory must have write permissions so that you can upload something.',
-	'success_attachsdir' => '<p class="success"><strong>&#10003;</strong> The upload directory is writable.</p>',
-	'error_attachsdir' => '<p class="error"><strong>&#33;</strong> The upload directory is not writable!</p>',
-	'attention_attachsdir' => '<p class="attention"><strong>&#8505;</strong> The upload directory does not exist, ' . //
-		'but is created automatically with the first upload.</p>',
+	'desc_attachsdir' => 'Ce répertoire de téléversement doit avoir des droits d’écriture pour que tu puisses charger des fichiers.',
+	'success_attachsdir' => '<p class="success"><strong>&#10003;</strong> Le répertoire de téléversement est accessible en écriture.</p>',
+	'error_attachsdir' => '<p class="error"><strong>&#33;</strong> Le répertoire de téléversement n’est pas accessible en écriture !</p>',
+	'attention_attachsdir' => '<p class="attention"><strong>&#8505;</strong> Le répertoire de téléversement n’existe pas, ' . //
+		'mais il est créé automatiquement lors du premier envoi.</p>',
 
-	'desc_cachedir' => 'This cache directory must have write permission for the cache to function correctly.',
-	'success_cachedir' => '<p class="success"><strong>&#10003;</strong> The cache directory is writable.</p>',
-	'error1_cachedir' => '<p class="error"><strong>&#33;</strong> The cache directory is not writable!</p>',
-	'error2_cachedir' => '<p class="error"><strong>&#33;</strong> The directory cache does not exist!</p>',
+	'desc_cachedir' => 'Ce répertoire de cache doit avoir des droits d’écriture pour que le cache fonctionne correctement.',
+	'success_cachedir' => '<p class="success"><strong>&#10003;</strong> Le répertoire de cache est accessible en écriture.</p>',
+	'error1_cachedir' => '<p class="error"><strong>&#33;</strong> Le répertoire de cache n’est pas accessible en écriture !</p>',
+	'error2_cachedir' => '<p class="error"><strong>&#33;</strong> Le répertoire de cache n’existe pas !</p>',
 
 	// output "PHP"
 	'h2_php' => 'PHP',
 
-	'php_ver' => '<strong>Version: </strong>',
+	'php_ver' => '<strong>Version : </strong>',
 
-	'php_timezone' => '<strong>Timezone: </strong>',
-	'php_timezone_neg' => 'Not available. UTC is used.',
+	'php_timezone' => '<strong>Fuseau horaire : </strong>',
+	'php_timezone_neg' => 'Non disponible. UTC est utilisé.',
 
 	'h3_extensions' => 'Extensions',
 
-	'desc_php_intl' => 'The PHP-Intl extension must be activated.',
-	'error_php_intl' => '<p class="error"><strong>&#33;</strong> The intl extension is not activated!</p>',
-	'success_php_intl' => '<p class="success"><strong>&#10003;</strong> The intl extension is activated.</p>',
+	'desc_php_intl' => 'L’extension PHP-Intl doit être activée.',
+	'error_php_intl' => '<p class="error"><strong>&#33;</strong> L’extension intl n’est pas activée !</p>',
+	'success_php_intl' => '<p class="success"><strong>&#10003;</strong> L’extension intl est activée.</p>',
 
-	'desc_php_gdlib' => 'The GDlib extension must be activated to create image thumbnails.',
-	'error_php_gdlib' => '<p class="error"><strong>&#33;</strong> The GD extension is not activated!</p>',
-	'success_php_gdlib' => '<p class="success"><strong>&#10003;</strong> The GD extension is activated.</p>',
+	'desc_php_gdlib' => 'L’extension GDlib doit être activée pour créer des vignettes.',
+	'error_php_gdlib' => '<p class="error"><strong>&#33;</strong> L’extension GD n’est pas activée !</p>',
+	'success_php_gdlib' => '<p class="success"><strong>&#10003;</strong> L’extension GD est activée.</p>',
 
-	'desc_php_mbstring' => 'For optimal performance in productive operation, the PHP multibyte extension must be enabled for Smarty.',
-	'attention_php_mbstring' => '<p class="attention"><strong>&#8505;</strong> The Multibyte extension is not activated!</p>',
-	'success_php_mbstring' => '<p class="success"><strong>&#10003;</strong> The Multibyte extension is activated.</p>',
+	'desc_php_mbstring' => 'Pour des performances optimales en production, l’extension multioctet PHP doit être activée pour Smarty.',
+	'attention_php_mbstring' => '<p class="attention"><strong>&#8505;</strong> L’extension Multibyte n’est pas activée !</p>',
+	'success_php_mbstring' => '<p class="success"><strong>&#10003;</strong> L’extension Multibyte est activée.</p>',
 
 	// output "Other"
-	'h2_other' => 'Other',
+	'h2_other' => 'Autres',
 
-	'desc_browser' => 'The browser used is of interest if there are display errors.',
-	'no_browser' => 'Not recognized',
-	'detect_browser' => '<p class="output"><strong>Browser: </strong>',
+	'desc_browser' => 'Le navigateur utilisé est utile en cas d’erreurs d’affichage.',
+	'no_browser' => 'Non reconnu',
+	'detect_browser' => '<p class="output"><strong>Navigateur : </strong>',
 
-	'desc_cookie' => 'If visitors to the FlatPress blog are to be informed about cookies, this is the cookie.<br>' . //
-		'<strong>Hint:</strong> The name of the cookie changes each time FlatPress is reinstalled.',
-	'session_cookie' => '<p class="output"><strong>Session cookie: </strong>',
-	'no_session_cookie' => 'Could not be determined.',
+	'desc_cookie' => 'Si les visiteurs du blog FlatPress doivent être informés des cookies, il s’agit du cookie.<br>' . //
+		'<strong>Indice :</strong> Le nom du cookie change à chaque réinstallation de FlatPress.',
+	'session_cookie' => '<p class="output"><strong>Cookie de session : </strong>',
+	'no_session_cookie' => 'Impossible de déterminer.',
 
-	'h3_completed' => 'Output completed!',
+	'h3_completed' => 'Sortie terminée !',
 
-	'symbols' => '<p class="output"><strong>Symbols:</strong></p>',
-	'symbol_success' => '<p class="success"><strong>&#10003;</strong> No action necessary</p>',
-	'symbol_attention' => '<p class="attention"><strong>&#8505;</strong> Does not restrict functionality, but requires attention</p>',
-	'symbol_error' => '<p class="error"><strong>&#33;</strong> Action urgently needed</p>',
+	'symbols' => '<p class="output"><strong>Symboles :</strong></p>',
+	'symbol_success' => '<p class="success"><strong>&#10003;</strong> Aucune action nécessaire</p>',
+	'symbol_attention' => '<p class="attention"><strong>&#8505;</strong> Ne limite pas la fonctionnalité, mais nécessite de l’attention</p>',
+	'symbol_error' => '<p class="error"><strong>&#33;</strong> Action urgente nécessaire</p>',
 
 	'close_btn' => 'Fermer'
 );

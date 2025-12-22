@@ -5,7 +5,7 @@ $lang ['admin'] ['uploader'] ['storage'] = array(
 	'head' => 'Mémoire',
 	'entries' => 'Entrées',
 	'you_have' => 'Tu as',
-	'total_disk_space_is' => 'L\'espace mémoire total est de',
+	'total_disk_space_is' => 'L’espace mémoire total est de',
 	'comments' => 'Commentaires',
 	'the' => 'Les',
 	'most_commented_entries' => 'entrées les plus commentées',
@@ -18,8 +18,8 @@ $lang ['admin'] ['uploader'] ['storage'] = array(
 	'images' => 'Images téléchargées',
 	'attachs' => 'Fichiers téléchargés',
 	'files' => 'Fichiers',
-	'webspace_used' => 'Dont occupés',
-	'webspace_free' => 'Dont libres',
+	'webspace_used' => 'Part occupée',
+	'webspace_free' => 'Part libre',
 	'source' => 'Source'
 );
 ?>
