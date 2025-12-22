@@ -532,19 +532,21 @@ function do_bbcode_video($action, $attr, $content, $params, $node_object) {
 		// Rumble
 		case 'rumble':
 			$path = isset($vurl ['path']) ? trim($vurl ['path'], '/') : '';
-			$segments = $path ? explode('/', $path) : array();
+			$segments = $path ? array_values(array_filter(explode('/', $path))) : array();
 			$vidSegment = ($segments && $segments [0] === 'embed' && isset($segments [1])) ? $segments [1] : ($segments ? $segments [0] : '');
-			$vid = '';
-			if ($vidSegment && preg_match('/^([A-Za-z0-9]+)(?:[-_].*)?$/', $vidSegment, $matches)) {
-				$vid = $matches [1];
-			}
+			$slugParts = $vidSegment ? preg_split('/[-_]/', $vidSegment, 2) : array();
+			$vidCandidate = $slugParts ? $slugParts [0] : '';
+			$vid = ($vidCandidate && preg_match('/^[A-Za-z0-9]+$/', $vidCandidate)) ? $vidCandidate : '';
 			if ($vid === '') {
 				break;
 			}
 			$safeVid = htmlspecialchars($vid, ENT_QUOTES);
 			$embedUrl = 'https://rumble.com/embed/' . $safeVid . '/';
 			if (!empty($vurl ['query'])) {
-				$embedUrl .= '?' . $vurl ['query'];
+				parse_str($vurl ['query'], $queryParams);
+				if (!empty($queryParams)) {
+					$embedUrl .= '?' . http_build_query($queryParams);
+				}
 			}
 			$embedUrlAttr = htmlspecialchars($embedUrl, ENT_QUOTES);
 			$output = '<div class="responsive_bbcode_video">' . //
