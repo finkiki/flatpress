@@ -510,15 +510,16 @@ function do_bbcode_video($action, $attr, $content, $params, $node_object) {
 			$path = isset($vurl ['path']) ? trim($vurl ['path'], '/') : '';
 			$segments = $path ? array_values(array_filter(explode('/', $path))) : array();
 			$vid = $segments ? end($segments) : '';
-			if (!preg_match('/^[A-Za-z0-9]+$/', $vid)) {
+			if (!preg_match('/^[A-Za-z0-9_-]+$/', $vid)) {
 				$vid = '';
 			}
 			if ($vid === '') {
 				break;
 			}
+			$safeVid = htmlspecialchars($vid, ENT_QUOTES);
 			$output = '<div class="responsive_bbcode_video">' . //
 					'<iframe class="bbcode_video bbcode_video_bitchute ' . $floatClass . '" ' . //
-						$src . '="https://www.bitchute.com/embed/' . $vid . '" ' . //
+						$src . '="https://www.bitchute.com/embed/' . $safeVid . '" ' . //
 						'width="' . $width . '" ' . //
 						'height="' . $height . '" ' . //
 						'frameborder="0" ' . //
