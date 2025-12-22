@@ -534,14 +534,14 @@ function do_bbcode_video($action, $attr, $content, $params, $node_object) {
 			$path = isset($vurl ['path']) ? trim($vurl ['path'], '/') : '';
 			$segments = $path ? array_values(array_filter(explode('/', $path))) : array();
 			$vidSegment = ($segments && $segments [0] === 'embed' && isset($segments [1])) ? $segments [1] : ($segments ? $segments [0] : '');
-			$slugParts = $vidSegment ? preg_split('/[-_]/', $vidSegment, 2) : array();
+			// Drop any appended title segment (watch URLs often append "-title")
+			$slugParts = $vidSegment ? preg_split('/[_-]/', $vidSegment, 2) : array();
 			$vidCandidate = $slugParts ? $slugParts [0] : '';
-			$vid = ($vidCandidate && preg_match('/^[A-Za-z0-9]+$/', $vidCandidate)) ? $vidCandidate : '';
+			$vid = ($vidCandidate && preg_match('/^[A-Za-z0-9_-]+$/', $vidCandidate)) ? $vidCandidate : '';
 			if ($vid === '') {
 				break;
 			}
-			$safeVid = htmlspecialchars($vid, ENT_QUOTES);
-			$embedUrl = 'https://rumble.com/embed/' . $safeVid . '/';
+			$embedUrl = 'https://rumble.com/embed/' . htmlspecialchars($vid, ENT_QUOTES) . '/';
 			if (!empty($vurl ['query'])) {
 				parse_str($vurl ['query'], $queryParams);
 				if (!empty($queryParams)) {
