@@ -1,4 +1,4 @@
-	<div itemscope itemtype="http://schema.org/BlogPosting" id="{$id}" class="entry entry-card {$date|date_format:"y-%Y m-%m d-%d"}">
+	<div itemscope itemtype="https://schema.org/BlogPosting" id="{$id}" class="entry entry-card {$date|date_format:"y-%Y m-%m d-%d"}">
 		{$date|date_format_daily:"<h2 class=\"date\">`$fp_config.locale.dateformat`</h2>"}
 
 		<h2 itemprop="name" class="entry-title">

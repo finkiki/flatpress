@@ -125,7 +125,6 @@ iframe {
 
 #column {
 	flex: 0 0 320px;
-	width: 320px;
 	position: sticky;
 	top: 1.5rem;
 }
@@ -463,6 +462,17 @@ th {
 }
 
 @media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #0f172a;
+		--surface: #111827;
+		--text: #e5e7eb;
+		--muted: #cbd5e1;
+		--accent: #d4793d;
+		--accent-strong: #b75c24;
+		--border: #1f2937;
+		--shadow: 0 14px 38px rgba(0, 0, 0, 0.35);
+	}
+
 	body {
 		background: #0f172a;
 		color: #e5e7eb;
@@ -488,10 +498,6 @@ th {
 
 	.entry-footer {
 		border-color: #1f2937;
-	}
-
-	#outer-container {
-		padding-bottom: 2rem;
 	}
 
 	#footer {

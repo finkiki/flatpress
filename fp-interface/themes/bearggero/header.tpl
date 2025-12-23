@@ -9,13 +9,13 @@
 </head>
 
 <body class="theme-bearggero">
+	<a class="skip-link" href="#main">{$lang.main.skip_to_content|default:"Skip to content"}</a>
 	<div id="body-container">
 		<header class="site-header">
 			<div class="branding">
 				<a class="site-title" href="{$smarty.const.BLOG_BASEURL}">{$flatpress.title}</a>
 				<p class="subtitle">{$flatpress.subtitle}</p>
 			</div>
-			<a class="skip-link" href="#main">{$lang.main.skip_to_content|default:"Skip to content"}</a>
 		</header>
 
 		<div id="outer-container">
