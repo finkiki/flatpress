@@ -4,7 +4,7 @@ $lang ['plugin'] ['accessibleantispam'] = array(
 		'vous devez prouver que vous êtes humain. Combien font ',
 
 	'sum' => '%s plus %s ?',
-	'sub' => '%2$s moins %1$s ?',
+	'sub' => 'Soustraire %2$s de %1$s ?',
 	'prod' => '%s fois %s ?',
 
 	'error' => 'Oups! Votre réponse est incorrecte. Veuillez réessayer.'
