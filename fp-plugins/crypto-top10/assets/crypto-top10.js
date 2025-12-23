@@ -39,11 +39,6 @@
 				$error.text(message || '');
 			};
 
-			var setLoading = function () {
-				$price.text(txt('loading', 'Loading…'));
-				setError('');
-			};
-
 			var drawChart = function (points) {
 				if (!$canvas.length || typeof Chart === 'undefined') {
 					return;
@@ -133,21 +128,29 @@
 				if (!coinId) {
 					return;
 				}
-				setLoading();
 
 				var coin = currentList.find(function (c) { return c.id === coinId; });
+				updatePriceLine(coin);
+				setError('');
 
-				$.getJSON(historyUrl(coinId))
+				$.ajax({
+					url: historyUrl(coinId),
+					method: 'GET',
+					dataType: 'json',
+					timeout: 15000,
+					crossDomain: true,
+					cache: false,
+					headers: { 'accept': 'application/json', 'x-requested-with': 'XMLHttpRequest' }
+				})
 					.done(function (res) {
-						if (!res || !res.prices) {
-							throw new Error('empty response');
+						if (!res || !$.isArray(res.prices) || !res.prices.length) {
+							setError(fmtError(txt('errorPrice', 'Failed to load price: {msg}'), 'empty response'));
+							return;
 						}
-						updatePriceLine(coin);
 						drawChart(res.prices);
 					})
 					.fail(function (xhr) {
-						updatePriceLine(null);
-						setError(fmtError(txt('errorPrice', 'Failed to load price: {msg}'), xhr.statusText || 'Error'));
+						setError(fmtError(txt('errorPrice', 'Failed to load price: {msg}'), xhr && xhr.statusText ? xhr.statusText : 'Error'));
 					});
 			};
 
@@ -162,21 +165,35 @@
 			};
 
 			var loadList = function () {
-				setLoading();
-				$.getJSON(listUrl)
+				$price.text(txt('loading', 'Loading…'));
+				setError('');
+				$.ajax({
+					url: listUrl,
+					method: 'GET',
+					dataType: 'json',
+					timeout: 15000,
+					crossDomain: true,
+					cache: false,
+					headers: { 'accept': 'application/json', 'x-requested-with': 'XMLHttpRequest' }
+				})
 					.done(function (res) {
 						if (!$.isArray(res)) {
-							throw new Error('Unexpected response');
+							updatePriceLine(null);
+							setError(fmtError(txt('errorList', 'Failed to load list: {msg}'), 'invalid response'));
+							return;
 						}
 						currentList = res.slice(0, 10);
 						populateSelect(currentList);
 						if (currentList.length) {
 							loadHistory(currentList[0].id);
+						} else {
+							updatePriceLine(null);
+							setError(fmtError(txt('errorList', 'Failed to load list: {msg}'), 'no data'));
 						}
 					})
 					.fail(function (xhr) {
 						updatePriceLine(null);
-						setError(fmtError(txt('errorList', 'Failed to load list: {msg}'), xhr.statusText || 'Error'));
+						setError(fmtError(txt('errorList', 'Failed to load list: {msg}'), xhr && xhr.statusText ? xhr.statusText : 'Error'));
 					});
 			};
 
