@@ -1,0 +1,32 @@
+@media print {
+	* {
+		background: transparent !important;
+		box-shadow: none !important;
+	}
+
+	body {
+		color: #000;
+		font-family: Georgia, "Times New Roman", serif;
+	}
+
+	a {
+		color: #000;
+		text-decoration: underline;
+	}
+
+	#column,
+	#footer,
+	#admin-small-nav,
+	.navigation,
+	.skip-link {
+		display: none !important;
+	}
+
+	.entry,
+	.entry-content,
+	.entry-title,
+	.date {
+		color: #000;
+		border: none;
+	}
+}

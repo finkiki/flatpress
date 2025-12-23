@@ -1,0 +1,29 @@
+@import url("./style.css");
+
+body {
+	background: #0f172a;
+}
+
+#outer-container {
+	max-width: 1200px;
+}
+
+.admin-panel.entry {
+	box-shadow: none;
+	border-color: #1f2937;
+}
+
+.admin-panel h1.title {
+	margin-top: 0;
+}
+
+.admin-panel table {
+	background: #111827;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.admin-panel th,
+.admin-panel td {
+	border-color: #1f2937;
+}
