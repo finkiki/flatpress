@@ -11,3 +11,5 @@
 /fp-content_
 /fp-content__
 /phpstan.phar
+/test-crypto-plugin.html
+/test-crypto-plugin-mock.html

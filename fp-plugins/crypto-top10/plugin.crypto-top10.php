@@ -16,8 +16,9 @@ function plugin_crypto_top10_head() {
 	$random_hex = RANDOM_HEX;
 	$pdir = plugin_geturl('crypto-top10');
 	
-	// Enqueue Chart.js from CDN
-	echo '<script nonce="' . $random_hex . '" src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>' . "\n";
+	// Enqueue Chart.js from local file
+	$chartjs = utils_asset_ver($pdir . 'assets/chart.min.js', SYSTEM_VER);
+	echo '<script nonce="' . $random_hex . '" src="' . $chartjs . '"></script>' . "\n";
 	
 	// Enqueue plugin CSS
 	$css = utils_asset_ver($pdir . 'assets/crypto-top10.css', SYSTEM_VER);

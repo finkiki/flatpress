@@ -72,6 +72,14 @@
 	function fetchTop10Cryptos() {
 		showError('');
 		
+		// Check if mock data should be used
+		if (window.USE_MOCK_DATA && window.MOCK_CRYPTO_LIST) {
+			cryptoList = window.MOCK_CRYPTO_LIST;
+			populateDropdown(window.MOCK_CRYPTO_LIST);
+			fetchAndDisplayChart(window.MOCK_CRYPTO_LIST[0].id);
+			return;
+		}
+		
 		$.ajax({
 			url: TOP10_ENDPOINT,
 			method: 'GET',
@@ -124,6 +132,12 @@
 		
 		currentCoinId = coinId;
 		showError('');
+		
+		// Check if mock data should be used
+		if (window.USE_MOCK_DATA && window.MOCK_PRICE_DATA && window.MOCK_PRICE_DATA[coinId]) {
+			displayChart(window.MOCK_PRICE_DATA[coinId], coinId);
+			return;
+		}
 		
 		const url = HISTORY_ENDPOINT.replace('{id}', coinId);
 		
