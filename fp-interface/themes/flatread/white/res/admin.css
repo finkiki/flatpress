@@ -47,10 +47,6 @@ body#inline-body {
 	background: white;
 }
 
-body#inline-body input {
-
-}
-
 /* === Conflict with inner h1 === */
 #admin-content h1 { color: black }
 

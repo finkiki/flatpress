@@ -43,9 +43,8 @@ Module: globals.css
 
 .warnings {
 	color : #8a7802;
-	border-top: 1px solid;
-    border-bottom: 1px solid;
-	border-color: #f8e674;
+	border-top: 1px solid #f8e674;
+	border-bottom: 1px solid #f8e674;
 	background: #fffdd5;
 
 }
