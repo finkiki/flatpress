@@ -69,8 +69,8 @@
 	fill: rgba(76, 175, 80, 0.1);
 }
 
-.crypto-chart .chart-tooltip {
-	position: absolute;
+.chart-tooltip {
+	position: fixed;
 	background-color: rgba(0, 0, 0, 0.8);
 	color: white;
 	padding: 8px 12px;

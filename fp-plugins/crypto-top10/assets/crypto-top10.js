@@ -114,7 +114,7 @@
 		// Create SVG
 		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 		svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
-		svg.setAttribute('preserveAspectRatio', 'none');
+		svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
 		
 		// Create path for line
 		var pathData = '';
@@ -151,12 +151,13 @@
 		$chart.append(svg);
 		
 		// Add tooltip functionality
-		var $tooltip = $('<div class="chart-tooltip"></div>').appendTo($chart.parent());
+		var $tooltip = $('<div class="chart-tooltip"></div>').appendTo('body');
 		
 		$chart.on('mousemove', function(e) {
 			var offset = $chart.offset();
 			var x = e.pageX - offset.left;
-			var relX = x / width;
+			var chartWidth = $chart.width();
+			var relX = x / chartWidth;
 			var index = Math.round(relX * (prices.length - 1));
 			index = Math.max(0, Math.min(prices.length - 1, index));
 			
@@ -170,8 +171,8 @@
 			
 			$tooltip.css({
 				display: 'block',
-				left: e.pageX - offset.left + 10,
-				top: e.pageY - offset.top - 40
+				left: e.pageX + 10,
+				top: e.pageY - 40
 			});
 		});
 		
