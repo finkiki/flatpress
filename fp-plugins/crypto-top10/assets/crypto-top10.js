@@ -10,6 +10,7 @@
 	const COINGECKO_API = 'https://api.coingecko.com/api/v3';
 	const TOP10_ENDPOINT = `${COINGECKO_API}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false`;
 	const HISTORY_ENDPOINT = `${COINGECKO_API}/coins/{id}/market_chart?vs_currency=usd&days=7`;
+	const AJAX_TIMEOUT = 10000; // 10 seconds timeout
 	
 	// Global variables
 	let chart = null;
@@ -84,6 +85,7 @@
 			url: TOP10_ENDPOINT,
 			method: 'GET',
 			dataType: 'json',
+			timeout: AJAX_TIMEOUT,
 			success: function(data) {
 				if (data && Array.isArray(data) && data.length > 0) {
 					cryptoList = data;
@@ -96,7 +98,11 @@
 			},
 			error: function(xhr, status, error) {
 				console.error('Error fetching crypto list:', error);
-				showError(window.cryptoTop10Lang.errorList);
+				if (status === 'timeout') {
+					showError(window.cryptoTop10Lang.errorList + ' (timeout)');
+				} else {
+					showError(window.cryptoTop10Lang.errorList);
+				}
 			}
 		});
 	}
@@ -145,6 +151,7 @@
 			url: url,
 			method: 'GET',
 			dataType: 'json',
+			timeout: AJAX_TIMEOUT,
 			success: function(data) {
 				if (data && data.prices && Array.isArray(data.prices) && data.prices.length > 0) {
 					displayChart(data.prices, coinId);
@@ -154,7 +161,11 @@
 			},
 			error: function(xhr, status, error) {
 				console.error('Error fetching price data:', error);
-				showError(window.cryptoTop10Lang.unavailable);
+				if (status === 'timeout') {
+					showError(window.cryptoTop10Lang.unavailable + ' (timeout)');
+				} else {
+					showError(window.cryptoTop10Lang.unavailable);
+				}
 			}
 		});
 	}

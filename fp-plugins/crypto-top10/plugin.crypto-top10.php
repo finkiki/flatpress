@@ -30,15 +30,19 @@ function plugin_crypto_top10_head() {
 	
 	// Pass localized strings to JavaScript
 	$lang = lang_load('plugin:crypto-top10');
+	
+	// Properly encode language strings for JavaScript
+	$langData = array(
+		'title' => $lang['plugin']['crypto-top10']['title'],
+		'select' => $lang['plugin']['crypto-top10']['select'],
+		'loading' => $lang['plugin']['crypto-top10']['loading'],
+		'unavailable' => $lang['plugin']['crypto-top10']['unavailable'],
+		'errorList' => $lang['plugin']['crypto-top10']['error_list'],
+		'errorPrice' => $lang['plugin']['crypto-top10']['error_price']
+	);
+	
 	echo '<script nonce="' . $random_hex . '">
-		window.cryptoTop10Lang = {
-			title: "' . addslashes($lang['plugin']['crypto-top10']['title']) . '",
-			select: "' . addslashes($lang['plugin']['crypto-top10']['select']) . '",
-			loading: "' . addslashes($lang['plugin']['crypto-top10']['loading']) . '",
-			unavailable: "' . addslashes($lang['plugin']['crypto-top10']['unavailable']) . '",
-			errorList: "' . addslashes($lang['plugin']['crypto-top10']['error_list']) . '",
-			errorPrice: "' . addslashes($lang['plugin']['crypto-top10']['error_price']) . '"
-		};
+		window.cryptoTop10Lang = ' . json_encode($langData, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT) . ';
 	</script>' . "\n";
 }
 
