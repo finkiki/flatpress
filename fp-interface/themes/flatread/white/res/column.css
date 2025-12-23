@@ -2,7 +2,7 @@
 ===================
 FlatRead White CSS Styles
 ===================
-Ispired by: Read Wordpress theme
+Inspired by: Read Wordpress theme
 -------------------
 Name: FlatRead
 Author: Num7
@@ -49,7 +49,7 @@ Module: column.css
 
 #column a:link { font-size: 1em; font-weight: bold; color: #333; }
 
-#column a:hover { color: black; text-decoration: bold }
+#column a:hover { color: black; text-decoration: none; font-weight: bold }
 
 /* === List === */
 #column ul li table { font-size: 100% }
