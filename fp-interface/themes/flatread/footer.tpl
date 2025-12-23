@@ -6,7 +6,7 @@
 			
 			<!--
 			
-				Even though your not required to do this, we'd appreciate
+				Even though you're not required to do this, we'd appreciate
 				a lot if you didn't remove the notice above.
 				
 				This way we'll get a better ranking on search engines

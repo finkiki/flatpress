@@ -29,7 +29,7 @@ Module: column.css
 @media (max-width: 719px) {
 	#column {
 		text-align:center;
-		float: center;
+		float: none;
 		width: 100% !important;
 		font-size: 80% !important;
 		font-size: 1em;
