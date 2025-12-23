@@ -51,16 +51,26 @@
 							populateDropdown(cryptoData);
 							loadCryptoData(cryptoData[0].id);
 						}
+					}).fail(function() {
+						// Final failure after retries
+						showError(strings.error_list);
+						if ($loading) {
+							$loading.hide();
+						}
 					});
 				}, 2000 * (retryCount + 1)); // Progressive delay
 			} else {
 				showError(strings.error_list);
+				if ($loading) {
+					$loading.hide();
+				}
 			}
 		});
 	}
 	
 	/**
 	 * Fetch 7-day price history for a specific cryptocurrency with retry
+	 * Using daily interval for better reliability
 	 */
 	function fetchPriceHistory(coinId, retryCount) {
 		retryCount = retryCount || 0;
@@ -86,10 +96,15 @@
 						if (data && data.prices) {
 							renderChart(data);
 						}
+					}).fail(function() {
+						// Final failure after retry
+						showError(strings.error_price);
+						isLoadingChart = false;
 					});
 				}, 1500);
 			} else {
 				showError(strings.error_price);
+				isLoadingChart = false;
 			}
 		});
 	}
@@ -260,7 +275,8 @@
 			var date = timestamps[index];
 			
 			$tooltip.html(
-				date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) +
+				date.toLocaleDateString([], {year: 'numeric', month: 'short', day: 'numeric'}) + ' ' + 
+				date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) +
 				'<br>$' + price.toFixed(2)
 			);
 			
