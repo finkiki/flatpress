@@ -139,7 +139,7 @@
 					dataType: 'json',
 					timeout: 15000,
 					cache: false,
-					headers: { 'accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }
+					headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }
 				})
 					.done(function (res) {
 						if (!res || !$.isArray(res.prices) || !res.prices.length) {
@@ -172,7 +172,7 @@
 					dataType: 'json',
 					timeout: 15000,
 					cache: false,
-					headers: { 'accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }
+					headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }
 				})
 					.done(function (res) {
 						if (!$.isArray(res)) {
