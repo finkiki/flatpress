@@ -26,15 +26,16 @@ function plugin_crypto_top10_widget() {
 	<div id="crypto-top10-widget" class="crypto-top10">
 		<div class="crypto-select-wrapper">
 			<label for="crypto-select" class="crypto-label">' . htmlspecialchars($lang['plugin']['crypto-top10']['select']) . ':</label>
-			<select id="crypto-select" class="crypto-select">
+			<select id="crypto-select" class="crypto-select" disabled>
 				<option value="">' . htmlspecialchars($lang['plugin']['crypto-top10']['loading']) . '</option>
 			</select>
 		</div>
 		
-		<div id="crypto-price" class="crypto-price"></div>
+		<div id="crypto-price" class="crypto-price">' . htmlspecialchars($lang['plugin']['crypto-top10']['loading']) . '</div>
 		
 		<div class="crypto-chart-wrapper">
-			<svg id="crypto-chart" class="crypto-chart"></svg>
+			<div id="crypto-loading" class="crypto-loading" style="display: block;">' . htmlspecialchars($lang['plugin']['crypto-top10']['loading']) . '</div>
+			<svg id="crypto-chart" class="crypto-chart" style="display: none;"></svg>
 		</div>
 		
 		<div id="crypto-error" class="crypto-error" style="display: none;"></div>
