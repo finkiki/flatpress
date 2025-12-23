@@ -16,7 +16,7 @@
 	};
 	
 	var cryptoData = [];
-	var $widget, $select, $price, $chart, $error;
+	var $widget, $select, $price, $chart, $error, $tooltip;
 	
 	// CoinGecko API endpoints
 	var API_BASE = 'https://api.coingecko.com/api/v3';
@@ -93,6 +93,12 @@
 	function renderChart(priceData) {
 		$chart.empty();
 		
+		// Remove existing tooltip events and element
+		$chart.off('mousemove mouseleave');
+		if ($tooltip) {
+			$tooltip.remove();
+		}
+		
 		if (!priceData || !priceData.prices || priceData.prices.length === 0) {
 			showError(strings.error_price);
 			return;
@@ -150,8 +156,12 @@
 		
 		$chart.append(svg);
 		
-		// Add tooltip functionality
-		var $tooltip = $('<div class="chart-tooltip"></div>').appendTo('body');
+		// Tooltip offset constants
+		var TOOLTIP_OFFSET_X = 10;
+		var TOOLTIP_OFFSET_Y = -40;
+		
+		// Create single tooltip instance
+		$tooltip = $('<div class="chart-tooltip"></div>').appendTo('body');
 		
 		$chart.on('mousemove', function(e) {
 			var offset = $chart.offset();
@@ -169,10 +179,28 @@
 				'<br>$' + price.toFixed(2)
 			);
 			
+			// Calculate tooltip position with boundary detection
+			var tooltipX = e.pageX + TOOLTIP_OFFSET_X;
+			var tooltipY = e.pageY + TOOLTIP_OFFSET_Y;
+			var tooltipWidth = $tooltip.outerWidth();
+			var tooltipHeight = $tooltip.outerHeight();
+			var viewportWidth = $(window).width();
+			var viewportHeight = $(window).height();
+			
+			// Adjust if tooltip goes off right edge
+			if (tooltipX + tooltipWidth > viewportWidth) {
+				tooltipX = e.pageX - tooltipWidth - TOOLTIP_OFFSET_X;
+			}
+			
+			// Adjust if tooltip goes off top edge
+			if (tooltipY < 0) {
+				tooltipY = e.pageY + 20;
+			}
+			
 			$tooltip.css({
 				display: 'block',
-				left: e.pageX + 10,
-				top: e.pageY - 40
+				left: tooltipX,
+				top: tooltipY
 			});
 		});
 		
