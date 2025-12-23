@@ -1,0 +1,6 @@
+CRYPTO_TOP10_TITLE=Top 10 kryptoměn
+CRYPTO_TOP10_SELECT=Vybrat
+CRYPTO_TOP10_LOADING=Načítám…
+CRYPTO_TOP10_UNAVAILABLE=Nedostupné
+CRYPTO_TOP10_ERROR_LIST=Nepodařilo se načíst seznam: {msg}
+CRYPTO_TOP10_ERROR_PRICE=Nepodařilo se načíst cenu: {msg}

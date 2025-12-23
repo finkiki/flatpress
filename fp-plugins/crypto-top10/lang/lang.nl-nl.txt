@@ -1,0 +1,6 @@
+CRYPTO_TOP10_TITLE=Top 10 crypto's
+CRYPTO_TOP10_SELECT=Selecteer
+CRYPTO_TOP10_LOADING=Laden…
+CRYPTO_TOP10_UNAVAILABLE=Niet beschikbaar
+CRYPTO_TOP10_ERROR_LIST=Lijst laden mislukt: {msg}
+CRYPTO_TOP10_ERROR_PRICE=Prijs laden mislukt: {msg}

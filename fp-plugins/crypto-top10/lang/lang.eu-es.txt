@@ -1,0 +1,6 @@
+CRYPTO_TOP10_TITLE=Top 10 kriptomonetak
+CRYPTO_TOP10_SELECT=Hautatu
+CRYPTO_TOP10_LOADING=Kargatzen…
+CRYPTO_TOP10_UNAVAILABLE=Ez dago erabilgarri
+CRYPTO_TOP10_ERROR_LIST=Zerrenda kargatzean huts egin du: {msg}
+CRYPTO_TOP10_ERROR_PRICE=Prezioa kargatzean huts egin du: {msg}

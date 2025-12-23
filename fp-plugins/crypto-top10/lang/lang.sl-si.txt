@@ -1,0 +1,6 @@
+CRYPTO_TOP10_TITLE=Top 10 kriptovalut
+CRYPTO_TOP10_SELECT=Izberi
+CRYPTO_TOP10_LOADING=Nalagam…
+CRYPTO_TOP10_UNAVAILABLE=Nedosegljivo
+CRYPTO_TOP10_ERROR_LIST=Seznama ni bilo mogoče naložiti: {msg}
+CRYPTO_TOP10_ERROR_PRICE=Cene ni bilo mogoče naložiti: {msg}

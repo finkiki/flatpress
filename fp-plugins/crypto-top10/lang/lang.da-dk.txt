@@ -1,0 +1,6 @@
+CRYPTO_TOP10_TITLE=Top 10 kryptovalutaer
+CRYPTO_TOP10_SELECT=Vælg
+CRYPTO_TOP10_LOADING=Indlæser…
+CRYPTO_TOP10_UNAVAILABLE=Ikke tilgængelig
+CRYPTO_TOP10_ERROR_LIST=Kunne ikke hente liste: {msg}
+CRYPTO_TOP10_ERROR_PRICE=Kunne ikke hente pris: {msg}

@@ -1,0 +1,6 @@
+CRYPTO_TOP10_TITLE=Топ-10 криптовалют
+CRYPTO_TOP10_SELECT=Выбрать
+CRYPTO_TOP10_LOADING=Загрузка…
+CRYPTO_TOP10_UNAVAILABLE=Недоступно
+CRYPTO_TOP10_ERROR_LIST=Не удалось загрузить список: {msg}
+CRYPTO_TOP10_ERROR_PRICE=Не удалось загрузить цену: {msg}

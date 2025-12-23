@@ -1,0 +1,6 @@
+CRYPTO_TOP10_TITLE=İlk 10 kripto
+CRYPTO_TOP10_SELECT=Seç
+CRYPTO_TOP10_LOADING=Yükleniyor…
+CRYPTO_TOP10_UNAVAILABLE=Kullanılamıyor
+CRYPTO_TOP10_ERROR_LIST=Liste yüklenemedi: {msg}
+CRYPTO_TOP10_ERROR_PRICE=Fiyat yüklenemedi: {msg}

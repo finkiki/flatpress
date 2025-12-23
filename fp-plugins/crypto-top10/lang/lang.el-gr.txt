@@ -1,0 +1,6 @@
+CRYPTO_TOP10_TITLE=Top 10 κρυπτονομίσματα
+CRYPTO_TOP10_SELECT=Επιλογή
+CRYPTO_TOP10_LOADING=Φόρτωση…
+CRYPTO_TOP10_UNAVAILABLE=Μη διαθέσιμο
+CRYPTO_TOP10_ERROR_LIST=Αποτυχία φόρτωσης λίστας: {msg}
+CRYPTO_TOP10_ERROR_PRICE=Αποτυχία φόρτωσης τιμής: {msg}

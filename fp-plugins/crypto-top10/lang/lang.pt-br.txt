@@ -1,0 +1,6 @@
+CRYPTO_TOP10_TITLE=Top 10 criptos
+CRYPTO_TOP10_SELECT=Selecionar
+CRYPTO_TOP10_LOADING=Carregando…
+CRYPTO_TOP10_UNAVAILABLE=Indisponível
+CRYPTO_TOP10_ERROR_LIST=Falha ao carregar a lista: {msg}
+CRYPTO_TOP10_ERROR_PRICE=Falha ao carregar o preço: {msg}
