@@ -97,6 +97,7 @@
 		$chart.off('mousemove mouseleave');
 		if ($tooltip) {
 			$tooltip.remove();
+			$tooltip = null;
 		}
 		
 		if (!priceData || !priceData.prices || priceData.prices.length === 0) {
