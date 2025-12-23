@@ -74,8 +74,7 @@ function plugin_crypto_top10_head() {
 		'loading' => $lang['plugin']['crypto-top10']['loading'],
 		'unavailable' => $lang['plugin']['crypto-top10']['unavailable'],
 		'error_list' => $lang['plugin']['crypto-top10']['error_list'],
-		'error_price' => $lang['plugin']['crypto-top10']['error_price'],
-		'select' => $lang['plugin']['crypto-top10']['select']
+		'error_price' => $lang['plugin']['crypto-top10']['error_price']
 	);
 	
 	echo '

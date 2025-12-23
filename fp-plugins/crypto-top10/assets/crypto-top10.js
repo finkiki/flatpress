@@ -11,8 +11,7 @@
 		loading: 'Loading...',
 		unavailable: 'Unavailable',
 		error_list: 'Error loading cryptocurrency list',
-		error_price: 'Error loading price data',
-		select: 'Select cryptocurrency'
+		error_price: 'Error loading price data'
 	};
 	
 	var cryptoData = [];
@@ -55,12 +54,18 @@
 			// Retry up to 2 times on failure
 			if (retryCount < 2) {
 				console.log('Retrying... attempt', retryCount + 1);
-				return setTimeout(function() {
-					fetchTopCryptos(currency, retryCount + 1);
+				// Return the retry promise
+				var deferred = $.Deferred();
+				setTimeout(function() {
+					fetchTopCryptos(currency, retryCount + 1)
+						.done(function(data) { deferred.resolve(data); })
+						.fail(function() { deferred.reject(); });
 				}, 2000 * (retryCount + 1));
+				return deferred.promise();
 			} else {
 				showError(strings.error_list);
 				$select.prop('disabled', false);
+				return $.Deferred().reject().promise();
 			}
 		});
 	}
@@ -103,12 +108,19 @@
 		
 		// Display price
 		var currencySymbol = getCurrencySymbol(selectedCurrency);
-		var price = crypto.current_price !== undefined ? 
-			currencySymbol + crypto.current_price.toLocaleString(undefined, {
-				minimumFractionDigits: 2, 
-				maximumFractionDigits: 6
-			}) : 
-			strings.unavailable;
+		var priceValue = crypto.current_price;
+		var price;
+		
+		if (priceValue !== undefined) {
+			// Use appropriate decimal places based on price magnitude
+			var decimals = priceValue >= 1 ? 2 : (priceValue >= 0.01 ? 4 : 6);
+			price = currencySymbol + priceValue.toLocaleString(undefined, {
+				minimumFractionDigits: decimals, 
+				maximumFractionDigits: decimals
+			});
+		} else {
+			price = strings.unavailable;
+		}
 		
 		$price.text(price);
 		
