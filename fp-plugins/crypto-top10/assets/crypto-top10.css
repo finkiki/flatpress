@@ -50,12 +50,36 @@
 	border-radius: 4px;
 	padding: 10px;
 	box-sizing: border-box;
+	min-height: 220px;
 }
 
 #crypto-chart {
-	width: 100% !important;
-	height: 200px !important;
-	max-width: 100%;
+	width: 100%;
+	height: 200px;
+	display: block;
+}
+
+.crypto-chart .chart-line {
+	fill: none;
+	stroke: #4CAF50;
+	stroke-width: 2;
+}
+
+.crypto-chart .chart-area {
+	fill: rgba(76, 175, 80, 0.1);
+}
+
+.crypto-chart .chart-tooltip {
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+	padding: 8px 12px;
+	border-radius: 4px;
+	font-size: 12px;
+	pointer-events: none;
+	display: none;
+	z-index: 1000;
+	white-space: nowrap;
 }
 
 .crypto-error {

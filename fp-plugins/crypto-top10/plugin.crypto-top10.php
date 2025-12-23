@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Crypto Top 10
- * Version: 1.0.0
+ * Version: 1.0.1
  * Type: Block
  * Plugin URI: https://www.flatpress.org
  * Author: FlatPress
@@ -15,25 +15,32 @@
  * Generates the crypto widget content
  */
 function plugin_crypto_top10_widget() {
-	global $smarty;
-	
 	// Load plugin strings
 	$lang = lang_load('plugin:crypto-top10');
 	
 	$widget = array();
 	$widget['subject'] = $lang['plugin']['crypto-top10']['title'];
 	
-	// Get the plugin URL for assets
-	$pdir = plugin_geturl('crypto-top10');
+	// Build HTML content directly
+	$content = '
+	<div id="crypto-top10-widget" class="crypto-top10">
+		<div class="crypto-select-wrapper">
+			<label for="crypto-select" class="crypto-label">' . htmlspecialchars($lang['plugin']['crypto-top10']['select']) . ':</label>
+			<select id="crypto-select" class="crypto-select">
+				<option value="">' . htmlspecialchars($lang['plugin']['crypto-top10']['loading']) . '</option>
+			</select>
+		</div>
+		
+		<div id="crypto-price" class="crypto-price"></div>
+		
+		<div class="crypto-chart-wrapper">
+			<svg id="crypto-chart" class="crypto-chart"></svg>
+		</div>
+		
+		<div id="crypto-error" class="crypto-error" style="display: none;"></div>
+	</div>';
 	
-	// Assign variables to template
-	$smarty->assign('crypto_plugin_url', $pdir);
-	$smarty->assign('crypto_lang', $lang['plugin']['crypto-top10']);
-	
-	// Render the template
-	ob_start();
-	$smarty->display('plugin:crypto-top10/crypto-top10.tpl');
-	$widget['content'] = ob_get_clean();
+	$widget['content'] = $content;
 	
 	return $widget;
 }
@@ -44,6 +51,11 @@ function plugin_crypto_top10_widget() {
  * Enqueue CSS, JS and localized strings
  */
 function plugin_crypto_top10_head() {
+	// Only load if jQuery plugin is available
+	if (!function_exists('plugin_jquery_head')) {
+		return;
+	}
+	
 	$random_hex = RANDOM_HEX;
 	$pdir = plugin_geturl('crypto-top10');
 	
@@ -69,8 +81,7 @@ function plugin_crypto_top10_head() {
 		<script nonce="' . $random_hex . '">
 			window.CRYPTO_TOP10_STRINGS = ' . json_encode($strings) . ';
 		</script>
-		<script nonce="' . $random_hex . '" src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-		<script nonce="' . $random_hex . '" src="' . $js . '" defer></script>
+		<script nonce="' . $random_hex . '" src="' . $js . '"></script>
 		<!-- EOF Crypto Top 10 -->
 	';
 }

@@ -3,21 +3,24 @@
 ## Overview
 The Crypto Top 10 plugin displays the top 10 cryptocurrencies by market cap using CoinGecko's public API. It provides a dropdown to select cryptocurrencies and displays a 7-day price chart.
 
+## Requirements
+- **jQuery plugin must be enabled** - This plugin requires the FlatPress jQuery plugin (3.7.1) to be activated.
+
 ## Features
 - Shows top 10 cryptocurrencies by market cap
 - Dropdown selector for cryptocurrency selection
 - Displays current price in USD
 - 7-day price evolution line chart with hover tooltips
+- Simple SVG-based chart (no external chart libraries)
 - Minimal UI design suitable for sidebar widgets
 - Responsive design that fits leggerov2 theme
 - Full localization support for all 15 FlatPress languages
 
 ## Installation
-1. The plugin is already included in the FlatPress distribution under `fp-plugins/crypto-top10/`
-2. Navigate to Admin > Plugins
-3. Enable the "Crypto Top 10" plugin
-4. Go to Admin > Widgets
-5. Add the "Crypto Top 10" widget to your desired sidebar (recommended: right sidebar)
+1. **Enable the jQuery plugin first** - Go to Admin > Plugins and enable the "jQuery" plugin
+2. Enable the "Crypto Top 10" plugin
+3. Go to Admin > Widgets
+4. Add the "Crypto Top 10" widget to your desired sidebar (recommended: right sidebar)
 
 ## Usage
 Once the widget is added to a sidebar, it will automatically:
@@ -36,13 +39,21 @@ Once the widget is added to a sidebar, it will automatically:
   - Price history: `/api/v3/coins/{id}/market_chart`
 
 ## Chart Features
-- Line chart showing 7-day price evolution
-- Minimal design with hidden axes and legend
+- SVG-based line chart showing 7-day price evolution
+- Minimal design with no axes or gridlines
 - Hover tooltip displays:
   - Date and time
   - Price in USD (formatted)
 - Smooth line with gradient fill
-- Responsive canvas that adapts to container width
+- Responsive SVG that adapts to container width
+
+## Technical Details
+- **Dependencies**: jQuery 3.7.1 (via FlatPress jQuery plugin)
+- **Chart**: Custom SVG-based rendering (no external libraries)
+- **API Calls**: Made client-side using jQuery AJAX
+- **Error Handling**: Graceful degradation with user-friendly error messages
+- **Performance**: Minimal impact, data fetched only when widget is visible
+- **Browser Compatibility**: Modern browsers supporting SVG
 
 ## Localization
 The plugin includes translations for:
@@ -67,29 +78,29 @@ The plugin includes translations for:
 fp-plugins/crypto-top10/
 ├── assets/
 │   ├── crypto-top10.css    # Sidebar-friendly styles
-│   └── crypto-top10.js     # CoinGecko API integration & Chart.js logic
+│   └── crypto-top10.js     # CoinGecko API integration & SVG chart logic
 ├── img/                     # Placeholder for future images
 ├── inc/                     # Placeholder for future includes
 ├── lang/                    # Language files for all locales
 │   ├── lang.cs-cz.php
 │   ├── lang.da-dk.php
 │   └── ... (15 total)
-├── tpl/
-│   └── crypto-top10.tpl    # Widget HTML template
 └── plugin.crypto-top10.php  # Main plugin file
 ```
 
 ## Technical Details
-- **Chart Library**: Chart.js v4.4.1 (loaded via CDN)
-- **API Calls**: Made client-side using JavaScript Fetch API
+- **Dependencies**: jQuery 3.7.1 (via FlatPress jQuery plugin)
+- **Chart**: Custom SVG-based rendering (no external libraries)
+- **API Calls**: Made client-side using jQuery AJAX
 - **Error Handling**: Graceful degradation with user-friendly error messages
 - **Performance**: Minimal impact, data fetched only when widget is visible
-- **Browser Compatibility**: Modern browsers supporting ES6+ JavaScript
+- **Browser Compatibility**: Modern browsers supporting SVG
 
 ## Troubleshooting
 
 ### Widget not displaying
-- Ensure the plugin is enabled in Admin > Plugins
+- Ensure the **jQuery plugin is enabled** in Admin > Plugins
+- Ensure the crypto-top10 plugin is enabled in Admin > Plugins
 - Check that the widget is added to a sidebar in Admin > Widgets
 - Verify browser console for JavaScript errors
 
@@ -100,9 +111,10 @@ fp-plugins/crypto-top10/
 - CoinGecko may have rate limits; wait a few minutes and retry
 
 ### Chart not rendering
-- Ensure Chart.js CDN is accessible
+- Ensure jQuery plugin is enabled and loading correctly
 - Check browser console for loading errors
 - Verify JavaScript is enabled in the browser
+- Check that your browser supports SVG
 
 ## License
 This plugin is part of FlatPress and is distributed under the GNU GPLv2 license.

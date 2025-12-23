@@ -1,13 +1,13 @@
 /**
- * Crypto Top 10 Widget - JavaScript
- * Fetches cryptocurrency data from CoinGecko API and displays charts
+ * Crypto Top 10 Widget - JavaScript (jQuery version)
+ * Fetches cryptocurrency data from CoinGecko API and displays simple SVG charts
  */
 
-(function() {
+(function($) {
 	'use strict';
 	
 	// Get localized strings from global variable
-	const strings = window.CRYPTO_TOP10_STRINGS || {
+	var strings = window.CRYPTO_TOP10_STRINGS || {
 		loading: 'Loading...',
 		unavailable: 'Unavailable',
 		error_list: 'Error loading cryptocurrency list',
@@ -15,71 +15,59 @@
 		select: 'Select cryptocurrency'
 	};
 	
-	let cryptoData = [];
-	let currentChart = null;
+	var cryptoData = [];
+	var $widget, $select, $price, $chart, $error;
 	
 	// CoinGecko API endpoints
-	const API_BASE = 'https://api.coingecko.com/api/v3';
-	const LIST_URL = `${API_BASE}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false`;
+	var API_BASE = 'https://api.coingecko.com/api/v3';
+	var LIST_URL = API_BASE + '/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false';
 	
 	/**
 	 * Fetch the top 10 cryptocurrencies
 	 */
-	async function fetchTopCryptos() {
-		try {
-			const response = await fetch(LIST_URL);
-			if (!response.ok) {
-				throw new Error('Network response was not ok');
-			}
-			const data = await response.json();
-			return data;
-		} catch (error) {
-			console.error('Error fetching crypto list:', error);
+	function fetchTopCryptos() {
+		return $.ajax({
+			url: LIST_URL,
+			method: 'GET',
+			dataType: 'json',
+			timeout: 10000
+		}).fail(function() {
 			showError(strings.error_list);
-			return null;
-		}
+		});
 	}
 	
 	/**
 	 * Fetch 7-day price history for a specific cryptocurrency
 	 */
-	async function fetchPriceHistory(coinId) {
-		const url = `${API_BASE}/coins/${coinId}/market_chart?vs_currency=usd&days=7&interval=hourly`;
-		try {
-			const response = await fetch(url);
-			if (!response.ok) {
-				throw new Error('Network response was not ok');
-			}
-			const data = await response.json();
-			return data;
-		} catch (error) {
-			console.error('Error fetching price history:', error);
+	function fetchPriceHistory(coinId) {
+		var url = API_BASE + '/coins/' + coinId + '/market_chart?vs_currency=usd&days=7&interval=hourly';
+		return $.ajax({
+			url: url,
+			method: 'GET',
+			dataType: 'json',
+			timeout: 10000
+		}).fail(function() {
 			showError(strings.error_price);
-			return null;
-		}
+		});
 	}
 	
 	/**
 	 * Populate the dropdown with cryptocurrency options
 	 */
 	function populateDropdown(cryptos) {
-		const select = document.getElementById('crypto-select');
-		if (!select) return;
+		$select.empty();
 		
-		// Clear existing options
-		select.innerHTML = '';
-		
-		// Add options for each cryptocurrency
-		cryptos.forEach((crypto, index) => {
-			const option = document.createElement('option');
-			option.value = crypto.id;
-			option.textContent = `${crypto.name} (${crypto.symbol.toUpperCase()})`;
-			select.appendChild(option);
+		$.each(cryptos, function(index, crypto) {
+			$select.append(
+				$('<option></option>')
+					.val(crypto.id)
+					.text(crypto.name + ' (' + crypto.symbol.toUpperCase() + ')')
+			);
 		});
 		
 		// Set first option as selected
 		if (cryptos.length > 0) {
-			select.value = cryptos[0].id;
+			$select.val(cryptos[0].id);
 		}
 	}
 	
@@ -87,96 +75,108 @@
 	 * Display current price
 	 */
 	function displayPrice(crypto) {
-		const priceDiv = document.getElementById('crypto-price');
-		if (!priceDiv || !crypto) return;
+		if (!crypto) {
+			$price.text(strings.unavailable);
+			return;
+		}
 		
-		const price = crypto.current_price !== undefined ? 
-			`$${crypto.current_price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}` : 
+		var price = crypto.current_price !== undefined ? 
+			'$' + crypto.current_price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : 
 			strings.unavailable;
 		
-		priceDiv.textContent = price;
+		$price.text(price);
 	}
 	
 	/**
-	 * Render the price chart using Chart.js
+	 * Render simple SVG line chart
 	 */
 	function renderChart(priceData) {
-		const canvas = document.getElementById('crypto-chart');
-		if (!canvas) return;
-		
-		// Destroy existing chart if it exists
-		if (currentChart) {
-			currentChart.destroy();
-		}
+		$chart.empty();
 		
 		if (!priceData || !priceData.prices || priceData.prices.length === 0) {
 			showError(strings.error_price);
 			return;
 		}
 		
-		// Extract prices and timestamps
-		const prices = priceData.prices.map(item => item[1]);
-		const timestamps = priceData.prices.map(item => new Date(item[0]));
+		var prices = priceData.prices.map(function(item) { return item[1]; });
+		var timestamps = priceData.prices.map(function(item) { return new Date(item[0]); });
 		
-		// Create chart
-		const ctx = canvas.getContext('2d');
-		currentChart = new Chart(ctx, {
-			type: 'line',
-			data: {
-				labels: timestamps,
-				datasets: [{
-					data: prices,
-					borderColor: '#4CAF50',
-					backgroundColor: 'rgba(76, 175, 80, 0.1)',
-					borderWidth: 2,
-					pointRadius: 0,
-					pointHoverRadius: 4,
-					pointHoverBackgroundColor: '#4CAF50',
-					pointHoverBorderColor: '#fff',
-					pointHoverBorderWidth: 2,
-					tension: 0.4,
-					fill: true
-				}]
-			},
-			options: {
-				responsive: true,
-				maintainAspectRatio: false,
-				plugins: {
-					legend: {
-						display: false
-					},
-					tooltip: {
-						enabled: true,
-						mode: 'index',
-						intersect: false,
-						callbacks: {
-							title: function(context) {
-								const date = new Date(context[0].label);
-								return date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-							},
-							label: function(context) {
-								return '$' + context.parsed.y.toFixed(2);
-							}
-						},
-						backgroundColor: 'rgba(0, 0, 0, 0.8)',
-						padding: 10,
-						cornerRadius: 4
-					}
-				},
-				scales: {
-					x: {
-						display: false
-					},
-					y: {
-						display: false
-					}
-				},
-				interaction: {
-					mode: 'nearest',
-					axis: 'x',
-					intersect: false
-				}
+		// Chart dimensions
+		var width = $chart.width();
+		var height = 200;
+		var padding = 5;
+		
+		// Calculate min and max for scaling
+		var minPrice = Math.min.apply(null, prices);
+		var maxPrice = Math.max.apply(null, prices);
+		var priceRange = maxPrice - minPrice || 1;
+		
+		// Create SVG
+		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+		svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+		svg.setAttribute('preserveAspectRatio', 'none');
+		
+		// Create path for line
+		var pathData = '';
+		var areaData = '';
+		
+		$.each(prices, function(index, price) {
+			var x = (index / (prices.length - 1)) * width;
+			var y = height - padding - ((price - minPrice) / priceRange) * (height - padding * 2);
+			
+			if (index === 0) {
+				pathData = 'M' + x + ',' + y;
+				areaData = 'M' + x + ',' + height + ' L' + x + ',' + y;
+			} else {
+				pathData += ' L' + x + ',' + y;
+				areaData += ' L' + x + ',' + y;
 			}
+		});
+		
+		// Close area path
+		areaData += ' L' + width + ',' + height + ' Z';
+		
+		// Add area
+		var area = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+		area.setAttribute('d', areaData);
+		area.setAttribute('class', 'chart-area');
+		svg.appendChild(area);
+		
+		// Add line
+		var line = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+		line.setAttribute('d', pathData);
+		line.setAttribute('class', 'chart-line');
+		svg.appendChild(line);
+		
+		$chart.append(svg);
+		
+		// Add tooltip functionality
+		var $tooltip = $('<div class="chart-tooltip"></div>').appendTo($chart.parent());
+		
+		$chart.on('mousemove', function(e) {
+			var offset = $chart.offset();
+			var x = e.pageX - offset.left;
+			var relX = x / width;
+			var index = Math.round(relX * (prices.length - 1));
+			index = Math.max(0, Math.min(prices.length - 1, index));
+			
+			var price = prices[index];
+			var date = timestamps[index];
+			
+			$tooltip.html(
+				date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) +
+				'<br>$' + price.toFixed(2)
+			);
+			
+			$tooltip.css({
+				display: 'block',
+				left: e.pageX - offset.left + 10,
+				top: e.pageY - offset.top - 40
+			});
+		});
+		
+		$chart.on('mouseleave', function() {
+			$tooltip.hide();
 		});
 	}
 	
@@ -184,75 +184,79 @@
 	 * Show error message
 	 */
 	function showError(message) {
-		const errorDiv = document.getElementById('crypto-error');
-		if (errorDiv) {
-			errorDiv.textContent = message;
-			errorDiv.style.display = 'block';
-		}
+		$error.text(message).show();
 	}
 	
 	/**
 	 * Hide error message
 	 */
 	function hideError() {
-		const errorDiv = document.getElementById('crypto-error');
-		if (errorDiv) {
-			errorDiv.style.display = 'none';
-		}
+		$error.hide();
 	}
 	
 	/**
 	 * Load and display data for selected cryptocurrency
 	 */
-	async function loadCryptoData(coinId) {
+	function loadCryptoData(coinId) {
 		hideError();
 		
 		// Find the crypto in our data
-		const crypto = cryptoData.find(c => c.id === coinId);
+		var crypto = null;
+		$.each(cryptoData, function(index, c) {
+			if (c.id === coinId) {
+				crypto = c;
+				return false;
+			}
+		});
+		
 		if (crypto) {
 			displayPrice(crypto);
 		}
 		
 		// Fetch and display price history
-		const priceHistory = await fetchPriceHistory(coinId);
-		if (priceHistory) {
+		fetchPriceHistory(coinId).done(function(priceHistory) {
 			renderChart(priceHistory);
-		}
+		});
 	}
 	
 	/**
 	 * Initialize the widget
 	 */
-	async function init() {
+	function init() {
 		// Check if widget exists on page
-		const widget = document.getElementById('crypto-top10-widget');
-		if (!widget) return;
-		
-		// Fetch top cryptocurrencies
-		cryptoData = await fetchTopCryptos();
-		if (!cryptoData || cryptoData.length === 0) {
+		$widget = $('#crypto-top10-widget');
+		if ($widget.length === 0) {
 			return;
 		}
 		
-		// Populate dropdown
-		populateDropdown(cryptoData);
+		$select = $('#crypto-select');
+		$price = $('#crypto-price');
+		$chart = $('#crypto-chart');
+		$error = $('#crypto-error');
 		
-		// Load data for first cryptocurrency
-		await loadCryptoData(cryptoData[0].id);
-		
-		// Setup change event listener
-		const select = document.getElementById('crypto-select');
-		if (select) {
-			select.addEventListener('change', function() {
-				loadCryptoData(this.value);
+		// Fetch top cryptocurrencies
+		fetchTopCryptos().done(function(data) {
+			cryptoData = data;
+			
+			if (!cryptoData || cryptoData.length === 0) {
+				showError(strings.error_list);
+				return;
+			}
+			
+			// Populate dropdown
+			populateDropdown(cryptoData);
+			
+			// Load data for first cryptocurrency
+			loadCryptoData(cryptoData[0].id);
+			
+			// Setup change event listener
+			$select.on('change', function() {
+				loadCryptoData($(this).val());
 			});
-		}
+		});
 	}
 	
-	// Initialize when DOM is ready
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', init);
-	} else {
-		init();
-	}
-})();
+	// Initialize when document is ready
+	$(document).ready(init);
+	
+})(jQuery);
