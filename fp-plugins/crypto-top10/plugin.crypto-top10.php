@@ -2,31 +2,48 @@
 /**
  * Plugin Name: Crypto Top 10
  * Type: Block
- * Version: 1.0.0
+ * Version: 2.0.0
  * Plugin URI: https://www.flatpress.org
  * Author: FlatPress
  * Author URI: https://www.flatpress.org
  * Description: Displays top 10 cryptocurrencies by market cap with interactive price charts using CoinGecko API
+ * Requires: FlatPress 1.5 RC or later, Smarty 5.5+
  */
 
 /**
  * Enqueue plugin assets (CSS, JS)
+ * Compatible with FlatPress 1.5 RC and later
  */
 function plugin_crypto_top10_head() {
 	$random_hex = RANDOM_HEX;
 	$pdir = plugin_geturl('crypto-top10');
 	
+	// Build asset URLs with version handling for cache busting
+	$chartjs_raw = $pdir . 'assets/chart.min.js';
+	$css_raw = $pdir . 'assets/crypto-top10.css';
+	$js_raw = $pdir . 'assets/crypto-top10.js';
+	
+	// Use utils_asset_ver() if available (FlatPress 1.5+), otherwise fallback
+	if (function_exists('utils_asset_ver')) {
+		$chartjs = utils_asset_ver($chartjs_raw, defined('SYSTEM_VER') ? SYSTEM_VER : null);
+		$css = utils_asset_ver($css_raw, defined('SYSTEM_VER') ? SYSTEM_VER : null);
+		$js = utils_asset_ver($js_raw, defined('SYSTEM_VER') ? SYSTEM_VER : null);
+	} else {
+		// Fallback for older FlatPress versions
+		$ver = defined('SYSTEM_VER') ? rawurlencode(SYSTEM_VER) : time();
+		$chartjs = $chartjs_raw . '?v=' . $ver;
+		$css = $css_raw . '?v=' . $ver;
+		$js = $js_raw . '?v=' . $ver;
+	}
+	
 	// Enqueue Chart.js from local file
-	$chartjs = utils_asset_ver($pdir . 'assets/chart.min.js', SYSTEM_VER);
-	echo '<script nonce="' . $random_hex . '" src="' . $chartjs . '"></script>' . "\n";
+	echo '<script nonce="' . $random_hex . '" src="' . htmlspecialchars($chartjs, ENT_QUOTES, 'UTF-8') . '"></script>' . "\n";
 	
 	// Enqueue plugin CSS
-	$css = utils_asset_ver($pdir . 'assets/crypto-top10.css', SYSTEM_VER);
-	echo '<link rel="stylesheet" href="' . $css . '">' . "\n";
+	echo '<link rel="stylesheet" href="' . htmlspecialchars($css, ENT_QUOTES, 'UTF-8') . '">' . "\n";
 	
 	// Enqueue plugin JS
-	$js = utils_asset_ver($pdir . 'assets/crypto-top10.js', SYSTEM_VER);
-	echo '<script nonce="' . $random_hex . '" src="' . $js . '"></script>' . "\n";
+	echo '<script nonce="' . $random_hex . '" src="' . htmlspecialchars($js, ENT_QUOTES, 'UTF-8') . '"></script>' . "\n";
 	
 	// Pass localized strings to JavaScript
 	$lang = lang_load('plugin:crypto-top10');
@@ -48,6 +65,7 @@ function plugin_crypto_top10_head() {
 
 /**
  * Widget function - renders the crypto top 10 widget
+ * Compatible with Smarty 5.5+ and FlatPress 1.5 RC
  */
 function plugin_crypto_top10_widget() {
 	global $smarty;
@@ -58,8 +76,10 @@ function plugin_crypto_top10_widget() {
 	$entry = array();
 	$entry['subject'] = $lang['plugin']['crypto-top10']['title'];
 	
-	// Get template content
+	// Assign variables for template (Smarty 5.5+ compatible)
 	$smarty->assign('plugin_dir', plugin_geturl('crypto-top10'));
+	
+	// Fetch template content using plugin namespace syntax
 	$entry['content'] = $smarty->fetch('plugin:crypto-top10/crypto-top10.tpl');
 	
 	return $entry;

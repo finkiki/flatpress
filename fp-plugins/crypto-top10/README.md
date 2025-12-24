@@ -2,6 +2,9 @@
 
 A FlatPress plugin that displays the top 10 cryptocurrencies by market cap with interactive price charts.
 
+**Version:** 2.0.0  
+**Requires:** FlatPress 1.5 RC or later, Smarty 5.5+
+
 ## Features
 
 - 📊 Displays top 10 cryptocurrencies from CoinGecko API
@@ -11,6 +14,19 @@ A FlatPress plugin that displays the top 10 cryptocurrencies by market cap with 
 - ⚡ No API key required
 - 🔒 Secure implementation with proper XSS protection
 - 📱 Mobile-friendly
+- ✨ Compatible with FlatPress 1.5 RC and Smarty 5.5+
+
+## Version History
+
+### Version 2.0.0
+- Updated for FlatPress 1.5 RC compatibility
+- Full Smarty 5.5+ support
+- Improved asset version handling with fallback for older FlatPress versions
+- Enhanced security with proper HTML entity encoding
+- Better error handling and timeout management
+
+### Version 1.0.0
+- Initial release
 
 ## Installation
 
@@ -39,7 +55,9 @@ The plugin is optimized for the leggerov2 theme but will work with any FlatPress
 
 ### Requirements
 
-- FlatPress with jQuery plugin enabled
+- FlatPress 1.5 RC or later
+- Smarty 5.5+ (included in FlatPress 1.5 RC)
+- jQuery plugin enabled (part of FlatPress standard distribution)
 - Internet connection to access CoinGecko API
 - Modern web browser with JavaScript enabled
 
