@@ -1,7 +1,7 @@
-{include file=header.tpl}
+{include file="header.tpl"}
 
 		<div id="main">
-{if !$smarty.get.x}
+{if !isset($smarty.get.x) or !$smarty.get.x}
     {widgets pos=sticky}
     <div id="sticky-{counter}" class="sticky entry">
         <h3>{$subject}</h3>
@@ -13,7 +13,7 @@
 		{entry_block}
 		
 			{entry}
-			{include file='entry-default.tpl'}
+			{include file="entry-default.tpl"}
 			{/entry}
 		
 			<div class="navigation">
@@ -25,6 +25,6 @@
 		</div>
 			
 
-		{include file=widgets.tpl}
+		{include file="widgets.tpl"}
 				
-{include file=footer.tpl}
+{include file="footer.tpl"}

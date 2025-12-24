@@ -14,16 +14,16 @@
 			    <!--- this is not actually a footer just didnt want to change the css formatting -->
 				<li class="entry-info"> 
 				{$date|date_format:"%b %d, %Y"}
-				{if ($categories)} in {$categories|@filed}{/if}
+				{if isset($categories) and $categories} in {$categories|@filed}{/if}
 				</li> 
 				</ul>
 			   </div>
-                {include file=shared:entryadminctrls.tpl}
+                {include file="shared:entryadminctrls.tpl"}
 				
 				
 				{$content|tag:the_content}
 		        	
-			{if !$entry_commslock}	
+			{if !isset($entry_commslock) or !$entry_commslock}	
                  <a href="{$id|link:comments_link}#comments">{$comments|tag:comments_number}</a>
             {/if}
                  {if isset($views)}(<strong>{$views}</strong> views){/if}

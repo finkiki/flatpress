@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{$fp_config.locale.lang}">
 <head>
 	<title>{$flatpress.title|tag:wp_title:'&laquo;'}</title>
-	<meta http-equiv="Content-Type" content="text/html; charset={$flatpress.charset}" />
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset={$fp_config.locale.charset}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	{action hook=wp_head}
 </head>
 

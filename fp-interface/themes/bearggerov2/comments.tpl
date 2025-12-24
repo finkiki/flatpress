@@ -1,9 +1,9 @@
-{include file=header.tpl}
+{include file="header.tpl"}
 
 		<div id="main">
 		{entry_block}
 		{entry}
-			{include file=entry-default.tpl}
+			{include file="entry-default.tpl"}
 		{comment_block}
 		<ol id="comments">
 		{comment}
@@ -29,7 +29,7 @@
 				</p>
 				</div>
 
-				{include file=shared:commentadminctrls.tpl} {* this shows edit/delete links*}
+				{include file="shared:commentadminctrls.tpl"} {* this shows edit/delete links*}
 				{$content|tag:comment_text}
 				
 			</li>
@@ -53,10 +53,10 @@
 	
 		</div>
 		
-		{include file=widgets.tpl}
+		{include file="widgets.tpl"}
 	
 		
 
 	<hr />
 	
-{include file=footer.tpl}
+{include file="footer.tpl"}
