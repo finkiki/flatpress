@@ -13,10 +13,10 @@ Author URI: http://www.flatpress.org/
 	$theme['name'] = 'Bearggero';
 	$theme['author'] = 'Darren Guinness & Alvin Jude';
 	$theme['www'] = 'http://www.flatpress.org/';
-	$theme['description'] = 'Updated Bearggero theme for FlatPress 1.5 with responsive layout';
+	$theme['description'] = 'Updated Bearggero theme for FlatPress 1.5 RC with Smarty 5.5+ compatibility and enhanced responsive layout';
 	
 	
-	$theme['version'] = 1.1;
+	$theme['version'] = 1.2;
 		
 	$theme['style_def'] = 'style.css';
 	$theme['style_admin'] = 'admin.css';

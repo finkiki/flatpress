@@ -1,70 +1,184 @@
-bearggero
-=========
+# Bearggero Theme for FlatPress 1.5+
 
-Bearggero Theme for Flatpress 1.5+
-==========
-Compatibility
-==========
-This theme works with all major browsers that support HTML 5. IE9+, Firefox, Opera, Chrome, and also works well with mobile browsers. IFrames(YouTube, vimeo, etc) are not supported by the iPhone browser so they will not show up on an iphone.
+A responsive, modern theme for FlatPress focused on contextual separation, readability, and an attractive color palette.
 
-Updated to work with FlatPress 1.5 RC (master) and refreshed with a responsive layout for modern mobile devices.
+## Compatibility
 
+**FlatPress:** 1.5 RC (master branch)  
+**Smarty:** 5.5+ (tested with 5.7.0)  
+**PHP:** 7.1+ (as per FlatPress requirements)  
+**Browsers:** All modern browsers supporting HTML5 (Chrome, Firefox, Safari, Edge) and mobile browsers
 
-First we removed the admin link on the page because it didn’t look very nice. To access the page simply append admin.php to the URL in the navigation bar so example.com/flatpress/ would become example.com/flatpress/admin.php
-Note: The theme actually modifies the admin panel as well, enlarging the panel and fonts. 
+### Recent Updates (December 2024)
+- ✅ **Smarty 5.5+ compatibility**: All templates updated with modern Smarty syntax
+- ✅ **Fixed 500 errors**: Resolved deprecated syntax issues causing theme failures
+- ✅ **Enhanced responsive design**: Improved mobile layout with additional breakpoints
+- ✅ **Variable safety**: Added proper `isset()` checks throughout templates
 
-==========
-Entries
-==========
-When adding a High definition Image use the [html] &lt; img class=’hdImg’ src=’fp-content/images/img.png’ &gt;  [/html] "  to utilize the CSS styling for images of class ‘hdImg’ which scales the width to fill the container and the height in the same ratio.
+### Known Limitations
+- iFrames (YouTube, Vimeo) may not display in some older mobile browsers
+- Requires JavaScript for optimal widget functionality
 
-Iframes are styled by the element so it will always fill the entry unless strictly stylized.
+## Features
 
-==========
-Statics
-==========
-Menu
-  We use a custom widget named Menus that dynamically pull the links from this menu page. In order to use this you must   place all urls to be pulled in a blockparser:static page and create a custom widget "Menus" that contains this static   page. More info in the widgets section.
-  
-  This page is used to generate the menu at the top of the page. All that should be here is anchors so [url=?]Home[/url]   in BBcode. 
+- **Fully Responsive**: Optimized layouts for desktop (1200px+), tablet (600-900px), and mobile (480px-600px, <480px)
+- **Mobile-First**: Touch-friendly navigation and form elements
+- **Contextual Design**: Clear visual separation between content sections
+- **Readable Typography**: Optimized font sizes and line-heights for all screen sizes
+- **Modern Color Palette**: Professional color scheme based on blues and earth tones
+- **Flexible Layout**: Support for left and right widget areas
+- **Smarty 5.5+ Compatible**: Modern template syntax throughout
 
-  Spacing matters so do not include a space in between any of these tags or it will be represented in the actual          generated menu. Since we are simply sptting our the content of the block parser into the nav block.
+## Installation
 
-==========
-Widgets
-==========
-We utilize sticky, and Menus custom widgets.
-Menus
-  This widget is only filled with one element and that is Blockparser:menu.
-  Blockparser: represents a static that can be added to the widgetset.
-  The Blockparser:menu represents the menu page which must be updated for each nav anchor element meaning that each page   you want to be displayed in our home menu must be added here, it is a simple hardcoded BBcode [url] [/url] just append   a new one. These modifications must occur in the edit statics section.
-sticky
-  This represents our sticky for our homepage. It is possible to have a sticky on all pages, but the code in index.tpl    currently has it only displaying on the frontpage because that is the behavior we wanted. A sticky is a post that will   stay at the top of the page even when new entries are added. This sticky must be represented as a static as entries     cannot be added to the widgetset by flatpress’s design.
-  
-  To define these custom widgets add this code to the Manage Widgets(raw)
-  
-  'sticky' => 
-  array (
-    0 => 'blockparser:about',
-  ),
-  'Menus' => 
-  array (
-    0 => 'blockparser:menu',
-  ),
-  
-  the blockparser:page can be replaced with any static that you have defined.
+1. Download or clone this theme into `fp-interface/themes/bearggerov2`
+2. Log into your FlatPress admin panel
+3. Navigate to the Themes section
+4. Select "Bearggero" theme
+5. Configure widgets as described below
 
-===========
-Plugins
-===========
-We have enabled blockParser, BBcode, adminArea, categories, Jquery, locker, QuickSpamFilter, BearggerroReadmore.
-  BearggeroReadmore
-    This is a plugin that we have created for styling the ReadMore links. Please also download this plugin                  (https://github.com/dronious/bearggero-readmore) and put it in the plugins directory and enable it in the plugins        admin panel.
+## Admin Access
 
-  
-  
-  
-  
+For a cleaner look, the admin link is not displayed on the main page. To access the admin panel, append `admin.php` to your URL:
 
+```
+example.com/flatpress/ → example.com/flatpress/admin.php
+```
 
+**Note:** This theme includes custom admin panel styling with enlarged panels and fonts for better readability.
 
+## Working with Entries
+
+### High Definition Images
+
+For responsive images that scale properly, use the `hdImg` class:
+
+```html
+<img class="hdImg" src="fp-content/images/img.png" alt="Description">
+```
+
+Or with BBCode's HTML tag:
+```
+[html]<img class="hdImg" src="fp-content/images/img.png">[/html]
+```
+
+Images with the `hdImg` class automatically scale to fill the container width while maintaining aspect ratio.
+
+### Embedded Content (iFrames)
+
+iFrames are automatically styled to fill the entry width (100% width, 600px height). You can customize with inline styles:
+
+```html
+<iframe src="https://www.youtube.com/embed/..." 
+        style="width: 100%; height: 400px;" 
+        frameborder="0" allowfullscreen></iframe>
+```
+
+## Static Pages & Menus
+
+### Custom Menu Widget
+
+The theme uses a custom "Menus" widget to display navigation links dynamically. 
+
+**Setup:**
+1. Create a static page (e.g., "menu") containing your navigation links in BBCode format
+2. Add links without spaces between tags:
+   ```
+   [url=?]Home[/url][url=?p=about]About[/url][url=?p=contact]Contact[/url]
+   ```
+3. Configure the widget (see Widgets section below)
+
+**Important:** Spacing matters! Don't include spaces between BBCode tags as they will appear in the rendered menu.
+
+## Widgets Configuration
+
+This theme utilizes custom widgets for enhanced functionality:
+
+### Sticky Widget
+Displays a "sticky" post at the top of the homepage that remains even when new entries are added. The sticky content comes from a static page.
+
+### Menus Widget
+Dynamically generates the navigation menu from a static page containing BBCode links.
+
+### Widget Setup
+
+Add this code to **Manage Widgets (raw mode)**:
+
+```php
+'sticky' => 
+array (
+  0 => 'blockparser:about',
+),
+'Menus' => 
+array (
+  0 => 'blockparser:menu',
+),
+```
+
+Replace `blockparser:about` and `blockparser:menu` with your actual static page names.
+
+**Standard Widgets:**
+- The theme registers `left` and `right` widgetsets for sidebar content
+- All standard FlatPress widgets (categories, archives, search, etc.) are supported
+
+## Recommended Plugins
+
+The theme works best with these FlatPress plugins:
+
+- **blockParser**: Required for static page widgets
+- **BBcode**: For formatting entries and static pages
+- **adminArea**: Enhanced admin panel features
+- **categories**: Category management and display
+- **jQuery**: JavaScript functionality
+- **locker**: Security features
+- **QuickSpamFilter**: Comment spam protection
+- **BearggeroReadmore** (optional): Custom styling for "Read More" links
+  - Download from: https://github.com/dronious/bearggero-readmore
+  - Install in `fp-plugins/` directory
+  - Enable via admin panel
+
+## Responsive Breakpoints
+
+The theme includes optimized layouts for multiple screen sizes:
+
+- **Desktop (>900px)**: Full two-column layout with sidebar
+- **Tablet (600-900px)**: Centered navigation, adjusted typography
+- **Mobile Large (480-600px)**: Single column, stacked widgets, optimized spacing
+- **Mobile Small (<480px)**: Compact layout, full-width navigation buttons, iOS-optimized form inputs
+
+## Changelog
+
+### Version 1.2 (December 2024)
+- **Fixed**: All Smarty 5.5+ compatibility issues
+- **Fixed**: 500 errors when theme is selected
+- **Added**: Proper `isset()` checks for all template variables
+- **Added**: Enhanced responsive layout with additional breakpoints (480px)
+- **Improved**: Mobile form input handling (prevents iOS zoom)
+- **Improved**: Comment section layout on mobile devices
+- **Improved**: Typography scaling across all screen sizes
+- **Updated**: All template include statements to use quoted syntax
+- **Updated**: Documentation with compatibility notes
+
+### Version 1.1
+- Initial responsive layout updates
+- Basic mobile device support
+
+### Version 1.0
+- Original theme release
+
+## Credits
+
+**Original Authors:** Darren Guinness & Alvin Jude  
+**Based on:** Leggero theme by NoWhereMan and Drudo  
+**Updated for FlatPress 1.5 & Smarty 5.5+:** 2024
+
+## Support
+
+For issues, questions, or suggestions:
+- Visit the [FlatPress Forum](https://forum.flatpress.org)
+- Check the [FlatPress Wiki](https://wiki.flatpress.org)
+- Report bugs on the FlatPress GitHub repository
+
+## License
+
+This theme is released under the same license as FlatPress (GNU GPLv2).

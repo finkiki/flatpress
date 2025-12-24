@@ -14,7 +14,7 @@ Author: Darreng & Dartarrow
 	$style['author'] = 'Darreng & dartarrow';
 	$style['www'] = 'https://github.com/dartarrow/bearggero';
 	
-	$style['version'] = 1.1;
+	$style['version'] = 1.2;
 		
 	$style['style_def'] = 'style.css';
 	$style['style_admin'] = 'admin.css';
