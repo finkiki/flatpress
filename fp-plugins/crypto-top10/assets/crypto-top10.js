@@ -15,6 +15,11 @@
 		return 'https://api.coingecko.com/api/v3/coins/' + encodeURIComponent(id) + '/market_chart?vs_currency=usd&days=7&interval=hourly';
 	};
 
+	var ajaxHeaders = { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' };
+	var statusText = function (xhr) {
+		return (xhr && xhr.statusText) ? xhr.statusText : 'Error';
+	};
+
 	var formatPrice = function (value) {
 		if (isNaN(value)) {
 			return txt('unavailable', 'Unavailable');
@@ -139,7 +144,7 @@
 					dataType: 'json',
 					timeout: 15000,
 					cache: false,
-					headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }
+					headers: ajaxHeaders
 				})
 					.done(function (res) {
 						if (!res || !$.isArray(res.prices) || !res.prices.length) {
@@ -149,7 +154,7 @@
 						drawChart(res.prices);
 					})
 					.fail(function (xhr) {
-						setError(fmtError(txt('errorPrice', 'Failed to load price: {msg}'), xhr && xhr.statusText ? xhr.statusText : 'Error'));
+						setError(fmtError(txt('errorPrice', 'Failed to load price: {msg}'), statusText(xhr)));
 					});
 			};
 
@@ -172,7 +177,7 @@
 					dataType: 'json',
 					timeout: 15000,
 					cache: false,
-					headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }
+					headers: ajaxHeaders
 				})
 					.done(function (res) {
 						if (!$.isArray(res)) {
@@ -191,7 +196,7 @@
 					})
 					.fail(function (xhr) {
 						updatePriceLine(null);
-						setError(fmtError(txt('errorList', 'Failed to load list: {msg}'), xhr && xhr.statusText ? xhr.statusText : 'Error'));
+						setError(fmtError(txt('errorList', 'Failed to load list: {msg}'), statusText(xhr)));
 					});
 			};
 

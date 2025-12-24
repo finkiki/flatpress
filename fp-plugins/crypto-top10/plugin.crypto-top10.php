@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /*
  * Plugin Name: Crypto Top 10
  * Type: Block
@@ -80,7 +81,10 @@ function plugin_crypto_top10_get_lang() {
 
 	global $fp_config;
 
-	$locale = isset($fp_config ['locale'] ['lang']) ? strtolower((string)$fp_config ['locale'] ['lang']) : LANG_DEFAULT;
+	$locale = LANG_DEFAULT;
+	if (isset($fp_config) && is_array($fp_config) && isset($fp_config ['locale'] ['lang'])) {
+		$locale = strtolower((string)$fp_config ['locale'] ['lang']);
+	}
 	$baseDir = plugin_getdir(PLUGIN_CRYPTO_TOP10_ID) . 'lang/';
 
 	$fallbackFile = $baseDir . 'lang.en-us.txt';
@@ -153,12 +157,17 @@ function plugin_crypto_top10_widget() {
 
 	$strings = plugin_crypto_top10_get_lang();
 
-	$smarty->assign('crypto_top10_strings', $strings);
-	$smarty->assign('crypto_top10_id', PLUGIN_CRYPTO_TOP10_ID);
+	if ($smarty instanceof Smarty) {
+		$smarty->assign('crypto_top10_strings', $strings);
+		$smarty->assign('crypto_top10_id', PLUGIN_CRYPTO_TOP10_ID);
+		$content = $smarty->fetch('plugin:' . PLUGIN_CRYPTO_TOP10_ID . '/crypto-top10');
+	} else {
+		$content = '<div class="crypto-top10-widget">' . ($strings ['CRYPTO_TOP10_TITLE'] ?? 'Top 10 Cryptos') . '</div>';
+	}
 
 	return array(
 		'subject' => isset($strings ['CRYPTO_TOP10_TITLE']) ? $strings ['CRYPTO_TOP10_TITLE'] : 'Top 10 Cryptos',
-		'content' => $smarty->fetch('plugin:' . PLUGIN_CRYPTO_TOP10_ID . '/crypto-top10')
+		'content' => $content
 	);
 }
 
