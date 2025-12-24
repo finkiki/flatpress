@@ -82,8 +82,8 @@ function plugin_crypto_top10_widget() {
 	// Assign variables for template (Smarty 5.5+ compatible)
 	$smarty->assign('plugin_dir', plugin_geturl('crypto-top10'));
 	
-	// Fetch template content using plugin namespace syntax
-	$entry['content'] = $smarty->fetch('plugin:crypto-top10/crypto-top10.tpl');
+	// Fetch template content using plugin namespace syntax (without .tpl extension)
+	$entry['content'] = $smarty->fetch('plugin:crypto-top10/widget');
 	
 	return $entry;
 }

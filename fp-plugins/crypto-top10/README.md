@@ -66,8 +66,8 @@ The plugin is optimized for the leggerov2 theme but will work with any FlatPress
 ```
 crypto-top10/
 ├── plugin.crypto-top10.php  # Main plugin file
-├── tpl/
-│   └── crypto-top10.tpl      # Widget template
+├── tpls/
+│   └── widget.tpl            # Widget template (Smarty 5.5+ compatible)
 ├── assets/
 │   ├── crypto-top10.js       # Main JavaScript
 │   ├── crypto-top10.css      # Styles
