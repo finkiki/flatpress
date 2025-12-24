@@ -23,14 +23,17 @@ function plugin_crypto_top10_head() {
 	$css_raw = $pdir . 'assets/crypto-top10.css';
 	$js_raw = $pdir . 'assets/crypto-top10.js';
 	
+	// Get version for cache busting
+	$version = defined('SYSTEM_VER') ? SYSTEM_VER : '2.0.0';
+	
 	// Use utils_asset_ver() if available (FlatPress 1.5+), otherwise fallback
 	if (function_exists('utils_asset_ver')) {
-		$chartjs = utils_asset_ver($chartjs_raw, defined('SYSTEM_VER') ? SYSTEM_VER : null);
-		$css = utils_asset_ver($css_raw, defined('SYSTEM_VER') ? SYSTEM_VER : null);
-		$js = utils_asset_ver($js_raw, defined('SYSTEM_VER') ? SYSTEM_VER : null);
+		$chartjs = utils_asset_ver($chartjs_raw, $version);
+		$css = utils_asset_ver($css_raw, $version);
+		$js = utils_asset_ver($js_raw, $version);
 	} else {
-		// Fallback for older FlatPress versions
-		$ver = defined('SYSTEM_VER') ? rawurlencode(SYSTEM_VER) : time();
+		// Fallback for older FlatPress versions - use plugin version
+		$ver = rawurlencode($version);
 		$chartjs = $chartjs_raw . '?v=' . $ver;
 		$css = $css_raw . '?v=' . $ver;
 		$js = $js_raw . '?v=' . $ver;
