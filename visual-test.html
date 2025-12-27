@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBCode Content Protection - Visual Test</title>
+    <link rel="stylesheet" href="../fp-plugins/bbcode-protect/res/bbcode-protect.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .demo-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .public-content {
+            background: #e8f5e9;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #4caf50;
+        }
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>BBCode Content Protection Plugin - Visual Test</h1>
+    <p>This page demonstrates how the password protection forms will appear on your FlatPress site.</p>
+
+    <!-- Example 1: Basic Protected Content -->
+    <div class="demo-section">
+        <h2>Example 1: Basic Protected Content</h2>
+        <div class="public-content">
+            <p>This is public content that everyone can see.</p>
+        </div>
+        
+        <!-- Simulated password form -->
+        <div class="bbcode-protect-container">
+            <div class="bbcode-protect-box">
+                <p class="bbcode-protect-prompt">This content is password protected.</p>
+                <form method="post" class="bbcode-protect-form" action="">
+                    <input type="hidden" name="bbcode_protect_block_id" value="entry123_block_1">
+                    <input type="hidden" name="bbcode_protect_entry_id" value="entry123">
+                    <div class="bbcode-protect-input-group">
+                        <label for="password_entry123_block_1">Password:</label>
+                        <input type="password" 
+                               id="password_entry123_block_1" 
+                               name="bbcode_protect_password" 
+                               required 
+                               autocomplete="off"
+                               class="bbcode-protect-password-input"
+                               placeholder="Enter password">
+                    </div>
+                    <button type="submit" class="bbcode-protect-submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="public-content">
+            <p>This is more public content after the protected section.</p>
+        </div>
+    </div>
+
+    <!-- Example 2: Error State -->
+    <div class="demo-section">
+        <h2>Example 2: Wrong Password Error</h2>
+        <div class="bbcode-protect-container">
+            <div class="bbcode-protect-box">
+                <p class="bbcode-protect-prompt">This content is password protected.</p>
+                <p class="bbcode-protect-error">Incorrect password. Please try again.</p>
+                <form method="post" class="bbcode-protect-form" action="">
+                    <input type="hidden" name="bbcode_protect_block_id" value="entry123_block_2">
+                    <input type="hidden" name="bbcode_protect_entry_id" value="entry123">
+                    <div class="bbcode-protect-input-group">
+                        <label for="password_entry123_block_2">Password:</label>
+                        <input type="password" 
+                               id="password_entry123_block_2" 
+                               name="bbcode_protect_password" 
+                               required 
+                               autocomplete="off"
+                               class="bbcode-protect-password-input"
+                               placeholder="Enter password">
+                    </div>
+                    <button type="submit" class="bbcode-protect-submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example 3: Rate Limited -->
+    <div class="demo-section">
+        <h2>Example 3: Rate Limited (Too Many Attempts)</h2>
+        <div class="bbcode-protect-container">
+            <div class="bbcode-protect-box">
+                <p class="bbcode-protect-prompt">This content is password protected.</p>
+                <p class="bbcode-protect-error">Too many failed attempts. Please try again later.</p>
+                <form method="post" class="bbcode-protect-form" action="">
+                    <input type="hidden" name="bbcode_protect_block_id" value="entry123_block_3">
+                    <input type="hidden" name="bbcode_protect_entry_id" value="entry123">
+                    <div class="bbcode-protect-input-group">
+                        <label for="password_entry123_block_3">Password:</label>
+                        <input type="password" 
+                               id="password_entry123_block_3" 
+                               name="bbcode_protect_password" 
+                               required 
+                               autocomplete="off"
+                               class="bbcode-protect-password-input"
+                               placeholder="Enter password"
+                               disabled>
+                    </div>
+                    <button type="submit" class="bbcode-protect-submit" disabled>Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example 4: Mobile View -->
+    <div class="demo-section">
+        <h2>Example 4: Mobile View (Resize browser to test)</h2>
+        <p>The password forms are fully responsive. Try resizing your browser window to see how they adapt to different screen sizes.</p>
+        <ul>
+            <li>Desktop: Full width up to 500px</li>
+            <li>Tablet: Adjusted padding and font sizes</li>
+            <li>Mobile: Optimized for 320px+ width</li>
+        </ul>
+    </div>
+
+    <!-- Usage Guide -->
+    <div class="demo-section">
+        <h2>BBCode Syntax</h2>
+        <p>To use password protection in your FlatPress posts:</p>
+        <h3>Basic Usage (Entry Password)</h3>
+        <pre><code>[protect]
+This content is protected by the entry password.
+[/protect]</code></pre>
+
+        <h3>Inline Password (if enabled)</h3>
+        <pre><code>[protect pwd="mypassword"]
+This content has its own specific password.
+[/protect]</code></pre>
+
+        <h3>Multiple Blocks</h3>
+        <pre><code>Public content here.
+
+[protect]
+First protected section.
+[/protect]
+
+More public content.
+
+[protect pwd="different"]
+Second protected section with different password.
+[/protect]</code></pre>
+    </div>
+
+    <div class="demo-section">
+        <h2>Admin Configuration</h2>
+        <p>Configure the plugin at: <strong>Admin → Config → Content Protection</strong></p>
+        <ul>
+            <li><strong>Allow inline passwords</strong> - Enable <code>pwd=""</code> attribute</li>
+            <li><strong>Prompt text</strong> - Customize the message shown above forms</li>
+            <li><strong>Remember duration</strong> - How long to keep content unlocked (seconds)</li>
+            <li><strong>Max attempts</strong> - Failed password attempts before rate limiting</li>
+            <li><strong>Attempt window</strong> - Time period for counting attempts (seconds)</li>
+            <li><strong>Bypass cache</strong> - Prevent caching of protected pages</li>
+        </ul>
+    </div>
+
+    <div class="demo-section">
+        <h2>Security Features</h2>
+        <ul>
+            <li>✓ Passwords stored with bcrypt hashing</li>
+            <li>✓ Session tokens cryptographically signed (HMAC-SHA256)</li>
+            <li>✓ Rate limiting prevents brute-force attacks</li>
+            <li>✓ XSS protection via htmlspecialchars</li>
+            <li>✓ Protected content stripped from RSS/Atom feeds</li>
+            <li>✓ No plaintext passwords in HTML source</li>
+        </ul>
+    </div>
+
+    <footer style="text-align: center; padding: 20px; color: #666;">
+        <p>BBCode Content Protection Plugin for FlatPress</p>
+        <p>Version 1.0.0 | Compatible with FlatPress 1.5 rc and Smarty 5.5+</p>
+    </footer>
+
+    <script src="../fp-plugins/bbcode-protect/res/bbcode-protect.js"></script>
+</body>
+</html>
