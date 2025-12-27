@@ -110,6 +110,18 @@ function plugin_bbcode_protect_handle_password() {
 	
 	$block_id = sanitize_text_field($_POST['bbcode_protect_block_id']);
 	$password = $_POST['bbcode_protect_password'];
+	
+	// Validate password input
+	if (!is_string($password)) {
+		return;
+	}
+	// Limit password length to prevent DOS attacks
+	if (strlen($password) > 1000) {
+		$password = substr($password, 0, 1000);
+	}
+	// Remove null bytes
+	$password = str_replace("\0", '', $password);
+	
 	$entry_id = isset($_POST['bbcode_protect_entry_id']) ? sanitize_text_field($_POST['bbcode_protect_entry_id']) : '';
 	$inline_pwd = isset($_POST['bbcode_protect_inline_pwd']) ? $_POST['bbcode_protect_inline_pwd'] : '';
 	
@@ -375,16 +387,6 @@ function plugin_bbcode_protect_render_form($block_id, $entry_id, $inline_passwor
 		
 		$smarty->assign('error', $error);
 		$smarty->assign('lang', $lang);
-		
-		// Clear error after displaying
-		if (isset($_SESSION['bbcode_protect_error'])) {
-			unset($_SESSION['bbcode_protect_error']);
-		}
-		
-		// Clear error after displaying
-		if (isset($_SESSION['bbcode_protect_error'])) {
-			unset($_SESSION['bbcode_protect_error']);
-		}
 		
 		// Check if template exists
 		$template_path = plugin_getdir('bbcode-protect') . '/tpls/password-form.tpl';

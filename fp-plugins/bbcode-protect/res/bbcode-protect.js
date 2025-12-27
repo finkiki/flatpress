@@ -52,7 +52,7 @@
 		// Add Enter key support (though browser should handle this)
 		if (passwordInput) {
 			passwordInput.addEventListener('keypress', function(e) {
-				if (e.key === 'Enter' || e.keyCode === 13) {
+				if (e.key === 'Enter') {
 					e.preventDefault();
 					form.submit();
 				}
