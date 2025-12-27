@@ -505,6 +505,99 @@ function do_bbcode_video($action, $attr, $content, $params, $node_object) {
 					'</iframe>' . //
 				'</div>';
 			break;
+		// BitChute
+		case 'bitchute':
+			$path = isset($vurl ['path']) ? trim($vurl ['path'], '/') : '';
+			$segments = $path ? array_values(array_filter(explode('/', $path))) : array();
+			$vid = $segments ? end($segments) : '';
+			if (!preg_match('/^[A-Za-z0-9_-]+$/', $vid)) {
+				$vid = '';
+			}
+			if ($vid === '') {
+				break;
+			}
+			$safeVid = htmlspecialchars($vid, ENT_QUOTES);
+			$embedUrl = 'https://www.bitchute.com/embed/' . $safeVid;
+			$output = '<div class="responsive_bbcode_video">' . //
+					'<iframe class="bbcode_video bbcode_video_bitchute ' . $floatClass . '" ' . //
+						$src . '="' . $embedUrl . '" ' . //
+						'width="' . $width . '" ' . //
+						'height="' . $height . '" ' . //
+						'frameborder="0" ' . //
+						'allowfullscreen="allowfullscreen" ' . //
+						'allow="autoplay; fullscreen; picture-in-picture">' . //
+					'</iframe>' . //
+				'</div>';
+			break;
+		// Rumble
+		case 'rumble':
+			$path = isset($vurl ['path']) ? trim($vurl ['path'], '/') : '';
+			$segments = $path ? array_values(array_filter(explode('/', $path))) : array();
+			$vidSegment = $segments ? (($segments [0] === 'embed' && isset($segments [1])) ? $segments [1] : $segments [0]) : '';
+			// Drop any appended title segment (watch URLs often append "-title")
+			$slugParts = $vidSegment ? preg_split('/-/', $vidSegment, 2) : array();
+			$vidCandidate = $slugParts ? $slugParts [0] : '';
+			$vid = ($vidCandidate && preg_match('/^[A-Za-z0-9_]+$/', $vidCandidate)) ? $vidCandidate : '';
+			if ($vid === '') {
+				break;
+			}
+			$embedUrl = 'https://rumble.com/embed/' . $vid . '/';
+			if (!empty($vurl ['query'])) {
+				parse_str($vurl ['query'], $queryParams);
+				if (!empty($queryParams)) {
+					static $allowedParams = array(
+						'pub',      // channel/publisher identifier
+						'autoplay', // autoplay flag
+						'muted',    // muted flag
+						'loop',     // loop flag
+						'controls', // controls visibility
+						't'         // start time
+					);
+					$safeParams = array();
+					foreach ($queryParams as $key => $value) {
+						if (!in_array($key, $allowedParams, true) || !is_scalar($value)) {
+							continue;
+						}
+						$paramValue = (string)$value;
+						switch ($key) {
+							case 't':
+								if (ctype_digit($paramValue)) {
+									$safeParams [$key] = $paramValue;
+								}
+								break;
+							case 'autoplay':
+							case 'muted':
+							case 'loop':
+							case 'controls':
+								$lower = strtolower($paramValue);
+								if ($lower === '1' || $lower === '0' || $lower === 'true' || $lower === 'false') {
+									$safeParams [$key] = ($lower === 'true') ? '1' : (($lower === 'false') ? '0' : $paramValue);
+								}
+								break;
+							case 'pub':
+								if ($paramValue !== '') {
+									$safeParams [$key] = $paramValue;
+								}
+								break;
+						}
+					}
+					if (!empty($safeParams)) {
+						$embedUrl .= '?' . http_build_query($safeParams);
+					}
+				}
+			}
+			$embedUrlAttr = htmlspecialchars($embedUrl, ENT_QUOTES);
+			$output = '<div class="responsive_bbcode_video">' . //
+					'<iframe class="bbcode_video bbcode_video_rumble ' . $floatClass . '" ' . //
+						$src . '="' . $embedUrlAttr . '" ' . //
+						'width="' . $width . '" ' . //
+						'height="' . $height . '" ' . //
+						'frameborder="0" ' . //
+						'allow="autoplay; fullscreen" ' . //
+						'allowfullscreen="allowfullscreen">' . //
+					'</iframe>' . //
+				'</div>';
+			break;
 		// Any video file that can be played with HTML5 <video> element
 		case 'html5':
 		default:
