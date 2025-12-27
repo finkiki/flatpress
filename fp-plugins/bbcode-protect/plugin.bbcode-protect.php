@@ -102,7 +102,7 @@ function plugin_bbcode_protect_head() {
  * Handle password submission
  */
 function plugin_bbcode_protect_handle_password() {
-	global $post;
+	global $post, $fp_params;
 	
 	if (!isset($_POST['bbcode_protect_block_id']) || !isset($_POST['bbcode_protect_password'])) {
 		return;
@@ -116,13 +116,26 @@ function plugin_bbcode_protect_handle_password() {
 	// Check rate limiting
 	if (plugin_bbcode_protect_is_rate_limited($block_id)) {
 		$_SESSION['bbcode_protect_error'] = 'too_many_attempts';
+		$_SESSION['bbcode_protect_error_block'] = $block_id;
 		return;
 	}
 	
 	// Get entry password hash if available
 	$entry_password_hash = null;
-	if ($entry_id && isset($post['bbcode_protect_password'])) {
-		$entry_password_hash = $post['bbcode_protect_password'];
+	if (!empty($entry_id)) {
+		// Try to load entry data if we don't have it in global $post
+		if (isset($post['id']) && $post['id'] === $entry_id && isset($post['bbcode_protect_password'])) {
+			$entry_password_hash = $post['bbcode_protect_password'];
+		} else {
+			// Try to load the entry from database
+			// This is a fallback - in most cases $post should be set
+			if (function_exists('entry_parse')) {
+				$entry_data = entry_parse($entry_id);
+				if ($entry_data && isset($entry_data['bbcode_protect_password'])) {
+					$entry_password_hash = $entry_data['bbcode_protect_password'];
+				}
+			}
+		}
 	}
 	
 	// Try to verify password
@@ -147,6 +160,7 @@ function plugin_bbcode_protect_handle_password() {
 			'expires' => time() + $options['remember_duration']
 		];
 		unset($_SESSION['bbcode_protect_error']);
+		unset($_SESSION['bbcode_protect_error_block']);
 		
 		// Clear attempts for this block
 		if (isset($_SESSION['bbcode_protect_attempts'][$block_id])) {
@@ -156,6 +170,7 @@ function plugin_bbcode_protect_handle_password() {
 		// Record failed attempt
 		plugin_bbcode_protect_record_attempt($block_id);
 		$_SESSION['bbcode_protect_error'] = 'wrong_password';
+		$_SESSION['bbcode_protect_error_block'] = $block_id;
 	}
 }
 
@@ -246,7 +261,7 @@ function plugin_bbcode_protect_cleanup_attempts() {
  * Main content filter to handle protected blocks
  */
 function plugin_bbcode_protect_filter($content) {
-	global $post;
+	global $post, $fp_params;
 	
 	if (empty($content)) {
 		return $content;
@@ -257,8 +272,19 @@ function plugin_bbcode_protect_filter($content) {
 		return $content;
 	}
 	
-	$entry_id = isset($post['id']) ? $post['id'] : '';
-	$entry_password_hash = isset($post['bbcode_protect_password']) ? $post['bbcode_protect_password'] : null;
+	// Try to get entry ID from various sources
+	$entry_id = '';
+	if (isset($post['id'])) {
+		$entry_id = $post['id'];
+	} elseif (isset($fp_params['entry'])) {
+		$entry_id = $fp_params['entry'];
+	}
+	
+	// Get entry password hash if available
+	$entry_password_hash = null;
+	if (isset($post['bbcode_protect_password'])) {
+		$entry_password_hash = $post['bbcode_protect_password'];
+	}
 	
 	$options = plugin_bbcode_protect_get_options();
 	$block_counter = 0;
@@ -335,8 +361,25 @@ function plugin_bbcode_protect_render_form($block_id, $entry_id, $inline_passwor
 		$smarty->assign('entry_id', $entry_id);
 		$smarty->assign('inline_pwd', $inline_password);
 		$smarty->assign('prompt_text', $options['prompt_text']);
-		$smarty->assign('error', isset($_SESSION['bbcode_protect_error']) ? $_SESSION['bbcode_protect_error'] : null);
+		
+		// Only show error for this specific block
+		$error = null;
+		if (isset($_SESSION['bbcode_protect_error']) && 
+		    isset($_SESSION['bbcode_protect_error_block']) && 
+		    $_SESSION['bbcode_protect_error_block'] === $block_id) {
+			$error = $_SESSION['bbcode_protect_error'];
+			// Clear error after displaying
+			unset($_SESSION['bbcode_protect_error']);
+			unset($_SESSION['bbcode_protect_error_block']);
+		}
+		
+		$smarty->assign('error', $error);
 		$smarty->assign('lang', $lang);
+		
+		// Clear error after displaying
+		if (isset($_SESSION['bbcode_protect_error'])) {
+			unset($_SESSION['bbcode_protect_error']);
+		}
 		
 		// Clear error after displaying
 		if (isset($_SESSION['bbcode_protect_error'])) {
@@ -364,7 +407,10 @@ function plugin_bbcode_protect_render_form_fallback($block_id, $entry_id, $inlin
 	$prompt_text = htmlspecialchars($options['prompt_text'], ENT_QUOTES, 'UTF-8');
 	$error_msg = '';
 	
-	if (isset($_SESSION['bbcode_protect_error'])) {
+	// Only show error for this specific block
+	if (isset($_SESSION['bbcode_protect_error']) && 
+	    isset($_SESSION['bbcode_protect_error_block']) && 
+	    $_SESSION['bbcode_protect_error_block'] === $block_id) {
 		$error = $_SESSION['bbcode_protect_error'];
 		$error_msg = '<p class="bbcode-protect-error">';
 		if ($error === 'wrong_password') {
@@ -378,6 +424,7 @@ function plugin_bbcode_protect_render_form_fallback($block_id, $entry_id, $inlin
 		}
 		$error_msg .= '</p>';
 		unset($_SESSION['bbcode_protect_error']);
+		unset($_SESSION['bbcode_protect_error_block']);
 	}
 	
 	$block_id_escaped = htmlspecialchars($block_id, ENT_QUOTES, 'UTF-8');
@@ -417,13 +464,6 @@ HTML;
  */
 function plugin_bbcode_protect_has_protected_content($content) {
 	return strpos($content, '[protect') !== false;
-}
-
-/**
- * Sanitize text field
- */
-function sanitize_text_field($str) {
-	return htmlspecialchars(strip_tags(trim($str)), ENT_QUOTES, 'UTF-8');
 }
 
 // Initialize plugin
