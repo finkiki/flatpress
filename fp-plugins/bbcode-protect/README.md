@@ -16,6 +16,7 @@ A FlatPress plugin that allows password-protecting content blocks using BBCode `
 - **Responsive Design**: Mobile-friendly password forms
 - **Progressive Enhancement**: Works without JavaScript; enhanced UX with jQuery (optional)
 - **Smarty 5.5+ Compatible**: Uses modern Smarty template syntax with graceful fallback
+- **Multi-language Support**: Available in 15 languages (cs-cz, da-dk, de-de, el-gr, en-us, es-es, eu-es, fr-fr, it-it, ja-jp, nl-nl, pt-br, ru-ru, sl-si, tr-tr)
 
 ## Requirements
 
