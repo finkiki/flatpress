@@ -18,13 +18,13 @@ function plugin_bbcode_protect_entry_form() {
 	$lang = lang_load('plugin:bbcode-protect');
 	
 	$output = '<fieldset id="admin-entry-bbcode-protect" class="bbcode-protect-entry-panel">';
-	$output .= '<legend>' . htmlspecialchars($lang['admin']['entry']['bbcode-protect']['legend'], ENT_QUOTES, 'UTF-8') . '</legend>';
-	$output .= '<p>' . htmlspecialchars($lang['admin']['entry']['bbcode-protect']['description'], ENT_QUOTES, 'UTF-8') . '</p>';
+	$output .= '<legend>' . htmlspecialchars($lang['admin']['entry']['bbcode_protect']['legend'], ENT_QUOTES, 'UTF-8') . '</legend>';
+	$output .= '<p>' . htmlspecialchars($lang['admin']['entry']['bbcode_protect']['description'], ENT_QUOTES, 'UTF-8') . '</p>';
 	$output .= '<p>';
-	$output .= '<label for="bbcode_protect_password">' . htmlspecialchars($lang['admin']['entry']['bbcode-protect']['password_label'], ENT_QUOTES, 'UTF-8') . '</label><br>';
+	$output .= '<label for="bbcode_protect_password">' . htmlspecialchars($lang['admin']['entry']['bbcode_protect']['password_label'], ENT_QUOTES, 'UTF-8') . '</label><br>';
 	$output .= '<input type="password" name="bbcode_protect_password" id="bbcode_protect_password" value="' . htmlspecialchars($password, ENT_QUOTES, 'UTF-8') . '" autocomplete="new-password">';
 	$output .= '</p>';
-	$output .= '<p class="bbcode-protect-note">' . htmlspecialchars($lang['admin']['entry']['bbcode-protect']['note'], ENT_QUOTES, 'UTF-8') . '</p>';
+	$output .= '<p class="bbcode-protect-note">' . htmlspecialchars($lang['admin']['entry']['bbcode_protect']['note'], ENT_QUOTES, 'UTF-8') . '</p>';
 	$output .= '</fieldset>';
 	
 	return $output;

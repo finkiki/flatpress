@@ -53,9 +53,10 @@ function plugin_bbcode_protect_startup() {
 		$_SESSION['bbcode_protect_attempts'] = [];
 	}
 	
-	// Add BBCode filter to content
-	add_filter('the_content', 'plugin_bbcode_protect_filter', 15);
-	add_filter('the_excerpt', 'plugin_bbcode_protect_filter', 15);
+	// Add BBCode filter to content - run BEFORE standard BBCode plugin (priority 1)
+	// This ensures our [protect] tags are processed before any BBCode conversion
+	add_filter('the_content', 'plugin_bbcode_protect_filter', 0);
+	add_filter('the_excerpt', 'plugin_bbcode_protect_filter', 0);
 	
 	// Strip protected content from feeds
 	if (function_exists('is_feed') || (isset($_GET['x']) && strpos($_GET['x'], 'feed') !== false)) {
