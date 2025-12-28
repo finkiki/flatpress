@@ -1,5 +1,4 @@
 <?php
-$baseurl = BLOG_BASEURL;
 $lang['plugin']['entrypassword'] = array(
 	'heading' => 'Zaščitena Vsebina',
 	'description' => 'Ta vsebina je zaščitena z geslom. Prosimo, vnesite geslo za ogled.',

@@ -1,5 +1,4 @@
 <?php
-$baseurl = BLOG_BASEURL;
 $lang['plugin']['entrypassword'] = array(
 	'heading' => 'Conteúdo Protegido',
 	'description' => 'Este conteúdo está protegido por senha. Por favor, insira a senha para visualizá-lo.',

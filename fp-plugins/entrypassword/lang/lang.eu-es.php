@@ -1,5 +1,4 @@
 <?php
-$baseurl = BLOG_BASEURL;
 $lang['plugin']['entrypassword'] = array(
 	'heading' => 'Babestutako Edukia',
 	'description' => 'Eduki hau pasahitzez babestuta dago. Mesedez, sartu pasahitza ikusteko.',

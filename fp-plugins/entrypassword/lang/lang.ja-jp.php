@@ -1,5 +1,4 @@
 <?php
-$baseurl = BLOG_BASEURL;
 $lang['plugin']['entrypassword'] = array(
 	'heading' => '保護されたコンテンツ',
 	'description' => 'このコンテンツはパスワードで保護されています。表示するにはパスワードを入力してください。',

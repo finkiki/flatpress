@@ -174,12 +174,19 @@ function plugin_entrypassword_handle_submission() {
 	$is_static = isset($_POST['entrypassword_static']) && $_POST['entrypassword_static'] === '1';
 	$password = isset($_POST['entrypassword_password']) ? $_POST['entrypassword_password'] : '';
 	
+	// Validate password length to prevent DoS via excessive bcrypt computation
+	if (strlen($password) > 255) {
+		$password = substr($password, 0, 255);
+	}
+	
 	if (plugin_entrypassword_verify_password($id, $password, $is_static)) {
 		plugin_entrypassword_unlock($id, $is_static);
-		// Redirect to same page to clear POST data
-		$redirect_url = $_SERVER['REQUEST_URI'];
-		header('Location: ' . $redirect_url);
-		exit;
+		// Redirect to same page to clear POST data - sanitize URI to prevent header injection
+		$redirect_url = filter_var($_SERVER['REQUEST_URI'], FILTER_SANITIZE_URL);
+		if ($redirect_url !== false && $redirect_url !== '') {
+			header('Location: ' . $redirect_url);
+			exit;
+		}
 	} else {
 		// Set error flag for display
 		if (session_status() === PHP_SESSION_NONE) {
@@ -263,6 +270,7 @@ function plugin_entrypassword_filter_content($content) {
 						required 
 						aria-required="true"
 						autocomplete="off"
+						maxlength="255"
 					>
 				</div>
 				<button type="submit" name="entrypassword_submit" class="entrypassword-submit">' . htmlspecialchars($button, ENT_QUOTES, 'UTF-8') . '</button>
@@ -402,7 +410,7 @@ if (defined('SYSTEM_VER') && version_compare(SYSTEM_VER, '0.1010', '>=') && defi
 			echo '		<input type="hidden" name="entrypassword_is_static" value="' . ($is_static ? '1' : '0') . '">';
 			echo '		<input type="hidden" name="entrypassword_id" value="' . htmlspecialchars($id, ENT_QUOTES, $charset) . '">';
 			echo '		<p><label for="entrypassword_field">' . htmlspecialchars($label, ENT_QUOTES, $charset) . '</label>';
-			echo '			<input placeholder="' . htmlspecialchars($placeholder, ENT_QUOTES, $charset) . '" class="maxsize" id="entrypassword_field" type="password" name="entrypassword_field" value="" autocomplete="new-password"><br>';
+			echo '			<input placeholder="' . htmlspecialchars($placeholder, ENT_QUOTES, $charset) . '" class="maxsize" id="entrypassword_field" type="password" name="entrypassword_field" value="" autocomplete="new-password" maxlength="255"><br>';
 			echo '			<small><em>' . htmlspecialchars($status_text, ENT_QUOTES, $charset) . '</em></small>';
 			echo '		</p>';
 			echo '	</div>';
@@ -420,6 +428,12 @@ if (defined('SYSTEM_VER') && version_compare(SYSTEM_VER, '0.1010', '>=') && defi
 			}
 			
 			$password = $_POST['entrypassword_field'];
+			
+			// Validate password length to prevent DoS via excessive bcrypt computation
+			if (strlen($password) > 255) {
+				$password = substr($password, 0, 255);
+			}
+			
 			$is_static = isset($_POST['entrypassword_is_static']) && $_POST['entrypassword_is_static'] === '1';
 			
 			// If we don't have an ID yet, try to get it
@@ -441,6 +455,12 @@ if (defined('SYSTEM_VER') && version_compare(SYSTEM_VER, '0.1010', '>=') && defi
 			}
 			
 			$password = $_POST['entrypassword_field'];
+			
+			// Validate password length to prevent DoS via excessive bcrypt computation
+			if (strlen($password) > 255) {
+				$password = substr($password, 0, 255);
+			}
+			
 			$id = isset($_POST['id']) ? $_POST['id'] : '';
 			
 			if ($id) {

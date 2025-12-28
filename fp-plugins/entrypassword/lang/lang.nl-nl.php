@@ -1,5 +1,4 @@
 <?php
-$baseurl = BLOG_BASEURL;
 $lang['plugin']['entrypassword'] = array(
 	'heading' => 'Beveiligde Inhoud',
 	'description' => 'Deze inhoud is met een wachtwoord beveiligd. Voer het wachtwoord in om te bekijken.',

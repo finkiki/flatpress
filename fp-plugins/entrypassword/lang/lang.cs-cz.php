@@ -1,5 +1,4 @@
 <?php
-$baseurl = BLOG_BASEURL;
 $lang['plugin']['entrypassword'] = array(
 	'heading' => 'Chráněný obsah',
 	'description' => 'Tento obsah je chráněn heslem. Zadejte prosím heslo pro zobrazení.',

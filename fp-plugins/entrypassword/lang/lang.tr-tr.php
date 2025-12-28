@@ -1,5 +1,4 @@
 <?php
-$baseurl = BLOG_BASEURL;
 $lang['plugin']['entrypassword'] = array(
 	'heading' => 'Korumalı İçerik',
 	'description' => 'Bu içerik şifre ile korunmaktadır. Görüntülemek için lütfen şifreyi girin.',

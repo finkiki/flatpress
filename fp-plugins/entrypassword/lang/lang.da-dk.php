@@ -1,5 +1,4 @@
 <?php
-$baseurl = BLOG_BASEURL;
 $lang['plugin']['entrypassword'] = array(
 	'heading' => 'Beskyttet indhold',
 	'description' => 'Dette indhold er beskyttet med adgangskode. Indtast venligst adgangskoden for at se.',
