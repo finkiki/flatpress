@@ -3,7 +3,7 @@
  * Dutch Language File for Content Protection Plugin
  */
 
-$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Inhoudsbescherming';
+$lang['admin']['config']['submenu']['bbcode_protect'] = 'Inhoudsbescherming';
 
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Wachtwoord:',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Er is geen wachtwoord ingesteld voor deze inhoud.',
 ];
 
-$lang['admin']['plugin']['bbcode_protect'] = [
+$lang['admin']['config']['bbcode_protect'] = [
 	'title' => 'Instellingen inhoudsbescherming',
 	'password_section' => 'Globaal wachtwoord',
 	'default_password' => 'Standaardwachtwoord',

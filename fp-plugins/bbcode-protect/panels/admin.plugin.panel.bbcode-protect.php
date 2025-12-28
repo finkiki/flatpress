@@ -185,4 +185,4 @@ Your protected content here
 }
 
 // Register admin panel
-admin_addpanelaction('plugin', 'bbcode_protect', true);
+admin_addpanelaction('config', 'bbcode_protect', true);

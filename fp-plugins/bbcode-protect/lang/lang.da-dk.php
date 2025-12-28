@@ -3,7 +3,7 @@
  * Danish Language File for Content Protection Plugin
  */
 
-$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Indholdsbeskyttelse';
+$lang['admin']['config']['submenu']['bbcode_protect'] = 'Indholdsbeskyttelse';
 
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Adgangskode:',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Der er ikke angivet nogen adgangskode for dette indhold.',
 ];
 
-$lang['admin']['plugin']['bbcode_protect'] = [
+$lang['admin']['config']['bbcode_protect'] = [
 	'title' => 'Indstillinger for indholdsbeskyttelse',
 	'password_section' => 'Global adgangskode',
 	'default_password' => 'Standardadgangskode',

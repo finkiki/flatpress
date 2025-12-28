@@ -3,7 +3,7 @@
  * Czech Language File for Content Protection Plugin
  */
 
-$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Ochrana obsahu';
+$lang['admin']['config']['submenu']['bbcode_protect'] = 'Ochrana obsahu';
 
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Heslo:',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Pro tento obsah nebylo nastaveno žádné heslo.',
 ];
 
-$lang['admin']['plugin']['bbcode_protect'] = [
+$lang['admin']['config']['bbcode_protect'] = [
 	'title' => 'Nastavení ochrany obsahu',
 	'password_section' => 'Globální heslo',
 	'default_password' => 'Výchozí heslo',

@@ -3,7 +3,7 @@
  * Basque Language File for Content Protection Plugin
  */
 
-$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Edukien Babesa';
+$lang['admin']['config']['submenu']['bbcode_protect'] = 'Edukien Babesa';
 
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Pasahitza:',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Ez da pasahitzik ezarri eduki honetarako.',
 ];
 
-$lang['admin']['plugin']['bbcode_protect'] = [
+$lang['admin']['config']['bbcode_protect'] = [
 	'title' => 'Edukiaren babes-ezarpenak',
 	'password_section' => 'Pasahitz orokorra',
 	'default_password' => 'Lehenetsitako pasahitza',

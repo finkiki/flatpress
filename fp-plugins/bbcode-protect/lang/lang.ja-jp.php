@@ -3,7 +3,7 @@
  * Japanese Language File for Content Protection Plugin
  */
 
-$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'コンテンツ保護';
+$lang['admin']['config']['submenu']['bbcode_protect'] = 'コンテンツ保護';
 
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'パスワード：',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'このコンテンツにはパスワードが設定されていません。',
 ];
 
-$lang['admin']['plugin']['bbcode_protect'] = [
+$lang['admin']['config']['bbcode_protect'] = [
 	'title' => 'コンテンツ保護設定',
 	'password_section' => 'グローバルパスワード',
 	'default_password' => 'デフォルトパスワード',

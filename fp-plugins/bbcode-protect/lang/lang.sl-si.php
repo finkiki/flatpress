@@ -3,7 +3,7 @@
  * Slovenian Language File for Content Protection Plugin
  */
 
-$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Zaščita Vsebine';
+$lang['admin']['config']['submenu']['bbcode_protect'] = 'Zaščita Vsebine';
 
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Geslo:',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Za to vsebino ni bilo nastavljeno nobeno geslo.',
 ];
 
-$lang['admin']['plugin']['bbcode_protect'] = [
+$lang['admin']['config']['bbcode_protect'] = [
 	'title' => 'Nastavitve zaščite vsebine',
 	'password_section' => 'Globalno geslo',
 	'default_password' => 'Privzeto geslo',

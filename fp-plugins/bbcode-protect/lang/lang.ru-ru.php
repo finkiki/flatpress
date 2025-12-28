@@ -3,7 +3,7 @@
  * Russian Language File for Content Protection Plugin
  */
 
-$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Защита Содержимого';
+$lang['admin']['config']['submenu']['bbcode_protect'] = 'Защита Содержимого';
 
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Пароль:',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Для этого содержимого не установлен пароль.',
 ];
 
-$lang['admin']['plugin']['bbcode_protect'] = [
+$lang['admin']['config']['bbcode_protect'] = [
 	'title' => 'Настройки защиты контента',
 	'password_section' => 'Глобальный пароль',
 	'default_password' => 'Пароль по умолчанию',

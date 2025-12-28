@@ -3,7 +3,7 @@
  * Greek Language File for Content Protection Plugin
  */
 
-$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Προστασία Περιεχομένου';
+$lang['admin']['config']['submenu']['bbcode_protect'] = 'Προστασία Περιεχομένου';
 
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Κωδικός πρόσβασης:',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Δεν έχει οριστεί κωδικός πρόσβασης για αυτό το περιεχόμενο.',
 ];
 
-$lang['admin']['plugin']['bbcode_protect'] = [
+$lang['admin']['config']['bbcode_protect'] = [
 	'title' => 'Ρυθμίσεις προστασίας περιεχομένου',
 	'password_section' => 'Γενικός κωδικός πρόσβασης',
 	'default_password' => 'Προεπιλεγμένος κωδικός πρόσβασης',

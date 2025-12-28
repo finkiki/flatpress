@@ -3,7 +3,7 @@
  * Turkish Language File for Content Protection Plugin
  */
 
-$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'İçerik Koruması';
+$lang['admin']['config']['submenu']['bbcode_protect'] = 'İçerik Koruması';
 
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Şifre:',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Bu içerik için şifre ayarlanmamış.',
 ];
 
-$lang['admin']['plugin']['bbcode_protect'] = [
+$lang['admin']['config']['bbcode_protect'] = [
 	'title' => 'İçerik koruma ayarları',
 	'password_section' => 'Genel şifre',
 	'default_password' => 'Varsayılan şifre',

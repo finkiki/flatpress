@@ -3,7 +3,7 @@
  * Portuguese (Brazilian) Language File for Content Protection Plugin
  */
 
-$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Proteção de Conteúdo';
+$lang['admin']['config']['submenu']['bbcode_protect'] = 'Proteção de Conteúdo';
 
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Senha:',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Nenhuma senha foi definida para este conteúdo.',
 ];
 
-$lang['admin']['plugin']['bbcode_protect'] = [
+$lang['admin']['config']['bbcode_protect'] = [
 	'title' => 'Configurações de proteção de conteúdo',
 	'password_section' => 'Senha global',
 	'default_password' => 'Senha padrão',

@@ -3,7 +3,7 @@
  * German Language File for Content Protection Plugin
  */
 
-$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Inhaltsschutz';
+$lang['admin']['config']['submenu']['bbcode_protect'] = 'Inhaltsschutz';
 
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Passwort:',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Für diesen Inhalt wurde kein Passwort festgelegt.',
 ];
 
-$lang['admin']['plugin']['bbcode_protect'] = [
+$lang['admin']['config']['bbcode_protect'] = [
 	'title' => 'Inhaltsschutz-Einstellungen',
 	'password_section' => 'Globales Passwort',
 	'default_password' => 'Standardpasswort',
