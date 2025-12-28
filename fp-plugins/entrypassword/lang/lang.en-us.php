@@ -1,4 +1,5 @@
 <?php
+$lang['plugin']['entrypassword'] = array(
 	'heading' => 'Protected Content',
 	'description' => 'This content is password protected. Please enter the password to view.',
 	'password_label' => 'Password:',
