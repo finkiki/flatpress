@@ -11,7 +11,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'No password has been set for this content.',
 ];
 
-$lang['admin']['config']['bbcode_protect'] = [
+$lang['admin']['plugin']['bbcode_protect'] = [
 	'title' => 'Content Protection Settings',
 	'password_section' => 'Global Password',
 	'default_password' => 'Default Password',

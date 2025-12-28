@@ -64,110 +64,110 @@ function plugin_bbcode_protect_admin_config_main() {
 	?>
 	<div class="bbcode-protect-admin">
 		<h2><?php 
-			echo isset($lang['admin']['config']['bbcode_protect']['title']) ? 
-				$lang['admin']['config']['bbcode_protect']['title'] : 
+			echo isset($lang['admin']['plugin']['bbcode_protect']['title']) ? 
+				$lang['admin']['plugin']['bbcode_protect']['title'] : 
 				'Content Protection Settings'; 
 		?></h2>
 		
 		<div class="section">
 			<h3><?php 
-				echo isset($lang['admin']['config']['bbcode_protect']['password_section']) ? 
-					$lang['admin']['config']['bbcode_protect']['password_section'] : 
+				echo isset($lang['admin']['plugin']['bbcode_protect']['password_section']) ? 
+					$lang['admin']['plugin']['bbcode_protect']['password_section'] : 
 					'Global Password'; 
 			?></h3>
 			
 			<label for="default_password"><?php 
-				echo isset($lang['admin']['config']['bbcode_protect']['default_password']) ? 
-					$lang['admin']['config']['bbcode_protect']['default_password'] : 
+				echo isset($lang['admin']['plugin']['bbcode_protect']['default_password']) ? 
+					$lang['admin']['plugin']['bbcode_protect']['default_password'] : 
 					'Default Password'; 
 			?></label>
 			<input type="password" id="default_password" name="bbcode_protect[default_password_plain]" 
 				value="<?php echo htmlspecialchars($default_password_plain, ENT_QUOTES, 'UTF-8'); ?>" 
 				autocomplete="new-password">
 			<p class="description"><?php 
-				echo isset($lang['admin']['config']['bbcode_protect']['default_password_desc']) ? 
-					$lang['admin']['config']['bbcode_protect']['default_password_desc'] : 
+				echo isset($lang['admin']['plugin']['bbcode_protect']['default_password_desc']) ? 
+					$lang['admin']['plugin']['bbcode_protect']['default_password_desc'] : 
 					'Global password for all protected content. Can be overridden per-entry.'; 
 			?></p>
 		</div>
 		
 		<div class="section">
 			<h3><?php 
-				echo isset($lang['admin']['config']['bbcode_protect']['display_section']) ? 
-					$lang['admin']['config']['bbcode_protect']['display_section'] : 
+				echo isset($lang['admin']['plugin']['bbcode_protect']['display_section']) ? 
+					$lang['admin']['plugin']['bbcode_protect']['display_section'] : 
 					'Display Settings'; 
 			?></h3>
 			
 			<label for="prompt_text"><?php 
-				echo isset($lang['admin']['config']['bbcode_protect']['prompt_text']) ? 
-					$lang['admin']['config']['bbcode_protect']['prompt_text'] : 
+				echo isset($lang['admin']['plugin']['bbcode_protect']['prompt_text']) ? 
+					$lang['admin']['plugin']['bbcode_protect']['prompt_text'] : 
 					'Prompt Text'; 
 			?></label>
 			<input type="text" id="prompt_text" name="bbcode_protect[prompt_text]" 
 				value="<?php echo htmlspecialchars($prompt_text, ENT_QUOTES, 'UTF-8'); ?>">
 			<p class="description"><?php 
-				echo isset($lang['admin']['config']['bbcode_protect']['prompt_text_desc']) ? 
-					$lang['admin']['config']['bbcode_protect']['prompt_text_desc'] : 
+				echo isset($lang['admin']['plugin']['bbcode_protect']['prompt_text_desc']) ? 
+					$lang['admin']['plugin']['bbcode_protect']['prompt_text_desc'] : 
 					'Message shown above password form.'; 
 			?></p>
 			
 			<label for="remember_duration"><?php 
-				echo isset($lang['admin']['config']['bbcode_protect']['remember_duration']) ? 
-					$lang['admin']['config']['bbcode_protect']['remember_duration'] : 
+				echo isset($lang['admin']['plugin']['bbcode_protect']['remember_duration']) ? 
+					$lang['admin']['plugin']['bbcode_protect']['remember_duration'] : 
 					'Remember Duration (seconds)'; 
 			?></label>
 			<input type="number" id="remember_duration" name="bbcode_protect[remember_duration]" 
 				value="<?php echo (int)$remember_duration; ?>" min="60" max="86400">
 			<p class="description"><?php 
-				echo isset($lang['admin']['config']['bbcode_protect']['remember_duration_desc']) ? 
-					$lang['admin']['config']['bbcode_protect']['remember_duration_desc'] : 
+				echo isset($lang['admin']['plugin']['bbcode_protect']['remember_duration_desc']) ? 
+					$lang['admin']['plugin']['bbcode_protect']['remember_duration_desc'] : 
 					'How long content stays unlocked (default: 3600 = 1 hour).'; 
 			?></p>
 		</div>
 		
 		<div class="section">
 			<h3><?php 
-				echo isset($lang['admin']['config']['bbcode_protect']['security_section']) ? 
-					$lang['admin']['config']['bbcode_protect']['security_section'] : 
+				echo isset($lang['admin']['plugin']['bbcode_protect']['security_section']) ? 
+					$lang['admin']['plugin']['bbcode_protect']['security_section'] : 
 					'Security Settings'; 
 			?></h3>
 			
 			<label for="max_attempts"><?php 
-				echo isset($lang['admin']['config']['bbcode_protect']['max_attempts']) ? 
-					$lang['admin']['config']['bbcode_protect']['max_attempts'] : 
+				echo isset($lang['admin']['plugin']['bbcode_protect']['max_attempts']) ? 
+					$lang['admin']['plugin']['bbcode_protect']['max_attempts'] : 
 					'Max Failed Attempts'; 
 			?></label>
 			<input type="number" id="max_attempts" name="bbcode_protect[max_attempts]" 
 				value="<?php echo (int)$max_attempts; ?>" min="1" max="20">
 			<p class="description"><?php 
-				echo isset($lang['admin']['config']['bbcode_protect']['max_attempts_desc']) ? 
-					$lang['admin']['config']['bbcode_protect']['max_attempts_desc'] : 
+				echo isset($lang['admin']['plugin']['bbcode_protect']['max_attempts_desc']) ? 
+					$lang['admin']['plugin']['bbcode_protect']['max_attempts_desc'] : 
 					'Number of failed attempts before rate limiting (default: 5).'; 
 			?></p>
 			
 			<label for="attempt_window"><?php 
-				echo isset($lang['admin']['config']['bbcode_protect']['attempt_window']) ? 
-					$lang['admin']['config']['bbcode_protect']['attempt_window'] : 
+				echo isset($lang['admin']['plugin']['bbcode_protect']['attempt_window']) ? 
+					$lang['admin']['plugin']['bbcode_protect']['attempt_window'] : 
 					'Attempt Window (seconds)'; 
 			?></label>
 			<input type="number" id="attempt_window" name="bbcode_protect[attempt_window]" 
 				value="<?php echo (int)$attempt_window; ?>" min="60" max="3600">
 			<p class="description"><?php 
-				echo isset($lang['admin']['config']['bbcode_protect']['attempt_window_desc']) ? 
-					$lang['admin']['config']['bbcode_protect']['attempt_window_desc'] : 
+				echo isset($lang['admin']['plugin']['bbcode_protect']['attempt_window_desc']) ? 
+					$lang['admin']['plugin']['bbcode_protect']['attempt_window_desc'] : 
 					'Time window for counting failed attempts (default: 300 = 5 minutes).'; 
 			?></p>
 		</div>
 		
 		<div class="section">
 			<h3><?php 
-				echo isset($lang['admin']['config']['bbcode_protect']['usage_section']) ? 
-					$lang['admin']['config']['bbcode_protect']['usage_section'] : 
+				echo isset($lang['admin']['plugin']['bbcode_protect']['usage_section']) ? 
+					$lang['admin']['plugin']['bbcode_protect']['usage_section'] : 
 					'Usage Instructions'; 
 			?></h3>
 			<p><?php 
-				echo isset($lang['admin']['config']['bbcode_protect']['usage_text']) ? 
-					$lang['admin']['config']['bbcode_protect']['usage_text'] : 
+				echo isset($lang['admin']['plugin']['bbcode_protect']['usage_text']) ? 
+					$lang['admin']['plugin']['bbcode_protect']['usage_text'] : 
 					'To protect content in your posts, use HTML comments:'; 
 			?></p>
 			<pre style="background: #f0f0f0; padding: 10px; overflow-x: auto;">
@@ -175,8 +175,8 @@ function plugin_bbcode_protect_admin_config_main() {
 Your protected content here
 &lt;!--/protect--&gt;</pre>
 			<p><?php 
-				echo isset($lang['admin']['config']['bbcode_protect']['usage_note']) ? 
-					$lang['admin']['config']['bbcode_protect']['usage_note'] : 
+				echo isset($lang['admin']['plugin']['bbcode_protect']['usage_note']) ? 
+					$lang['admin']['plugin']['bbcode_protect']['usage_note'] : 
 					'You can also set per-entry passwords in the entry editor.'; 
 			?></p>
 		</div>
@@ -185,4 +185,4 @@ Your protected content here
 }
 
 // Register admin panel
-admin_addpanelaction('config', 'bbcode_protect', true);
+admin_addpanelaction('plugin', 'bbcode_protect', true);
