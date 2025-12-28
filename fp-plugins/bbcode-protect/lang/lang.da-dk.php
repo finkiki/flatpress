@@ -11,6 +11,8 @@ $lang['admin']['config']['bbcode_protect'] = array(
 	
 	// General settings
 	'general_settings' => 'Generelle indstillinger',
+	'default_password_label' => 'Default Password',
+	'default_password_desc' => 'Global password used for all [protect][/protect] blocks when no per-entry or inline password is set. Leave blank to disable password protection by default.',
 	'allow_inline_password' => 'Tillad inline adgangskoder i BBCode',
 	'allow_inline_password_desc' => 'Når aktiveret, tillader brug af [protect pwd="adgangskode"]...[/protect] syntaks. Når deaktiveret, bruges kun adgangskoder pr. indlæg.',
 	'prompt_text_label' => 'Adgangskode prompt tekst',

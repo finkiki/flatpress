@@ -11,6 +11,8 @@ $lang['admin']['config']['bbcode_protect'] = array(
 	
 	// General settings
 	'general_settings' => 'Obecná nastavení',
+	'default_password_label' => 'Default Password',
+	'default_password_desc' => 'Global password used for all [protect][/protect] blocks when no per-entry or inline password is set. Leave blank to disable password protection by default.',
 	'allow_inline_password' => 'Povolit inline hesla v BBCode',
 	'allow_inline_password_desc' => 'Pokud je povoleno, umožňuje použití syntaxe [protect pwd="heslo"]...[/protect]. Pokud je zakázáno, používají se pouze hesla na položku.',
 	'prompt_text_label' => 'Text výzvy k heslu',

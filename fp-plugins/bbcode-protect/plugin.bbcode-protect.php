@@ -163,6 +163,9 @@ function plugin_bbcode_protect_handle_password() {
 	} elseif ($entry_password_hash) {
 		// For entry-level passwords, use secure password_verify
 		$verified = password_verify($password, $entry_password_hash);
+	} elseif (!empty($options['default_password'])) {
+		// Try global default password as final fallback
+		$verified = password_verify($password, $options['default_password']);
 	}
 	
 	if ($verified) {
@@ -316,11 +319,13 @@ function plugin_bbcode_protect_filter($content) {
 			return $protected_content;
 		}
 		
-		// Check if we have a password (inline or entry-level)
-		$has_password = ($inline_password !== null && $options['allow_inline_password']) || $entry_password_hash !== null;
+		// Check if we have a password (inline, entry-level, or global default)
+		$has_password = ($inline_password !== null && $options['allow_inline_password']) 
+			|| $entry_password_hash !== null
+			|| !empty($options['default_password']);
 		
 		if (!$has_password) {
-			// No password configured, show content
+			// No password configured anywhere, show content
 			return $protected_content;
 		}
 		

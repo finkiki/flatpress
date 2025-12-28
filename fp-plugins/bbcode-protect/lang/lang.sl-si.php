@@ -11,6 +11,8 @@ $lang['admin']['config']['bbcode_protect'] = array(
 	
 	// General settings
 	'general_settings' => 'Splošne nastavitve',
+	'default_password_label' => 'Default Password',
+	'default_password_desc' => 'Global password used for all [protect][/protect] blocks when no per-entry or inline password is set. Leave blank to disable password protection by default.',
 	'allow_inline_password' => 'Dovoli vdelana gesla v BBCode',
 	'allow_inline_password_desc' => 'Ko je omogočeno, dovoli uporabo sintakse [protect pwd="geslo"]...[/protect]. Ko je onemogočeno, se uporabljajo samo gesla po vnosu.',
 	'prompt_text_label' => 'Besedilo poziva za geslo',

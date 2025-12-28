@@ -11,6 +11,8 @@ $lang['admin']['config']['bbcode_protect'] = array(
 	
 	// General settings
 	'general_settings' => 'Ezarpen Orokorrak',
+	'default_password_label' => 'Default Password',
+	'default_password_desc' => 'Global password used for all [protect][/protect] blocks when no per-entry or inline password is set. Leave blank to disable password protection by default.',
 	'allow_inline_password' => 'Baimendu barneko pasahitzak BBCode-n',
 	'allow_inline_password_desc' => 'Gaituta dagoenean, [protect pwd="pasahitza"]...[/protect] sintaxia erabiltzea ahalbidetzen du. Desgaituta dagoenean, sarrera bakoitzeko pasahitzak bakarrik erabiltzen dira.',
 	'prompt_text_label' => 'Pasahitz Eskaera Testua',

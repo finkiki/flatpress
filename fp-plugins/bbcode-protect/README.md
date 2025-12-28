@@ -90,9 +90,26 @@ Access settings at: **Admin → Config → Content Protection**
 
 - **Bypass cache for protected content**: Prevent caching of pages with protected blocks
 
-## Setting Entry Passwords
+## Setting Passwords
 
-To set a per-entry password:
+### Global Default Password
+
+To set a site-wide default password used for all `[protect][/protect]` blocks:
+
+1. Go to Admin → Config → Content Protection
+2. Enter a password in the "Default Password" field
+3. Click "Save Settings"
+
+The default password will be used when:
+- A `[protect][/protect]` block has no inline password
+- The entry has no per-entry password set
+- This provides a convenient way to protect multiple entries with the same password
+
+**Note**: Leave the field blank to disable password protection by default.
+
+### Per-Entry Passwords
+
+To set a password for a specific entry (overrides the default password):
 
 1. Go to Admin → Entries → Write/Edit Entry
 2. Look for the "Content Protection" metadata panel
@@ -101,12 +118,30 @@ To set a per-entry password:
 
 **Note**: Entry passwords are stored using PHP's `password_hash()` function with the bcrypt algorithm. Plaintext passwords are never stored.
 
+### Inline Passwords
+
+To use a different password for each protected block within an entry:
+
+1. Enable "Allow inline passwords" in Admin → Config → Content Protection
+2. Use syntax: `[protect pwd="your-password"]content[/protect]`
+
+**Note**: Inline passwords are less secure as they're stored in plaintext in the entry content.
+
+## Password Priority
+
+When multiple passwords are configured, they are checked in this order:
+
+1. **Inline password** (if enabled and specified in BBCode)
+2. **Per-entry password** (if set in entry metadata)
+3. **Global default password** (if set in admin settings)
+
 ## Security Notes
 
 ### Password Storage
 
+- **Global default password**: Stored as bcrypt hash in plugin configuration
 - **Entry passwords**: Stored as bcrypt hashes in entry metadata
-- **Inline passwords**: Temporarily stored in session for comparison (not recommended for sensitive content)
+- **Inline passwords**: Stored in plaintext in BBCode (not recommended for sensitive content)
 - **Session tokens**: Cryptographically signed with HMAC-SHA256
 
 ### Rate Limiting
@@ -129,12 +164,14 @@ Protected content is automatically replaced with `[This content is password prot
 
 ### Best Practices
 
-1. **Use per-entry passwords** instead of inline passwords for sensitive content
-2. **Set appropriate remember duration** - shorter for sensitive content
-3. **Enable cache bypass** if using page caching
-4. **Use strong passwords** - at least 12 characters with mixed case, numbers, and symbols
-5. **Regularly update passwords** for highly sensitive content
-6. **Don't share passwords** via insecure channels (email, comments, etc.)
+1. **Use global default password** for convenience across multiple entries
+2. **Use per-entry passwords** for entry-specific protection or overriding the default
+3. **Avoid inline passwords** for sensitive content (they're stored in plaintext)
+4. **Set appropriate remember duration** - shorter for sensitive content
+5. **Enable cache bypass** if using page caching
+6. **Use strong passwords** - at least 12 characters with mixed case, numbers, and symbols
+7. **Regularly update passwords** for highly sensitive content
+8. **Don't share passwords** via insecure channels (email, comments, etc.)
 
 ## Feed Behavior
 

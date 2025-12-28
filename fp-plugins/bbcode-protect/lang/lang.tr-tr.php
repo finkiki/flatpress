@@ -11,6 +11,8 @@ $lang['admin']['config']['bbcode_protect'] = array(
 	
 	// General settings
 	'general_settings' => 'Genel Ayarlar',
+	'default_password_label' => 'Default Password',
+	'default_password_desc' => 'Global password used for all [protect][/protect] blocks when no per-entry or inline password is set. Leave blank to disable password protection by default.',
 	'allow_inline_password' => 'BBCode\'da satır içi parolalara izin ver',
 	'allow_inline_password_desc' => 'Etkinleştirildiğinde, [protect pwd="parola"]...[/protect] sözdizimini kullanmaya izin verir. Devre dışı bırakıldığında, yalnızca giriş başına parolalar kullanılır.',
 	'prompt_text_label' => 'Parola İstemi Metni',

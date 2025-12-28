@@ -30,6 +30,13 @@ class admin_config_bbcode_protect extends AdminPanelAction {
 			$this->smarty->assign($key, $value);
 		}
 		
+		// Assign plain password for editing (if it exists)
+		if (isset($options['default_password_plain'])) {
+			$this->smarty->assign('default_password_plain', $options['default_password_plain']);
+		} else {
+			$this->smarty->assign('default_password_plain', '');
+		}
+		
 		// Check Smarty version
 		$smarty_version = defined('Smarty::SMARTY_VERSION') ? Smarty::SMARTY_VERSION : '0.0.0';
 		$this->smarty->assign('smarty_version', $smarty_version);
@@ -40,7 +47,26 @@ class admin_config_bbcode_protect extends AdminPanelAction {
 	 * Handle form submission
 	 */
 	function onsubmit($data = null) {
-		// Save settings
+		// Handle default password
+		if (isset($_POST['default_password']) && !empty($_POST['default_password'])) {
+			$password = $_POST['default_password'];
+			// Validate password length
+			if (strlen($password) > 1000) {
+				$password = substr($password, 0, 1000);
+			}
+			// Remove null bytes
+			$password = str_replace("\0", '', $password);
+			// Hash the password securely
+			plugin_addoption('bbcode-protect', 'default_password', password_hash($password, PASSWORD_DEFAULT));
+			// Store plain password temporarily for editing (will be in config)
+			plugin_addoption('bbcode-protect', 'default_password_plain', $password);
+		} elseif (isset($_POST['default_password']) && empty($_POST['default_password'])) {
+			// Password field was cleared - remove default password
+			plugin_addoption('bbcode-protect', 'default_password', '');
+			plugin_addoption('bbcode-protect', 'default_password_plain', '');
+		}
+		
+		// Save other settings
 		plugin_addoption('bbcode-protect', 'allow_inline_password', isset($_POST['allow_inline_password']));
 		plugin_addoption('bbcode-protect', 'remember_duration', max(60, intval($_POST['remember_duration'])));
 		plugin_addoption('bbcode-protect', 'prompt_text', sanitize_text_field($_POST['prompt_text']));

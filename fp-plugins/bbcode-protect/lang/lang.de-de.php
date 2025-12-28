@@ -11,6 +11,8 @@ $lang['admin']['config']['bbcode_protect'] = array(
 	
 	// General settings
 	'general_settings' => 'Allgemeine Einstellungen',
+	'default_password_label' => 'Default Password',
+	'default_password_desc' => 'Global password used for all [protect][/protect] blocks when no per-entry or inline password is set. Leave blank to disable password protection by default.',
 	'allow_inline_password' => 'Inline-Passwörter in BBCode erlauben',
 	'allow_inline_password_desc' => 'Wenn aktiviert, kann die Syntax [protect pwd="passwort"]...[/protect] verwendet werden. Wenn deaktiviert, werden nur Eintragspasswörter verwendet.',
 	'prompt_text_label' => 'Passwort-Aufforderungstext',

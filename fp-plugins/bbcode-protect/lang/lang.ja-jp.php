@@ -11,6 +11,8 @@ $lang['admin']['config']['bbcode_protect'] = array(
 	
 	// General settings
 	'general_settings' => '一般設定',
+	'default_password_label' => 'Default Password',
+	'default_password_desc' => 'Global password used for all [protect][/protect] blocks when no per-entry or inline password is set. Leave blank to disable password protection by default.',
 	'allow_inline_password' => 'BBCodeでインラインパスワードを許可',
 	'allow_inline_password_desc' => '有効にすると、[protect pwd="パスワード"]...[/protect]構文の使用が可能になります。無効にすると、エントリごとのパスワードのみが使用されます。',
 	'prompt_text_label' => 'パスワードプロンプトテキスト',

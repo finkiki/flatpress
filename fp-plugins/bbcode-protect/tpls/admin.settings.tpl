@@ -17,6 +17,19 @@
 		<legend>{$plang.general_settings}</legend>
 		
 		<div class="form-group">
+			<label for="default_password">
+				{$plang.default_password_label}
+			</label>
+			<input type="password" 
+				   name="default_password" 
+				   id="default_password" 
+				   value="{$default_password_plain|escape}" 
+				   class="text-input"
+				   autocomplete="new-password">
+			<p class="description">{$plang.default_password_desc}</p>
+		</div>
+		
+		<div class="form-group">
 			<label for="allow_inline_password">
 				<input type="checkbox" 
 					   name="allow_inline_password" 
