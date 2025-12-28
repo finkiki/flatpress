@@ -1,17 +1,12 @@
 <?php
 /**
  * Plugin Name: Content Protection
- * Version: 2.0.0
+ * Version: 2.0.1
  * Plugin URI: https://www.flatpress.org
  * Author: FlatPress
  * Author URI: https://www.flatpress.org
  * Description: Password-protect content blocks using HTML comment markers. Supports per-entry passwords and global default passwords. Compatible with Smarty 5.5+.
  */
-
-// Prevent direct access
-if (!defined('FLATPRESS')) {
-	die('This file cannot be accessed directly.');
-}
 
 // Default configuration
 if (!defined('BBCODE_PROTECT_DEFAULTS')) {
