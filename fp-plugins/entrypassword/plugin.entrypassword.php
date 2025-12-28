@@ -170,7 +170,7 @@ function plugin_entrypassword_handle_submission() {
 		return;
 	}
 	
-	$id = sanitize_text_field($_POST['entrypassword_id']);
+	$id = plugin_entrypassword_sanitize_text_field($_POST['entrypassword_id']);
 	$is_static = isset($_POST['entrypassword_static']) && $_POST['entrypassword_static'] === '1';
 	$password = isset($_POST['entrypassword_password']) ? $_POST['entrypassword_password'] : '';
 	
@@ -270,6 +270,12 @@ function plugin_entrypassword_filter_content($content) {
 		</div>
 	</div>';
 	
+	// Set a Smarty variable to signal that this entry is password protected
+	// This allows templates to conditionally hide comment blocks
+	if (isset($GLOBALS['smarty']) && is_object($GLOBALS['smarty'])) {
+		$GLOBALS['smarty']->assign('entrypassword_protected', true);
+	}
+	
 	return $form;
 }
 
@@ -310,30 +316,27 @@ function plugin_entrypassword_filter_rss_content($content) {
 add_filter('the_content_rss', 'plugin_entrypassword_filter_rss_content', 5);
 
 /**
- * Hide comments for protected entries.
- *
- * @param array $comments
- * @return array
+ * Hide comment form for protected entries by setting entry_commslock.
  */
-function plugin_entrypassword_filter_comments($comments) {
+function plugin_entrypassword_hide_comment_form() {
 	global $fp_params;
 	
-	$is_static = isset($fp_params['page']);
-	$id = $is_static ? $fp_params['page'] : (isset($fp_params['entry']) ? $fp_params['entry'] : '');
-	
-	if (!$id) {
-		return $comments;
+	// Only apply on single entry view
+	if (!is_single() || !isset($fp_params['entry'])) {
+		return;
 	}
 	
-	// Check if password protected and not unlocked
-	if (plugin_entrypassword_has_password($id, $is_static) && !plugin_entrypassword_is_unlocked($id, $is_static)) {
-		return array();
-	}
+	$id = $fp_params['entry'];
 	
-	return $comments;
+	// If password protected and not unlocked, hide comment form
+	if (plugin_entrypassword_has_password($id, false) && !plugin_entrypassword_is_unlocked($id, false)) {
+		if (isset($GLOBALS['smarty']) && is_object($GLOBALS['smarty'])) {
+			$GLOBALS['smarty']->assign('entry_commslock', true);
+		}
+	}
 }
 
-add_filter('comments_array', 'plugin_entrypassword_filter_comments', 5);
+add_action('wp_head', 'plugin_entrypassword_hide_comment_form', 15);
 
 /**
  * Add CSS to head.
@@ -461,9 +464,11 @@ if (defined('SYSTEM_VER') && version_compare(SYSTEM_VER, '0.1010', '>=') && defi
 }
 
 /**
- * Sanitize text field.
+ * Sanitize text field (internal helper).
  */
-function sanitize_text_field($str) {
-	return htmlspecialchars(strip_tags($str), ENT_QUOTES, 'UTF-8');
+if (!function_exists('plugin_entrypassword_sanitize_text_field')) {
+	function plugin_entrypassword_sanitize_text_field($str) {
+		return htmlspecialchars(strip_tags($str), ENT_QUOTES, 'UTF-8');
+	}
 }
 ?>
