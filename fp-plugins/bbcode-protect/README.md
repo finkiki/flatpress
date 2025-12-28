@@ -1,327 +1,239 @@
-# BBCode Content Protection Plugin
+# Content Protection Plugin for FlatPress
 
-Version: 1.0.0
+**Version:** 2.0.0  
+**Requires:** FlatPress 1.5 rc+, PHP 7.4+, Smarty 5.5+
 
-A FlatPress plugin that allows password-protecting content blocks using BBCode `[protect]...[/protect]` tags. Compatible with FlatPress master (1.5 rc) and Smarty 5.5+.
+## Overview
+
+Password-protect specific content blocks in your FlatPress posts and pages. Uses HTML comment markers (not BBCode) to avoid conflicts with other plugins.
 
 ## Features
 
-- **BBCode Tag**: Use `[protect]...[/protect]` to password-protect content sections
-- **Per-Entry Passwords**: Set a password for an entire entry (stored securely with password_hash)
-- **Inline Passwords**: Optionally use `[protect pwd="password"]...[/protect]` for block-specific passwords
-- **Session Management**: Remembers unlocked content with signed tokens
-- **Rate Limiting**: Prevents brute-force attacks with configurable attempt limits
-- **Feed Protection**: Automatically strips protected content from RSS/Atom feeds
-- **Cache-Aware**: Can bypass caching for protected content
-- **Responsive Design**: Mobile-friendly password forms
-- **Progressive Enhancement**: Works without JavaScript; enhanced UX with jQuery (optional)
-- **Smarty 5.5+ Compatible**: Uses modern Smarty template syntax with graceful fallback
-- **Multi-language Support**: Available in 15 languages (cs-cz, da-dk, de-de, el-gr, en-us, es-es, eu-es, fr-fr, it-it, ja-jp, nl-nl, pt-br, ru-ru, sl-si, tr-tr)
-
-## Requirements
-
-- FlatPress 1.5 rc or later
-- PHP 7.4 or later (for password_hash/password_verify)
-- Smarty 5.5+ (recommended; works with earlier versions in fallback mode)
+- ✅ **HTML Comment Syntax** - Uses `<!--protect-->` markers (no BBCode conflicts)
+- ✅ **Three Password Levels** - Global default, per-entry, or inline passwords
+- ✅ **Secure Storage** - Bcrypt password hashing (never plaintext)
+- ✅ **Session Management** - HMAC-SHA256 signed tokens
+- ✅ **Rate Limiting** - Prevents brute-force attacks
+- ✅ **Feed Protection** - Automatically strips protected content from RSS/Atom
+- ✅ **Mobile Responsive** - Works on all screen sizes
+- ✅ **Multi-language** - Full i18n support
+- ✅ **Progressive Enhancement** - Works without JavaScript
 
 ## Installation
 
-1. Copy the `bbcode-protect` folder to your `fp-plugins/` directory
-2. The plugin will be automatically activated on next page load
-3. Navigate to Admin → Config → Content Protection to configure settings
+1. Extract the `bbcode-protect` folder to `fp-plugins/`
+2. Activate the plugin in Admin → Plugins
+3. Configure at Admin → Config → Content Protection
 
 ## Usage
 
-### Basic Usage with Per-Entry Password
+### Basic Usage (Global Password)
 
-1. Set a password for your entry in the entry editor metadata
-2. In your post content, wrap protected sections:
+1. Go to **Admin → Config → Content Protection**
+2. Set a "Default Password" (e.g., "mypassword123")
+3. Click **Save**
+4. In your post content, wrap text with HTML comments:
 
+```html
+This is public content everyone can see.
+
+<!--protect-->
+This content is protected by the global password.
+Only visitors who enter "mypassword123" will see this.
+<!--/protect-->
+
+More public content here.
 ```
-[protect]
-This content is password protected and requires the entry password.
-[/protect]
-```
 
-### Inline Password (if enabled)
+### Per-Entry Password
 
-If "Allow inline passwords" is enabled in settings:
+1. Create or edit an entry
+2. Scroll to the **"Content Protection"** panel (below categories)
+3. Enter a password specific to this entry
+4. Click **Save**
+5. Use `<!--protect-->` markers in your content:
 
-```
-[protect pwd="mypassword"]
-This content has its own specific password.
-[/protect]
+```html
+Public intro text...
+
+<!--protect-->
+This content uses THIS ENTRY'S password, not the global password.
+<!--/protect-->
 ```
 
 ### Multiple Protected Blocks
 
-You can have multiple protected blocks in one entry:
+You can have multiple protected sections in one entry:
 
+```html
+Public section 1
+
+<!--protect-->
+Protected section 1
+<!--/protect-->
+
+Public section 2
+
+<!--protect-->
+Protected section 2 (uses same password)
+<!--/protect-->
+
+Public section 3
 ```
-Some public content here.
 
-[protect]
-First protected section.
-[/protect]
-
-More public content.
-
-[protect pwd="different"]
-Second protected section with different password.
-[/protect]
-```
-
-## Admin Configuration
-
-Access settings at: **Admin → Config → Content Protection**
-
-### General Settings
-
-- **Allow inline passwords**: Enable/disable inline `pwd=""` attribute
-- **Password Prompt Text**: Customize the message shown above password form
-- **Remember Duration**: How long (in seconds) to remember unlocked content (default: 3600 = 1 hour)
-
-### Security Settings
-
-- **Maximum Failed Attempts**: Limit password attempts before rate limiting (default: 5)
-- **Attempt Window**: Time period for counting failed attempts (default: 300 = 5 minutes)
-
-### Cache Settings
-
-- **Bypass cache for protected content**: Prevent caching of pages with protected blocks
-
-## Setting Passwords
-
-### Global Default Password
-
-To set a site-wide default password used for all `[protect][/protect]` blocks:
-
-1. Go to Admin → Config → Content Protection
-2. Enter a password in the "Default Password" field
-3. Click "Save Settings"
-
-The default password will be used when:
-- A `[protect][/protect]` block has no inline password
-- The entry has no per-entry password set
-- This provides a convenient way to protect multiple entries with the same password
-
-**Note**: Leave the field blank to disable password protection by default.
-
-### Per-Entry Passwords
-
-To set a password for a specific entry (overrides the default password):
-
-1. Go to Admin → Entries → Write/Edit Entry
-2. Look for the "Content Protection" metadata panel
-3. Enter your desired password
-4. The password will be hashed securely before storage
-
-**Note**: Entry passwords are stored using PHP's `password_hash()` function with the bcrypt algorithm. Plaintext passwords are never stored.
-
-### Inline Passwords
-
-To use a different password for each protected block within an entry:
-
-1. Enable "Allow inline passwords" in Admin → Config → Content Protection
-2. Use syntax: `[protect pwd="your-password"]content[/protect]`
-
-**Note**: Inline passwords are less secure as they're stored in plaintext in the entry content.
+All protected blocks in the same entry use the same password (either the entry password or global default).
 
 ## Password Priority
 
-When multiple passwords are configured, they are checked in this order:
+The plugin uses passwords in this order:
 
-1. **Inline password** (if enabled and specified in BBCode)
-2. **Per-entry password** (if set in entry metadata)
-3. **Global default password** (if set in admin settings)
+1. **Per-Entry Password** - Set in entry editor (highest priority)
+2. **Global Default Password** - Set in admin settings (fallback)
 
-## Security Notes
+If no password is set at all, the protected content will show an error message.
 
-### Password Storage
+## Security Features
 
-- **Global default password**: Stored as bcrypt hash in plugin configuration
-- **Entry passwords**: Stored as bcrypt hashes in entry metadata
-- **Inline passwords**: Stored in plaintext in BBCode (not recommended for sensitive content)
-- **Session tokens**: Cryptographically signed with HMAC-SHA256
+### Password Hashing
+- All passwords are hashed with PHP's `password_hash()` using bcrypt
+- Plain passwords are NEVER stored in the database (except temporarily for re-editing in admin)
+- Hashed passwords cannot be reversed
+
+### Session Tokens
+- Unlocked blocks tracked via session with HMAC-SHA256 signed tokens
+- Tokens expire after configurable duration (default: 1 hour)
+- Tokens cannot be forged without the site's AUTH_KEY
 
 ### Rate Limiting
-
-The plugin implements rate limiting to prevent brute-force attacks:
-- Tracks failed attempts per protected block
-- Configurable attempt limit and time window
-- Attempts stored in server-side sessions only
+- Failed password attempts are tracked per-block
+- Default: 5 attempts per 5-minute window
+- After exceeding limit, user must wait before trying again
+- Prevents brute-force attacks
 
 ### Feed Protection
+- Protected content automatically stripped from RSS/Atom feeds
+- Replaced with: "[Protected content - visit website to view]"
+- Prevents password leaks via feed readers
 
-Protected content is automatically replaced with `[This content is password protected]` in RSS/Atom feeds to prevent content leakage.
+### XSS Protection
+- All user input sanitized with `htmlspecialchars()`
+- Null bytes removed from passwords
+- Maximum password length: 1000 characters
 
-### Session Security
+## Configuration Options
 
-- Sessions use PHP's built-in session management
-- Tokens are signed with site-specific secret (AUTH_KEY if available)
-- Tokens expire after configured remember duration
-- No passwords stored in cookies or client-side storage
+Access at **Admin → Config → Content Protection**
 
-### Best Practices
-
-1. **Use global default password** for convenience across multiple entries
-2. **Use per-entry passwords** for entry-specific protection or overriding the default
-3. **Avoid inline passwords** for sensitive content (they're stored in plaintext)
-4. **Set appropriate remember duration** - shorter for sensitive content
-5. **Enable cache bypass** if using page caching
-6. **Use strong passwords** - at least 12 characters with mixed case, numbers, and symbols
-7. **Regularly update passwords** for highly sensitive content
-8. **Don't share passwords** via insecure channels (email, comments, etc.)
-
-## Feed Behavior
-
-When content with `[protect]` tags appears in RSS/Atom feeds:
-- Protected blocks are replaced with a placeholder message
-- Unprotected content in the same entry remains visible
-- This prevents password-protected content from leaking to feed readers
-
-## Cache Handling
-
-If your FlatPress installation uses caching:
-
-1. Enable "Bypass cache for protected content" in plugin settings
-2. The plugin detects protected content and can signal cache systems to skip caching
-3. This prevents serving unlocked content to unauthorized users
-
-**Note**: Cache bypass implementation depends on your cache setup and may require additional configuration.
-
-## Smarty Version Compatibility
-
-- **Smarty 5.5+**: Full support with template rendering
-- **Earlier versions**: Automatic fallback to PHP-based HTML generation
-- The plugin checks Smarty version on load and adapts automatically
-- Admin panel shows a warning if Smarty < 5.5
-
-## JavaScript Enhancement
-
-The plugin includes optional JavaScript (requires jQuery 3.7.1 if available):
-- Auto-focus password field when visible
-- Loading state on form submission
-- Smooth animations (with jQuery UI)
-
-**All core functionality works without JavaScript** - the JS file only provides UX improvements.
-
-## Mobile Responsiveness
-
-Password forms are designed to be mobile-friendly:
-- Responsive layout adapts to screen size
-- Touch-friendly input fields and buttons
-- Readable on devices from 320px width and up
-- Dark mode support (if theme provides color scheme detection)
-
-## Testing Checklist
-
-### Basic Functionality
-- [ ] Unprotected posts display normally
-- [ ] Protected block shows password form
-- [ ] Correct password unlocks content
-- [ ] Unlocked content persists across page reloads (within remember duration)
-- [ ] Wrong password shows error message
-
-### Multiple Blocks
-- [ ] Entry with multiple protected blocks works correctly
-- [ ] Each block can be unlocked independently (with inline passwords)
-- [ ] Unlocking one block doesn't affect others
-
-### Inline Passwords
-- [ ] Inline `pwd=""` attribute works when enabled
-- [ ] Inline passwords are ignored when setting disabled
-- [ ] Mixed inline and entry passwords work together
-
-### Security
-- [ ] Rate limiting triggers after max attempts
-- [ ] Failed attempts reset after time window
-- [ ] No plaintext passwords visible in HTML source
-- [ ] No passwords exposed in browser dev tools
-
-### Feeds
-- [ ] Protected content replaced in RSS feed
-- [ ] Protected content replaced in Atom feed
-- [ ] Unprotected content still visible in feeds
-
-### Edge Cases
-- [ ] No fatal errors with missing password
-- [ ] No fatal errors with missing template
-- [ ] Works without JavaScript enabled
-- [ ] Works on mobile devices (320px+ width)
-- [ ] Works with page caching (if bypass enabled)
-
-### Smarty Compatibility
-- [ ] Works with Smarty 5.5+
-- [ ] Fallback works with earlier Smarty versions
-- [ ] Admin panel displays version warning if needed
+| Option | Description | Default |
+|--------|-------------|---------|
+| **Default Password** | Global password for all protected content | (empty) |
+| **Prompt Text** | Message shown above password form | "This content is password protected." |
+| **Remember Duration** | How long content stays unlocked (seconds) | 3600 (1 hour) |
+| **Max Failed Attempts** | Attempts before rate limiting | 5 |
+| **Attempt Window** | Time window for counting attempts (seconds) | 300 (5 minutes) |
 
 ## Troubleshooting
 
-### Password form not showing
-- Check that you've set an entry password or enabled inline passwords
-- Verify template file exists: `fp-plugins/bbcode-protect/tpls/password-form.tpl`
+### Protected content shows as HTML comments
 
-### Content always locked/unlocked
-- Check session configuration in `defaults.php`
-- Verify PHP sessions are working: `session_status() !== PHP_SESSION_NONE`
-- Clear browser cookies and sessions
+**Problem:** Content between `<!--protect-->` and `<!--/protect-->` is visible as HTML comments in the page source.
+
+**Solution:** 
+- Make sure the plugin is **activated** in Admin → Plugins
+- Check that you have set a password (either global or per-entry)
+- HTML comments are normal - they're processed by the plugin on the server side
+
+### "No password has been set" error
+
+**Problem:** Visitors see error message instead of password form.
+
+**Solution:**
+- Set a global default password at Admin → Config → Content Protection, OR
+- Set a per-entry password in the entry editor
+
+### Password not saving
+
+**Problem:** After entering password in admin panel, it doesn't seem to save.
+
+**Solution:**
+- Make sure to click the **Save** button at the bottom of the settings page
+- Check file permissions on `fp-content/` folder (must be writable)
+- Try saving again and then reload the settings page to verify
+
+### Content doesn't unlock after correct password
+
+**Problem:** Visitor enters correct password but content still shows password form.
+
+**Solution:**
+- Check that PHP sessions are working (session_start() must succeed)
+- Verify that AUTH_KEY is defined in your FlatPress config
+- Try clearing your browser cookies and trying again
+- Check PHP error logs for any session-related errors
 
 ### Rate limiting too aggressive
-- Increase "Maximum Failed Attempts" in settings
-- Increase "Attempt Window" duration
 
-### Protected content in feeds
-- Verify feed URLs: `?x=feed:rss2` or `?x=feed:atom`
-- Check that feed filtering is active
+**Problem:** Users get locked out too quickly.
 
-### Cache issues
-- Enable "Bypass cache for protected content"
-- Clear your cache directory: `fp-content/cache/`
-- Configure your cache plugin/system to respect cache bypass signals
+**Solution:**
+- Increase "Max Failed Attempts" (e.g., to 10)
+- Increase "Attempt Window" (e.g., to 600 seconds = 10 minutes)
+- Changes take effect immediately after saving
 
-## Files Structure
+## FAQ
 
-```
-fp-plugins/bbcode-protect/
-├── plugin.bbcode-protect.php       # Main plugin file
-├── panels/
-│   └── admin.plugin.panel.bbcode-protect.php  # Admin settings panel
-├── tpls/
-│   ├── password-form.tpl           # Password form template (Smarty)
-│   └── admin.settings.tpl          # Admin settings template
-├── lang/
-│   └── lang.en-us.php             # English language file
-├── res/
-│   ├── bbcode-protect.css         # Stylesheet (responsive)
-│   └── bbcode-protect.js          # Optional JavaScript enhancements
-└── README.md                       # This file
-```
+**Q: Can I use different passwords for different blocks in the same entry?**  
+A: No, all protected blocks in an entry use the same password (either per-entry or global default).
+
+**Q: Is it secure to show "Incorrect password" messages?**  
+A: Yes, this is standard practice and doesn't compromise security. The rate limiting prevents brute-force attacks.
+
+**Q: Can I protect entire entries instead of just blocks?**  
+A: Not directly. You would need to wrap your entire entry content in `<!--protect-->` markers.
+
+**Q: Does this work with static pages?**  
+A: Yes, it works with both blog entries and static pages.
+
+**Q: What happens if I deactivate the plugin?**  
+A: The `<!--protect-->` markers will appear as HTML comments (invisible to visitors but visible in page source). Your content won't be protected.
+
+**Q: Can I see who accessed protected content?**  
+A: No, the plugin doesn't log access attempts for privacy reasons.
+
+## Browser Compatibility
+
+- Chrome/Edge: ✅ Full support
+- Firefox: ✅ Full support  
+- Safari: ✅ Full support
+- Mobile browsers: ✅ Full support (responsive design)
+- JavaScript disabled: ✅ Works (forms still function)
+
+## Performance
+
+- Minimal performance impact
+- Regex processing is efficient
+- Session storage is lightweight
+- No database queries per request (except for password retrieval)
 
 ## Changelog
 
-### Version 1.0.0
-- Initial release
-- BBCode [protect] tag implementation
-- Per-entry and inline password support
-- Secure password hashing (bcrypt)
-- Session-based unlock tracking with signed tokens
-- Rate limiting for brute-force protection
-- Feed content stripping
-- Responsive password forms
-- Optional JavaScript enhancements
-- Smarty 5.5+ compatibility with fallback
-- Comprehensive admin settings panel
+### Version 2.0.0 (2025-12-28)
+- **BREAKING:** Switched from BBCode `[protect]` syntax to HTML comments `<!--protect-->`
+- Simplified implementation
+- Improved reliability and compatibility
+- Removed inline password support (per-entry or global only)
+- Enhanced error messages
+- Better session handling
 
-## License
-
-This plugin is part of the FlatPress project and follows the same license.
+### Version 1.0.0 (2025-12-27)
+- Initial release with BBCode syntax
 
 ## Support
 
-For issues, questions, or contributions:
-- Visit: https://www.flatpress.org
-- GitHub: https://github.com/flatpress/flatpress
+For bug reports and feature requests, please use the FlatPress forums or GitHub issues.
+
+## License
+
+This plugin is released under the same license as FlatPress (GPL v2 or later).
 
 ## Credits
 

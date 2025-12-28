@@ -1,258 +1,138 @@
-/**
- * BBCode Content Protection Plugin Styles
- * Responsive and mobile-friendly design
- */
+/* Content Protection Plugin Styles */
 
-/* Main container */
 .bbcode-protect-container {
-	margin: 1.5rem 0;
-	padding: 0.5rem;
+	margin: 20px 0;
+	padding: 0;
 }
 
-/* Protection box */
 .bbcode-protect-box {
 	max-width: 500px;
 	margin: 0 auto;
-	padding: 1.5rem;
+	padding: 30px;
 	background: #f9f9f9;
-	border: 2px solid #ddd;
+	border: 1px solid #ddd;
 	border-radius: 8px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Prompt text */
 .bbcode-protect-prompt {
-	margin: 0 0 1rem;
-	font-size: 1rem;
+	margin: 0 0 20px 0;
+	font-size: 1.1em;
+	font-weight: 600;
 	color: #333;
 	text-align: center;
 }
 
-/* Error messages */
 .bbcode-protect-error {
-	margin: 0 0 1rem;
-	padding: 0.75rem;
+	margin: 0 0 15px 0;
+	padding: 12px;
 	background: #fee;
 	border: 1px solid #fcc;
 	border-radius: 4px;
 	color: #c33;
-	font-size: 0.9rem;
+	font-size: 0.95em;
 	text-align: center;
 }
 
-/* Form */
 .bbcode-protect-form {
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	gap: 15px;
 }
 
-/* Input group */
-.bbcode-protect-input-group {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-}
-
-.bbcode-protect-input-group label {
+.bbcode-protect-form label {
 	font-weight: 600;
 	color: #555;
-	font-size: 0.95rem;
+	margin-bottom: 5px;
 }
 
-/* Password input */
-.bbcode-protect-password-input {
-	width: 100%;
-	padding: 0.75rem;
-	font-size: 1rem;
+.bbcode-protect-form input[type="password"] {
+	padding: 12px;
+	font-size: 1em;
 	border: 1px solid #ccc;
 	border-radius: 4px;
+	width: 100%;
 	box-sizing: border-box;
-	transition: border-color 0.2s ease;
+	transition: border-color 0.3s ease;
 }
 
-.bbcode-protect-password-input:focus {
+.bbcode-protect-form input[type="password"]:focus {
 	outline: none;
-	border-color: #4a90e2;
-	box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
 }
 
-/* Submit button */
 .bbcode-protect-submit {
-	padding: 0.75rem 1.5rem;
-	font-size: 1rem;
+	padding: 12px 24px;
+	font-size: 1em;
 	font-weight: 600;
 	color: #fff;
-	background: #4a90e2;
+	background: #2271b1;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
-	transition: background-color 0.2s ease, transform 0.1s ease;
+	transition: background 0.3s ease;
 }
 
 .bbcode-protect-submit:hover {
-	background: #357abd;
+	background: #135e96;
 }
 
 .bbcode-protect-submit:active {
-	transform: translateY(1px);
+	background: #0a4a7a;
 }
 
-.bbcode-protect-submit:focus {
-	outline: none;
-	box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+.bbcode-protect-submit:disabled {
+	background: #ccc;
+	cursor: not-allowed;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 640px) {
-	.bbcode-protect-container {
-		margin: 1rem 0;
-		padding: 0.25rem;
-	}
-	
+/* Loading state */
+.bbcode-protect-form.loading .bbcode-protect-submit {
+	opacity: 0.6;
+	cursor: wait;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
 	.bbcode-protect-box {
-		padding: 1rem;
+		padding: 20px 15px;
+		margin: 0 10px;
 	}
 	
 	.bbcode-protect-prompt {
-		font-size: 0.95rem;
+		font-size: 1em;
 	}
 	
-	.bbcode-protect-password-input,
+	.bbcode-protect-form input[type="password"],
 	.bbcode-protect-submit {
-		font-size: 0.95rem;
-		padding: 0.65rem;
+		padding: 10px;
 	}
 }
 
-@media (max-width: 400px) {
-	.bbcode-protect-box {
-		padding: 0.75rem;
-	}
-	
-	.bbcode-protect-prompt {
-		font-size: 0.9rem;
-	}
-}
-
-/* Dark mode support (if theme provides it) */
+/* Dark mode support */
 @media (prefers-color-scheme: dark) {
 	.bbcode-protect-box {
-		background: #2a2a2a;
+		background: #2d2d2d;
 		border-color: #444;
 	}
 	
 	.bbcode-protect-prompt {
-		color: #ddd;
+		color: #eee;
 	}
 	
-	.bbcode-protect-input-group label {
+	.bbcode-protect-form label {
 		color: #ccc;
 	}
 	
-	.bbcode-protect-password-input {
-		background: #333;
-		color: #fff;
+	.bbcode-protect-form input[type="password"] {
+		background: #1a1a1a;
 		border-color: #555;
+		color: #eee;
 	}
 	
-	.bbcode-protect-password-input:focus {
-		border-color: #6aa3e8;
+	.bbcode-protect-form input[type="password"]:focus {
+		border-color: #4a9eff;
+		box-shadow: 0 0 0 1px #4a9eff;
 	}
-}
-
-/* Admin settings page styles */
-.usage-info {
-	margin-top: 2rem;
-	padding: 1.5rem;
-	background: #f5f5f5;
-	border-radius: 8px;
-}
-
-.usage-info h3 {
-	margin-top: 0;
-	color: #333;
-}
-
-.usage-info h4 {
-	margin-top: 1.5rem;
-	color: #555;
-}
-
-.usage-info pre {
-	padding: 1rem;
-	background: #fff;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-	overflow-x: auto;
-	font-family: 'Courier New', Courier, monospace;
-	font-size: 0.9rem;
-}
-
-.usage-info p {
-	margin: 0.5rem 0;
-	color: #666;
-}
-
-.form-group {
-	margin-bottom: 1.5rem;
-}
-
-.form-group label {
-	display: block;
-	margin-bottom: 0.5rem;
-	font-weight: 600;
-}
-
-.form-group .description {
-	margin-top: 0.25rem;
-	font-size: 0.9rem;
-	color: #666;
-	font-style: italic;
-}
-
-.form-group input[type="text"],
-.form-group input[type="number"] {
-	width: 100%;
-	max-width: 400px;
-	padding: 0.5rem;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-}
-
-.form-group input[type="checkbox"] {
-	margin-right: 0.5rem;
-}
-
-fieldset {
-	margin: 1.5rem 0;
-	padding: 1rem;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-}
-
-fieldset legend {
-	padding: 0 0.5rem;
-	font-weight: 600;
-	color: #333;
-}
-
-/* Entry editor panel */
-.bbcode-protect-entry-panel {
-	margin: 1rem 0;
-}
-
-.bbcode-protect-entry-panel input[type="password"] {
-	width: 100%;
-	max-width: 300px;
-	padding: 0.5rem;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-}
-
-.bbcode-protect-note {
-	font-size: 0.85rem;
-	color: #666;
-	font-style: italic;
-	margin-top: 0.5rem;
 }
