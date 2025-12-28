@@ -6,14 +6,14 @@
 		{if $error}
 			<p class="bbcode-protect-error">
 				{if $error == 'wrong_password'}
-					{if isset($lang.plugin['bbcode-protect'].error_wrong_password)}
-						{$lang.plugin['bbcode-protect'].error_wrong_password|escape}
+					{if isset($lang.plugin.bbcode_protect.error_wrong_password)}
+						{$lang.plugin.bbcode_protect.error_wrong_password|escape}
 					{else}
 						Incorrect password. Please try again.
 					{/if}
 				{elseif $error == 'too_many_attempts'}
-					{if isset($lang.plugin['bbcode-protect'].error_rate_limited)}
-						{$lang.plugin['bbcode-protect'].error_rate_limited|escape}
+					{if isset($lang.plugin.bbcode_protect.error_rate_limited)}
+						{$lang.plugin.bbcode_protect.error_rate_limited|escape}
 					{else}
 						Too many failed attempts. Please try again later.
 					{/if}
@@ -30,8 +30,8 @@
 			
 			<div class="bbcode-protect-input-group">
 				<label for="password_{$block_id|escape}">
-					{if isset($lang.plugin['bbcode-protect'].password_label)}
-						{$lang.plugin['bbcode-protect'].password_label|escape}
+					{if isset($lang.plugin.bbcode_protect.password_label)}
+						{$lang.plugin.bbcode_protect.password_label|escape}
 					{else}
 						Password:
 					{/if}
@@ -45,8 +45,8 @@
 			</div>
 			
 			<button type="submit" class="bbcode-protect-submit">
-				{if isset($lang.plugin['bbcode-protect'].submit_button)}
-					{$lang.plugin['bbcode-protect'].submit_button|escape}
+				{if isset($lang.plugin.bbcode_protect.submit_button)}
+					{$lang.plugin.bbcode_protect.submit_button|escape}
 				{else}
 					Submit
 				{/if}

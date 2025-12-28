@@ -182,6 +182,14 @@ function plugin_bbcode_protect_handle_password() {
 		if (isset($_SESSION['bbcode_protect_attempts'][$block_id])) {
 			unset($_SESSION['bbcode_protect_attempts'][$block_id]);
 		}
+		
+		// Redirect to same page to show unlocked content
+		// This prevents form resubmission and ensures the content is rendered
+		$redirect_url = $_SERVER['REQUEST_URI'];
+		// Remove any existing hash and add success indicator
+		$redirect_url = preg_replace('/#.*$/', '', $redirect_url);
+		header('Location: ' . $redirect_url . '#bbcode_protect_' . $block_id);
+		exit;
 	} else {
 		// Record failed attempt
 		plugin_bbcode_protect_record_attempt($block_id);
@@ -422,12 +430,12 @@ function plugin_bbcode_protect_render_form_fallback($block_id, $entry_id, $inlin
 		$error = $_SESSION['bbcode_protect_error'];
 		$error_msg = '<p class="bbcode-protect-error">';
 		if ($error === 'wrong_password') {
-			$error_msg .= isset($lang['plugin']['bbcode-protect']['error_wrong_password']) ? 
-				htmlspecialchars($lang['plugin']['bbcode-protect']['error_wrong_password'], ENT_QUOTES, 'UTF-8') : 
+			$error_msg .= isset($lang['plugin']['bbcode_protect']['error_wrong_password']) ? 
+				htmlspecialchars($lang['plugin']['bbcode_protect']['error_wrong_password'], ENT_QUOTES, 'UTF-8') : 
 				'Incorrect password. Please try again.';
 		} elseif ($error === 'too_many_attempts') {
-			$error_msg .= isset($lang['plugin']['bbcode-protect']['error_rate_limited']) ? 
-				htmlspecialchars($lang['plugin']['bbcode-protect']['error_rate_limited'], ENT_QUOTES, 'UTF-8') : 
+			$error_msg .= isset($lang['plugin']['bbcode_protect']['error_rate_limited']) ? 
+				htmlspecialchars($lang['plugin']['bbcode_protect']['error_rate_limited'], ENT_QUOTES, 'UTF-8') : 
 				'Too many failed attempts. Please try again later.';
 		}
 		$error_msg .= '</p>';
