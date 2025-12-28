@@ -3,9 +3,9 @@
  * Slovenian Language File for Content Protection Plugin
  */
 
-$lang['admin']['config']['submenu']['bbcode_protect'] = 'Zaščita Vsebine';
+$lang['admin']['config']['submenu']['passwordprotect'] = 'Zaščita Vsebine';
 
-$lang['plugin']['bbcode_protect'] = [
+$lang['plugin']['passwordprotect'] = [
 	'password_label' => 'Geslo:',
 	'submit_button' => 'Pošlji',
 	'wrong_password' => 'Nepravilno geslo. Prosimo, poskusite znova.',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Za to vsebino ni bilo nastavljeno nobeno geslo.',
 ];
 
-$lang['admin']['config']['bbcode_protect'] = [
+$lang['admin']['config']['passwordprotect'] = [
 	'title' => 'Nastavitve zaščite vsebine',
 	'password_section' => 'Globalno geslo',
 	'default_password' => 'Privzeto geslo',
@@ -33,7 +33,7 @@ $lang['admin']['config']['bbcode_protect'] = [
 	'usage_note' => 'V urejevalniku vnosov lahko nastavite tudi gesla za posamezen vnos.',
 ];
 
-$lang['admin']['entry']['bbcode_protect'] = [
+$lang['admin']['entry']['passwordprotect'] = [
 	'title' => 'Zaščita vsebine',
 	'entry_password' => 'Geslo vnosa',
 	'entry_password_desc' => 'Geslo za zaščiteno vsebino v tem vnosu. Pustite prazno za uporabo privzetega globalnega gesla.',

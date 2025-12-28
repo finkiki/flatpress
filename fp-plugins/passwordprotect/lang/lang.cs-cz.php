@@ -3,9 +3,9 @@
  * Czech Language File for Content Protection Plugin
  */
 
-$lang['admin']['config']['submenu']['bbcode_protect'] = 'Ochrana obsahu';
+$lang['admin']['config']['submenu']['passwordprotect'] = 'Ochrana obsahu';
 
-$lang['plugin']['bbcode_protect'] = [
+$lang['plugin']['passwordprotect'] = [
 	'password_label' => 'Heslo:',
 	'submit_button' => 'Odeslat',
 	'wrong_password' => 'Nesprávné heslo. Zkuste to prosím znovu.',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Pro tento obsah nebylo nastaveno žádné heslo.',
 ];
 
-$lang['admin']['config']['bbcode_protect'] = [
+$lang['admin']['config']['passwordprotect'] = [
 	'title' => 'Nastavení ochrany obsahu',
 	'password_section' => 'Globální heslo',
 	'default_password' => 'Výchozí heslo',
@@ -33,7 +33,7 @@ $lang['admin']['config']['bbcode_protect'] = [
 	'usage_note' => 'Můžete také nastavit hesla pro jednotlivé příspěvky v editoru příspěvků.',
 ];
 
-$lang['admin']['entry']['bbcode_protect'] = [
+$lang['admin']['entry']['passwordprotect'] = [
 	'title' => 'Ochrana obsahu',
 	'entry_password' => 'Heslo příspěvku',
 	'entry_password_desc' => 'Heslo pro chráněný obsah v tomto příspěvku. Nechte prázdné pro použití výchozího globálního hesla.',

@@ -3,9 +3,9 @@
  * Danish Language File for Content Protection Plugin
  */
 
-$lang['admin']['config']['submenu']['bbcode_protect'] = 'Indholdsbeskyttelse';
+$lang['admin']['config']['submenu']['passwordprotect'] = 'Indholdsbeskyttelse';
 
-$lang['plugin']['bbcode_protect'] = [
+$lang['plugin']['passwordprotect'] = [
 	'password_label' => 'Adgangskode:',
 	'submit_button' => 'Indsend',
 	'wrong_password' => 'Forkert adgangskode. Prøv venligst igen.',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Der er ikke angivet nogen adgangskode for dette indhold.',
 ];
 
-$lang['admin']['config']['bbcode_protect'] = [
+$lang['admin']['config']['passwordprotect'] = [
 	'title' => 'Indstillinger for indholdsbeskyttelse',
 	'password_section' => 'Global adgangskode',
 	'default_password' => 'Standardadgangskode',
@@ -33,7 +33,7 @@ $lang['admin']['config']['bbcode_protect'] = [
 	'usage_note' => 'Du kan også indstille adgangskoder pr. indlæg i indlægsredigereren.',
 ];
 
-$lang['admin']['entry']['bbcode_protect'] = [
+$lang['admin']['entry']['passwordprotect'] = [
 	'title' => 'Indholdsbeskyttelse',
 	'entry_password' => 'Indlægsadgangskode',
 	'entry_password_desc' => 'Adgangskode til beskyttet indhold i dette indlæg. Lad feltet være tomt for at bruge global standardadgangskode.',

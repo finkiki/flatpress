@@ -3,9 +3,9 @@
  * Dutch Language File for Content Protection Plugin
  */
 
-$lang['admin']['config']['submenu']['bbcode_protect'] = 'Inhoudsbescherming';
+$lang['admin']['config']['submenu']['passwordprotect'] = 'Inhoudsbescherming';
 
-$lang['plugin']['bbcode_protect'] = [
+$lang['plugin']['passwordprotect'] = [
 	'password_label' => 'Wachtwoord:',
 	'submit_button' => 'Verzenden',
 	'wrong_password' => 'Onjuist wachtwoord. Probeer het opnieuw.',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Er is geen wachtwoord ingesteld voor deze inhoud.',
 ];
 
-$lang['admin']['config']['bbcode_protect'] = [
+$lang['admin']['config']['passwordprotect'] = [
 	'title' => 'Instellingen inhoudsbescherming',
 	'password_section' => 'Globaal wachtwoord',
 	'default_password' => 'Standaardwachtwoord',
@@ -33,7 +33,7 @@ $lang['admin']['config']['bbcode_protect'] = [
 	'usage_note' => 'U kunt ook per bericht wachtwoorden instellen in de berichteditor.',
 ];
 
-$lang['admin']['entry']['bbcode_protect'] = [
+$lang['admin']['entry']['passwordprotect'] = [
 	'title' => 'Inhoudsbescherming',
 	'entry_password' => 'Berichtwachtwoord',
 	'entry_password_desc' => 'Wachtwoord voor beschermde inhoud in dit bericht. Laat leeg om het globale standaardwachtwoord te gebruiken.',

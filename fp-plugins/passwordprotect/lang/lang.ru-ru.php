@@ -3,9 +3,9 @@
  * Russian Language File for Content Protection Plugin
  */
 
-$lang['admin']['config']['submenu']['bbcode_protect'] = 'Защита Содержимого';
+$lang['admin']['config']['submenu']['passwordprotect'] = 'Защита Содержимого';
 
-$lang['plugin']['bbcode_protect'] = [
+$lang['plugin']['passwordprotect'] = [
 	'password_label' => 'Пароль:',
 	'submit_button' => 'Отправить',
 	'wrong_password' => 'Неверный пароль. Пожалуйста, попробуйте снова.',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Для этого содержимого не установлен пароль.',
 ];
 
-$lang['admin']['config']['bbcode_protect'] = [
+$lang['admin']['config']['passwordprotect'] = [
 	'title' => 'Настройки защиты контента',
 	'password_section' => 'Глобальный пароль',
 	'default_password' => 'Пароль по умолчанию',
@@ -33,7 +33,7 @@ $lang['admin']['config']['bbcode_protect'] = [
 	'usage_note' => 'Вы также можете установить пароли для каждой записи в редакторе записей.',
 ];
 
-$lang['admin']['entry']['bbcode_protect'] = [
+$lang['admin']['entry']['passwordprotect'] = [
 	'title' => 'Защита контента',
 	'entry_password' => 'Пароль записи',
 	'entry_password_desc' => 'Пароль для защищенного контента в этой записи. Оставьте пустым для использования глобального пароля по умолчанию.',

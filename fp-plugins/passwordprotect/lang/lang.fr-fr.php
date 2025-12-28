@@ -3,9 +3,9 @@
  * French Language File for Content Protection Plugin
  */
 
-$lang['admin']['config']['submenu']['bbcode_protect'] = 'Protection du contenu';
+$lang['admin']['config']['submenu']['passwordprotect'] = 'Protection du contenu';
 
-$lang['plugin']['bbcode_protect'] = [
+$lang['plugin']['passwordprotect'] = [
 	'password_label' => 'Mot de passe :',
 	'submit_button' => 'Envoyer',
 	'wrong_password' => 'Mot de passe incorrect. Veuillez réessayer.',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Aucun mot de passe n\'a été défini pour ce contenu.',
 ];
 
-$lang['admin']['config']['bbcode_protect'] = [
+$lang['admin']['config']['passwordprotect'] = [
 	'title' => 'Paramètres de protection du contenu',
 	'password_section' => 'Mot de passe global',
 	'default_password' => 'Mot de passe par défaut',
@@ -33,7 +33,7 @@ $lang['admin']['config']['bbcode_protect'] = [
 	'usage_note' => 'Vous pouvez également définir des mots de passe par article dans l\'éditeur d\'articles.',
 ];
 
-$lang['admin']['entry']['bbcode_protect'] = [
+$lang['admin']['entry']['passwordprotect'] = [
 	'title' => 'Protection du contenu',
 	'entry_password' => 'Mot de passe de l\'article',
 	'entry_password_desc' => 'Mot de passe pour le contenu protégé dans cet article. Laissez vide pour utiliser le mot de passe global par défaut.',

@@ -21,7 +21,7 @@ Password-protect specific content blocks in your FlatPress posts and pages. Uses
 
 ## Installation
 
-1. Extract the `bbcode-protect` folder to `fp-plugins/`
+1. Extract the `passwordprotect` folder to `fp-plugins/`
 2. Activate the plugin in Admin → Plugins
 3. Configure at Admin → Config → Content Protection
 

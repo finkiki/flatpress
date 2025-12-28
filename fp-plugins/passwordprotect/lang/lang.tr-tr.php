@@ -3,9 +3,9 @@
  * Turkish Language File for Content Protection Plugin
  */
 
-$lang['admin']['config']['submenu']['bbcode_protect'] = 'İçerik Koruması';
+$lang['admin']['config']['submenu']['passwordprotect'] = 'İçerik Koruması';
 
-$lang['plugin']['bbcode_protect'] = [
+$lang['plugin']['passwordprotect'] = [
 	'password_label' => 'Şifre:',
 	'submit_button' => 'Gönder',
 	'wrong_password' => 'Yanlış şifre. Lütfen tekrar deneyin.',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Bu içerik için şifre ayarlanmamış.',
 ];
 
-$lang['admin']['config']['bbcode_protect'] = [
+$lang['admin']['config']['passwordprotect'] = [
 	'title' => 'İçerik koruma ayarları',
 	'password_section' => 'Genel şifre',
 	'default_password' => 'Varsayılan şifre',
@@ -33,7 +33,7 @@ $lang['admin']['config']['bbcode_protect'] = [
 	'usage_note' => 'Giriş düzenleyicide giriş başına şifreler de ayarlayabilirsiniz.',
 ];
 
-$lang['admin']['entry']['bbcode_protect'] = [
+$lang['admin']['entry']['passwordprotect'] = [
 	'title' => 'İçerik koruma',
 	'entry_password' => 'Giriş şifresi',
 	'entry_password_desc' => 'Bu girişte korumalı içerik için şifre. Varsayılan genel şifreyi kullanmak için boş bırakın.',

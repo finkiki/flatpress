@@ -3,9 +3,9 @@
  * Japanese Language File for Content Protection Plugin
  */
 
-$lang['admin']['config']['submenu']['bbcode_protect'] = 'コンテンツ保護';
+$lang['admin']['config']['submenu']['passwordprotect'] = 'コンテンツ保護';
 
-$lang['plugin']['bbcode_protect'] = [
+$lang['plugin']['passwordprotect'] = [
 	'password_label' => 'パスワード：',
 	'submit_button' => '送信',
 	'wrong_password' => 'パスワードが正しくありません。もう一度お試しください。',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'このコンテンツにはパスワードが設定されていません。',
 ];
 
-$lang['admin']['config']['bbcode_protect'] = [
+$lang['admin']['config']['passwordprotect'] = [
 	'title' => 'コンテンツ保護設定',
 	'password_section' => 'グローバルパスワード',
 	'default_password' => 'デフォルトパスワード',
@@ -33,7 +33,7 @@ $lang['admin']['config']['bbcode_protect'] = [
 	'usage_note' => '記事エディタで記事ごとにパスワードを設定することもできます。',
 ];
 
-$lang['admin']['entry']['bbcode_protect'] = [
+$lang['admin']['entry']['passwordprotect'] = [
 	'title' => 'コンテンツ保護',
 	'entry_password' => '記事パスワード',
 	'entry_password_desc' => 'この記事の保護されたコンテンツのパスワード。デフォルトのグローバルパスワードを使用する場合は空白のままにします。',

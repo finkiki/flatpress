@@ -3,9 +3,9 @@
  * Greek Language File for Content Protection Plugin
  */
 
-$lang['admin']['config']['submenu']['bbcode_protect'] = 'Προστασία Περιεχομένου';
+$lang['admin']['config']['submenu']['passwordprotect'] = 'Προστασία Περιεχομένου';
 
-$lang['plugin']['bbcode_protect'] = [
+$lang['plugin']['passwordprotect'] = [
 	'password_label' => 'Κωδικός πρόσβασης:',
 	'submit_button' => 'Υποβολή',
 	'wrong_password' => 'Λάθος κωδικός πρόσβασης. Παρακαλώ δοκιμάστε ξανά.',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Δεν έχει οριστεί κωδικός πρόσβασης για αυτό το περιεχόμενο.',
 ];
 
-$lang['admin']['config']['bbcode_protect'] = [
+$lang['admin']['config']['passwordprotect'] = [
 	'title' => 'Ρυθμίσεις προστασίας περιεχομένου',
 	'password_section' => 'Γενικός κωδικός πρόσβασης',
 	'default_password' => 'Προεπιλεγμένος κωδικός πρόσβασης',
@@ -33,7 +33,7 @@ $lang['admin']['config']['bbcode_protect'] = [
 	'usage_note' => 'Μπορείτε επίσης να ορίσετε κωδικούς πρόσβασης ανά καταχώριση στον επεξεργαστή καταχωρίσεων.',
 ];
 
-$lang['admin']['entry']['bbcode_protect'] = [
+$lang['admin']['entry']['passwordprotect'] = [
 	'title' => 'Προστασία περιεχομένου',
 	'entry_password' => 'Κωδικός πρόσβασης καταχώρισης',
 	'entry_password_desc' => 'Κωδικός πρόσβασης για το προστατευμένο περιεχόμενο σε αυτήν την καταχώριση. Αφήστε κενό για χρήση του προεπιλεγμένου γενικού κωδικού πρόσβασης.',

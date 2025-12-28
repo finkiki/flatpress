@@ -8,24 +8,24 @@
 	
 	$(document).ready(function() {
 		// Auto-focus password field
-		$('.bbcode-protect-form input[type="password"]').first().focus();
+		$('.passwordprotect-form input[type="password"]').first().focus();
 		
 		// Add loading state on submit
-		$('.bbcode-protect-form').on('submit', function() {
+		$('.passwordprotect-form').on('submit', function() {
 			var $form = $(this);
-			var $submit = $form.find('.bbcode-protect-submit');
+			var $submit = $form.find('.passwordprotect-submit');
 			
 			$form.addClass('loading');
 			$submit.prop('disabled', true).text('Please wait...');
 		});
 		
 		// Clear error on input
-		$('.bbcode-protect-form input[type="password"]').on('input', function() {
-			$(this).closest('.bbcode-protect-box').find('.bbcode-protect-error').fadeOut();
+		$('.passwordprotect-form input[type="password"]').on('input', function() {
+			$(this).closest('.passwordprotect-box').find('.passwordprotect-error').fadeOut();
 		});
 		
 		// Enter key submit
-		$('.bbcode-protect-form input[type="password"]').on('keypress', function(e) {
+		$('.passwordprotect-form input[type="password"]').on('keypress', function(e) {
 			if (e.key === 'Enter') {
 				$(this).closest('form').submit();
 			}

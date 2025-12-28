@@ -3,9 +3,9 @@
  * German Language File for Content Protection Plugin
  */
 
-$lang['admin']['config']['submenu']['bbcode_protect'] = 'Inhaltsschutz';
+$lang['admin']['config']['submenu']['passwordprotect'] = 'Inhaltsschutz';
 
-$lang['plugin']['bbcode_protect'] = [
+$lang['plugin']['passwordprotect'] = [
 	'password_label' => 'Passwort:',
 	'submit_button' => 'Absenden',
 	'wrong_password' => 'Falsches Passwort. Bitte versuchen Sie es erneut.',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Für diesen Inhalt wurde kein Passwort festgelegt.',
 ];
 
-$lang['admin']['config']['bbcode_protect'] = [
+$lang['admin']['config']['passwordprotect'] = [
 	'title' => 'Inhaltsschutz-Einstellungen',
 	'password_section' => 'Globales Passwort',
 	'default_password' => 'Standardpasswort',
@@ -33,7 +33,7 @@ $lang['admin']['config']['bbcode_protect'] = [
 	'usage_note' => 'Sie können auch pro Beitrag Passwörter im Beitragseditor festlegen.',
 ];
 
-$lang['admin']['entry']['bbcode_protect'] = [
+$lang['admin']['entry']['passwordprotect'] = [
 	'title' => 'Inhaltsschutz',
 	'entry_password' => 'Beitragspasswort',
 	'entry_password_desc' => 'Passwort für geschützten Inhalt in diesem Beitrag. Leer lassen, um das globale Standardpasswort zu verwenden.',

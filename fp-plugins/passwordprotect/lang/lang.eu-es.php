@@ -3,9 +3,9 @@
  * Basque Language File for Content Protection Plugin
  */
 
-$lang['admin']['config']['submenu']['bbcode_protect'] = 'Edukien Babesa';
+$lang['admin']['config']['submenu']['passwordprotect'] = 'Edukien Babesa';
 
-$lang['plugin']['bbcode_protect'] = [
+$lang['plugin']['passwordprotect'] = [
 	'password_label' => 'Pasahitza:',
 	'submit_button' => 'Bidali',
 	'wrong_password' => 'Pasahitz okerra. Saiatu berriro.',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Ez da pasahitzik ezarri eduki honetarako.',
 ];
 
-$lang['admin']['config']['bbcode_protect'] = [
+$lang['admin']['config']['passwordprotect'] = [
 	'title' => 'Edukiaren babes-ezarpenak',
 	'password_section' => 'Pasahitz orokorra',
 	'default_password' => 'Lehenetsitako pasahitza',
@@ -33,7 +33,7 @@ $lang['admin']['config']['bbcode_protect'] = [
 	'usage_note' => 'Sarrera-editorean sarrera bakoitzeko pasahitzak ere ezar ditzakezu.',
 ];
 
-$lang['admin']['entry']['bbcode_protect'] = [
+$lang['admin']['entry']['passwordprotect'] = [
 	'title' => 'Edukiaren babesa',
 	'entry_password' => 'Sarreraren pasahitza',
 	'entry_password_desc' => 'Sarrera honetako babestutako edukiarentzako pasahitza. Utzi hutsik lehenetsitako pasahitz orokorra erabiltzeko.',

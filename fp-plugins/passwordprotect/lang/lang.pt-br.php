@@ -3,9 +3,9 @@
  * Portuguese (Brazilian) Language File for Content Protection Plugin
  */
 
-$lang['admin']['config']['submenu']['bbcode_protect'] = 'Proteção de Conteúdo';
+$lang['admin']['config']['submenu']['passwordprotect'] = 'Proteção de Conteúdo';
 
-$lang['plugin']['bbcode_protect'] = [
+$lang['plugin']['passwordprotect'] = [
 	'password_label' => 'Senha:',
 	'submit_button' => 'Enviar',
 	'wrong_password' => 'Senha incorreta. Por favor, tente novamente.',
@@ -13,7 +13,7 @@ $lang['plugin']['bbcode_protect'] = [
 	'no_password_set' => 'Nenhuma senha foi definida para este conteúdo.',
 ];
 
-$lang['admin']['config']['bbcode_protect'] = [
+$lang['admin']['config']['passwordprotect'] = [
 	'title' => 'Configurações de proteção de conteúdo',
 	'password_section' => 'Senha global',
 	'default_password' => 'Senha padrão',
@@ -33,7 +33,7 @@ $lang['admin']['config']['bbcode_protect'] = [
 	'usage_note' => 'Você também pode definir senhas por entrada no editor de entradas.',
 ];
 
-$lang['admin']['entry']['bbcode_protect'] = [
+$lang['admin']['entry']['passwordprotect'] = [
 	'title' => 'Proteção de conteúdo',
 	'entry_password' => 'Senha da entrada',
 	'entry_password_desc' => 'Senha para conteúdo protegido nesta entrada. Deixe em branco para usar a senha global padrão.',
