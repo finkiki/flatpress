@@ -3,6 +3,8 @@
  * Turkish Language File for Content Protection Plugin
  */
 
+$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'İçerik Koruması';
+
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Şifre:',
 	'submit_button' => 'Gönder',

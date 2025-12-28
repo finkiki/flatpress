@@ -3,6 +3,8 @@
  * German Language File for Content Protection Plugin
  */
 
+$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Inhaltsschutz';
+
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Passwort:',
 	'submit_button' => 'Absenden',

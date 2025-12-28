@@ -3,6 +3,8 @@
  * Czech Language File for Content Protection Plugin
  */
 
+$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Ochrana obsahu';
+
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Heslo:',
 	'submit_button' => 'Odeslat',

@@ -3,6 +3,8 @@
  * Russian Language File for Content Protection Plugin
  */
 
+$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Защита Содержимого';
+
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Пароль:',
 	'submit_button' => 'Отправить',

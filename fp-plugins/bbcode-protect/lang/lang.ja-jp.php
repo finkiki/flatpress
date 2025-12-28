@@ -3,6 +3,8 @@
  * Japanese Language File for Content Protection Plugin
  */
 
+$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'コンテンツ保護';
+
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'パスワード：',
 	'submit_button' => '送信',

@@ -3,6 +3,8 @@
  * Portuguese (Brazilian) Language File for Content Protection Plugin
  */
 
+$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Proteção de Conteúdo';
+
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Senha:',
 	'submit_button' => 'Enviar',

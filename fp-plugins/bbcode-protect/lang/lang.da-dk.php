@@ -3,6 +3,8 @@
  * Danish Language File for Content Protection Plugin
  */
 
+$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Indholdsbeskyttelse';
+
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Adgangskode:',
 	'submit_button' => 'Indsend',

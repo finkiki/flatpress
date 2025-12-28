@@ -3,6 +3,8 @@
  * Slovenian Language File for Content Protection Plugin
  */
 
+$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Zaščita Vsebine';
+
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Geslo:',
 	'submit_button' => 'Pošlji',

@@ -3,6 +3,8 @@
  * Dutch Language File for Content Protection Plugin
  */
 
+$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Inhoudsbescherming';
+
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Wachtwoord:',
 	'submit_button' => 'Verzenden',

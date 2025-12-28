@@ -3,6 +3,8 @@
  * Basque Language File for Content Protection Plugin
  */
 
+$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Edukien Babesa';
+
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Pasahitza:',
 	'submit_button' => 'Bidali',

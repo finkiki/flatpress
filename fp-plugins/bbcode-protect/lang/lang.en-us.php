@@ -3,6 +3,8 @@
  * English (US) Language File for Content Protection Plugin
  */
 
+$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Content Protection';
+
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Password:',
 	'submit_button' => 'Submit',

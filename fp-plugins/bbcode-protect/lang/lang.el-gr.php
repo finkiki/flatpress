@@ -3,6 +3,8 @@
  * Greek Language File for Content Protection Plugin
  */
 
+$lang['admin']['plugin']['submenu']['bbcode_protect'] = 'Προστασία Περιεχομένου';
+
 $lang['plugin']['bbcode_protect'] = [
 	'password_label' => 'Κωδικός πρόσβασης:',
 	'submit_button' => 'Υποβολή',
