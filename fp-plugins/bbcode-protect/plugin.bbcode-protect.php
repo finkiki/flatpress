@@ -54,9 +54,9 @@ function plugin_bbcode_protect_startup() {
 	}
 	
 	// Add BBCode filter to content - run BEFORE standard BBCode plugin (priority 1)
-	// This ensures our [protect] tags are processed before any BBCode conversion
-	add_filter('the_content', 'plugin_bbcode_protect_filter', 0);
-	add_filter('the_excerpt', 'plugin_bbcode_protect_filter', 0);
+	// Use priority -10 to ensure we run very early, before any BBCode processing
+	add_filter('the_content', 'plugin_bbcode_protect_filter', -10);
+	add_filter('the_excerpt', 'plugin_bbcode_protect_filter', -10);
 	
 	// Strip protected content from feeds
 	if (function_exists('is_feed') || (isset($_GET['x']) && strpos($_GET['x'], 'feed') !== false)) {
@@ -314,7 +314,8 @@ function plugin_bbcode_protect_filter($content) {
 	$block_counter = 0;
 	
 	// Pattern to match [protect]...[/protect] or [protect pwd="..."]...[/protect]
-	$pattern = '/\[protect(?:\s+pwd=["\']([^"\']+)["\'])?\](.*?)\[\/protect\]/is';
+	// More flexible pattern that handles various formats
+	$pattern = '/\[protect(?:\s+pwd\s*=\s*["\']([^"\']+)["\'])?\](.*?)\[\/protect\]/is';
 	
 	$content = preg_replace_callback($pattern, function($matches) use ($entry_id, $entry_password_hash, $options, &$block_counter) {
 		$block_counter++;
