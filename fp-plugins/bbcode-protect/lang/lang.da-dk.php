@@ -5,7 +5,7 @@
 
 $lang['admin']['config']['submenu']['bbcode_protect'] = 'Indholdsbeskyttelse';
 
-$lang['admin']['config']['bbcode-protect'] = array(
+$lang['admin']['config']['bbcode_protect'] = array(
 	'head' => 'BBCode Indholdsbeskyttelsesindstillinger',
 	'desc' => 'Konfigurer adgangskodebeskyttelse for indholdsblokke ved hjælp af BBCode tagget [protect]...[/protect].',
 	
@@ -53,7 +53,7 @@ $lang['admin']['config']['bbcode-protect'] = array(
 );
 
 // Entry editor panel
-$lang['admin']['entry']['bbcode-protect'] = array(
+$lang['admin']['entry']['bbcode_protect'] = array(
 	'legend' => 'Indholdsbeskyttelse',
 	'description' => 'Indstil en adgangskode for at beskytte [protect]...[/protect] blokke i dette indlæg.',
 	'password_label' => 'Indlæg adgangskode',
@@ -61,7 +61,7 @@ $lang['admin']['entry']['bbcode-protect'] = array(
 );
 
 // Front-end messages
-$lang['plugin']['bbcode-protect'] = array(
+$lang['plugin']['bbcode_protect'] = array(
 	'password_label' => 'Adgangskode:',
 	'submit_button' => 'Indsend',
 	'error_wrong_password' => 'Forkert adgangskode. Prøv venligst igen.',

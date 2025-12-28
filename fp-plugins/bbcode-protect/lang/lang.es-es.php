@@ -5,7 +5,7 @@
 
 $lang['admin']['config']['submenu']['bbcode_protect'] = 'Protección de contenido';
 
-$lang['admin']['config']['bbcode-protect'] = array(
+$lang['admin']['config']['bbcode_protect'] = array(
 	'head' => 'Configuración de protección de contenido BBCode',
 	'desc' => 'Configure la protección con contraseña para bloques de contenido usando la etiqueta BBCode [protect]...[/protect].',
 	
@@ -53,7 +53,7 @@ $lang['admin']['config']['bbcode-protect'] = array(
 );
 
 // Entry editor panel
-$lang['admin']['entry']['bbcode-protect'] = array(
+$lang['admin']['entry']['bbcode_protect'] = array(
 	'legend' => 'Protección de contenido',
 	'description' => 'Establezca una contraseña para proteger bloques [protect]...[/protect] en esta entrada.',
 	'password_label' => 'Contraseña de entrada',
@@ -61,7 +61,7 @@ $lang['admin']['entry']['bbcode-protect'] = array(
 );
 
 // Front-end messages
-$lang['plugin']['bbcode-protect'] = array(
+$lang['plugin']['bbcode_protect'] = array(
 	'password_label' => 'Contraseña:',
 	'submit_button' => 'Enviar',
 	'error_wrong_password' => 'Contraseña incorrecta. Por favor, inténtelo de nuevo.',

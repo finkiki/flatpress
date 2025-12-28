@@ -5,7 +5,7 @@
 
 $lang['admin']['config']['submenu']['bbcode_protect'] = 'Inhoudsbeveiliging';
 
-$lang['admin']['config']['bbcode-protect'] = array(
+$lang['admin']['config']['bbcode_protect'] = array(
 	'head' => 'BBCode Inhoudsbeveiliging Instellingen',
 	'desc' => 'Configureer wachtwoordbeveiliging voor inhoudsblokken met behulp van de BBCode tag [protect]...[/protect].',
 	
@@ -53,7 +53,7 @@ $lang['admin']['config']['bbcode-protect'] = array(
 );
 
 // Entry editor panel
-$lang['admin']['entry']['bbcode-protect'] = array(
+$lang['admin']['entry']['bbcode_protect'] = array(
 	'legend' => 'Inhoudsbeveiliging',
 	'description' => 'Stel een wachtwoord in om [protect]...[/protect] blokken in deze invoer te beveiligen.',
 	'password_label' => 'Invoerwachtwoord',
@@ -61,7 +61,7 @@ $lang['admin']['entry']['bbcode-protect'] = array(
 );
 
 // Front-end messages
-$lang['plugin']['bbcode-protect'] = array(
+$lang['plugin']['bbcode_protect'] = array(
 	'password_label' => 'Wachtwoord:',
 	'submit_button' => 'Verzenden',
 	'error_wrong_password' => 'Onjuist wachtwoord. Probeer het opnieuw.',

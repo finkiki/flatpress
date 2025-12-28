@@ -5,7 +5,7 @@
 
 $lang['admin']['config']['submenu']['bbcode_protect'] = 'Inhaltsschutz';
 
-$lang['admin']['config']['bbcode-protect'] = array(
+$lang['admin']['config']['bbcode_protect'] = array(
 	'head' => 'BBCode-Inhaltsschutz-Einstellungen',
 	'desc' => 'Konfigurieren Sie den Passwortschutz für Inhaltsblöcke mit dem BBCode-Tag [protect]...[/protect].',
 	
@@ -53,7 +53,7 @@ $lang['admin']['config']['bbcode-protect'] = array(
 );
 
 // Entry editor panel
-$lang['admin']['entry']['bbcode-protect'] = array(
+$lang['admin']['entry']['bbcode_protect'] = array(
 	'legend' => 'Inhaltsschutz',
 	'description' => 'Legen Sie ein Passwort fest, um [protect]...[/protect]-Blöcke in diesem Eintrag zu schützen.',
 	'password_label' => 'Eintragspasswort',
@@ -61,7 +61,7 @@ $lang['admin']['entry']['bbcode-protect'] = array(
 );
 
 // Front-end messages
-$lang['plugin']['bbcode-protect'] = array(
+$lang['plugin']['bbcode_protect'] = array(
 	'password_label' => 'Passwort:',
 	'submit_button' => 'Absenden',
 	'error_wrong_password' => 'Falsches Passwort. Bitte versuchen Sie es erneut.',

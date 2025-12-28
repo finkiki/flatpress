@@ -5,7 +5,7 @@
 
 $lang['admin']['config']['submenu']['bbcode_protect'] = 'Eduki Babesa';
 
-$lang['admin']['config']['bbcode-protect'] = array(
+$lang['admin']['config']['bbcode_protect'] = array(
 	'head' => 'BBCode Eduki Babes Ezarpenak',
 	'desc' => 'Konfiguratu pasahitz babesa eduki blokeetarako [protect]...[/protect] BBCode etiketa erabiliz.',
 	
@@ -53,7 +53,7 @@ $lang['admin']['config']['bbcode-protect'] = array(
 );
 
 // Entry editor panel
-$lang['admin']['entry']['bbcode-protect'] = array(
+$lang['admin']['entry']['bbcode_protect'] = array(
 	'legend' => 'Eduki Babesa',
 	'description' => 'Ezarri pasahitza sarrera honetako [protect]...[/protect] blokeak babesteko.',
 	'password_label' => 'Sarrera Pasahitza',
@@ -61,7 +61,7 @@ $lang['admin']['entry']['bbcode-protect'] = array(
 );
 
 // Front-end messages
-$lang['plugin']['bbcode-protect'] = array(
+$lang['plugin']['bbcode_protect'] = array(
 	'password_label' => 'Pasahitza:',
 	'submit_button' => 'Bidali',
 	'error_wrong_password' => 'Pasahitz okerra. Mesedez, saiatu berriro.',

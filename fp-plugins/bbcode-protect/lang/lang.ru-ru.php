@@ -5,7 +5,7 @@
 
 $lang['admin']['config']['submenu']['bbcode_protect'] = 'Защита контента';
 
-$lang['admin']['config']['bbcode-protect'] = array(
+$lang['admin']['config']['bbcode_protect'] = array(
 	'head' => 'Настройки защиты контента BBCode',
 	'desc' => 'Настройте защиту паролем для блоков контента с использованием BBCode тега [protect]...[/protect].',
 	
@@ -53,7 +53,7 @@ $lang['admin']['config']['bbcode-protect'] = array(
 );
 
 // Entry editor panel
-$lang['admin']['entry']['bbcode-protect'] = array(
+$lang['admin']['entry']['bbcode_protect'] = array(
 	'legend' => 'Защита контента',
 	'description' => 'Установите пароль для защиты блоков [protect]...[/protect] в этой записи.',
 	'password_label' => 'Пароль записи',
@@ -61,7 +61,7 @@ $lang['admin']['entry']['bbcode-protect'] = array(
 );
 
 // Front-end messages
-$lang['plugin']['bbcode-protect'] = array(
+$lang['plugin']['bbcode_protect'] = array(
 	'password_label' => 'Пароль:',
 	'submit_button' => 'Отправить',
 	'error_wrong_password' => 'Неверный пароль. Пожалуйста, попробуйте снова.',

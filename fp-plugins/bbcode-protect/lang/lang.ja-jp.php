@@ -5,7 +5,7 @@
 
 $lang['admin']['config']['submenu']['bbcode_protect'] = 'コンテンツ保護';
 
-$lang['admin']['config']['bbcode-protect'] = array(
+$lang['admin']['config']['bbcode_protect'] = array(
 	'head' => 'BBCodeコンテンツ保護設定',
 	'desc' => 'BBCodeタグ[protect]...[/protect]を使用して、コンテンツブロックのパスワード保護を設定します。',
 	
@@ -53,7 +53,7 @@ $lang['admin']['config']['bbcode-protect'] = array(
 );
 
 // Entry editor panel
-$lang['admin']['entry']['bbcode-protect'] = array(
+$lang['admin']['entry']['bbcode_protect'] = array(
 	'legend' => 'コンテンツ保護',
 	'description' => 'このエントリの[protect]...[/protect]ブロックを保護するパスワードを設定します。',
 	'password_label' => 'エントリパスワード',
@@ -61,7 +61,7 @@ $lang['admin']['entry']['bbcode-protect'] = array(
 );
 
 // Front-end messages
-$lang['plugin']['bbcode-protect'] = array(
+$lang['plugin']['bbcode_protect'] = array(
 	'password_label' => 'パスワード：',
 	'submit_button' => '送信',
 	'error_wrong_password' => 'パスワードが正しくありません。もう一度お試しください。',

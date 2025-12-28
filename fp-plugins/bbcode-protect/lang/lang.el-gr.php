@@ -5,7 +5,7 @@
 
 $lang['admin']['config']['submenu']['bbcode_protect'] = 'Προστασία Περιεχομένου';
 
-$lang['admin']['config']['bbcode-protect'] = array(
+$lang['admin']['config']['bbcode_protect'] = array(
 	'head' => 'Ρυθμίσεις Προστασίας Περιεχομένου BBCode',
 	'desc' => 'Διαμορφώστε την προστασία με κωδικό πρόσβασης για μπλοκ περιεχομένου χρησιμοποιώντας την ετικέτα BBCode [protect]...[/protect].',
 	
@@ -53,7 +53,7 @@ $lang['admin']['config']['bbcode-protect'] = array(
 );
 
 // Entry editor panel
-$lang['admin']['entry']['bbcode-protect'] = array(
+$lang['admin']['entry']['bbcode_protect'] = array(
 	'legend' => 'Προστασία Περιεχομένου',
 	'description' => 'Ορίστε έναν κωδικό πρόσβασης για να προστατεύσετε τα μπλοκ [protect]...[/protect] σε αυτή την καταχώριση.',
 	'password_label' => 'Κωδικός Πρόσβασης Καταχώρισης',
@@ -61,7 +61,7 @@ $lang['admin']['entry']['bbcode-protect'] = array(
 );
 
 // Front-end messages
-$lang['plugin']['bbcode-protect'] = array(
+$lang['plugin']['bbcode_protect'] = array(
 	'password_label' => 'Κωδικός Πρόσβασης:',
 	'submit_button' => 'Υποβολή',
 	'error_wrong_password' => 'Λανθασμένος κωδικός πρόσβασης. Παρακαλώ δοκιμάστε ξανά.',

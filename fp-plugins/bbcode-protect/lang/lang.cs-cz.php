@@ -5,7 +5,7 @@
 
 $lang['admin']['config']['submenu']['bbcode_protect'] = 'Ochrana obsahu';
 
-$lang['admin']['config']['bbcode-protect'] = array(
+$lang['admin']['config']['bbcode_protect'] = array(
 	'head' => 'Nastavení ochrany obsahu BBCode',
 	'desc' => 'Nakonfigurujte ochranu heslem pro bloky obsahu pomocí BBCode tagu [protect]...[/protect].',
 	
@@ -53,7 +53,7 @@ $lang['admin']['config']['bbcode-protect'] = array(
 );
 
 // Entry editor panel
-$lang['admin']['entry']['bbcode-protect'] = array(
+$lang['admin']['entry']['bbcode_protect'] = array(
 	'legend' => 'Ochrana obsahu',
 	'description' => 'Nastavte heslo pro ochranu bloků [protect]...[/protect] v této položce.',
 	'password_label' => 'Heslo položky',
@@ -61,7 +61,7 @@ $lang['admin']['entry']['bbcode-protect'] = array(
 );
 
 // Front-end messages
-$lang['plugin']['bbcode-protect'] = array(
+$lang['plugin']['bbcode_protect'] = array(
 	'password_label' => 'Heslo:',
 	'submit_button' => 'Odeslat',
 	'error_wrong_password' => 'Nesprávné heslo. Zkuste to prosím znovu.',

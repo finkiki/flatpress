@@ -5,7 +5,7 @@
 
 $lang['admin']['config']['submenu']['bbcode_protect'] = 'İçerik Koruma';
 
-$lang['admin']['config']['bbcode-protect'] = array(
+$lang['admin']['config']['bbcode_protect'] = array(
 	'head' => 'BBCode İçerik Koruma Ayarları',
 	'desc' => '[protect]...[/protect] BBCode etiketini kullanarak içerik blokları için parola korumasını yapılandırın.',
 	
@@ -53,7 +53,7 @@ $lang['admin']['config']['bbcode-protect'] = array(
 );
 
 // Entry editor panel
-$lang['admin']['entry']['bbcode-protect'] = array(
+$lang['admin']['entry']['bbcode_protect'] = array(
 	'legend' => 'İçerik Koruma',
 	'description' => 'Bu girişte [protect]...[/protect] bloklarını korumak için bir parola ayarlayın.',
 	'password_label' => 'Giriş Parolası',
@@ -61,7 +61,7 @@ $lang['admin']['entry']['bbcode-protect'] = array(
 );
 
 // Front-end messages
-$lang['plugin']['bbcode-protect'] = array(
+$lang['plugin']['bbcode_protect'] = array(
 	'password_label' => 'Parola:',
 	'submit_button' => 'Gönder',
 	'error_wrong_password' => 'Yanlış parola. Lütfen tekrar deneyin.',

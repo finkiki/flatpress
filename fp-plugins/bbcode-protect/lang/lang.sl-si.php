@@ -5,7 +5,7 @@
 
 $lang['admin']['config']['submenu']['bbcode_protect'] = 'Zaščita vsebine';
 
-$lang['admin']['config']['bbcode-protect'] = array(
+$lang['admin']['config']['bbcode_protect'] = array(
 	'head' => 'Nastavitve zaščite vsebine BBCode',
 	'desc' => 'Konfigurirajte zaščito z geslom za bloke vsebine z uporabo oznake BBCode [protect]...[/protect].',
 	
@@ -53,7 +53,7 @@ $lang['admin']['config']['bbcode-protect'] = array(
 );
 
 // Entry editor panel
-$lang['admin']['entry']['bbcode-protect'] = array(
+$lang['admin']['entry']['bbcode_protect'] = array(
 	'legend' => 'Zaščita vsebine',
 	'description' => 'Nastavite geslo za zaščito blokov [protect]...[/protect] v tem vnosu.',
 	'password_label' => 'Geslo vnosa',
@@ -61,7 +61,7 @@ $lang['admin']['entry']['bbcode-protect'] = array(
 );
 
 // Front-end messages
-$lang['plugin']['bbcode-protect'] = array(
+$lang['plugin']['bbcode_protect'] = array(
 	'password_label' => 'Geslo:',
 	'submit_button' => 'Pošlji',
 	'error_wrong_password' => 'Napačno geslo. Prosimo, poskusite znova.',
