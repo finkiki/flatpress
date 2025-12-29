@@ -129,11 +129,12 @@ class admin_plugin_announcementbar extends AdminPanelAction {
 		// Enabled
 		$options['enabled'] = isset($_POST['enabled']);
 		
-		// Content (allow HTML/BBCode, will be escaped on render)
+		// Content (stored as-is, sanitized on render)
 		$options['content'] = isset($_POST['content']) ? $_POST['content'] : '';
 		
 		// Visibility
-		$options['visibility_mode'] = isset($_POST['visibility_mode']) ? $_POST['visibility_mode'] : 'all';
+		$visibility_mode = isset($_POST['visibility_mode']) ? $_POST['visibility_mode'] : 'all';
+		$options['visibility_mode'] = in_array($visibility_mode, array('all', 'include', 'exclude')) ? $visibility_mode : 'all';
 		$options['visibility_patterns'] = isset($_POST['visibility_patterns']) ? $_POST['visibility_patterns'] : '';
 		
 		// Dismissible

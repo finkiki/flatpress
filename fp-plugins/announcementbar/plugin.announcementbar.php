@@ -166,8 +166,14 @@ function plugin_announcementbar_render_content($content) {
 		return '';
 	}
 	
-	// First escape HTML entities to prevent XSS
-	$safe_content = htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
+	// Content is stored as-is from admin, so we need to sanitize it
+	// Apply wp_specialchars if available (standard FlatPress sanitization)
+	if (function_exists('wp_specialchars')) {
+		$safe_content = wp_specialchars($content);
+	} else {
+		// Fallback to basic HTML escaping
+		$safe_content = htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
+	}
 	
 	// Apply BBCode filter if available
 	if (function_exists('BBCode')) {
