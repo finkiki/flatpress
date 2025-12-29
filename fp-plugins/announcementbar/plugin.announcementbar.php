@@ -261,7 +261,7 @@ function plugin_announcementbar_footer() {
 	$random_hex = RANDOM_HEX;
 	
 	$lang = plugin_announcementbar_getlang();
-	$close_label = plugin_announcementbar_langval($lang ['plugin'] ['announcementbar'] ['close'] ?? 'Close', 'Close');
+	$close_label = plugin_announcementbar_langval($lang['plugin']['announcementbar']['close'] ?? 'Close', 'Close');
 	
 	// Build inline styles
 	$inline_style = "background-color: {$bg_color}; color: {$text_color}; font-size: {$font_size}px; padding: {$padding}px;";
@@ -294,14 +294,21 @@ function plugin_announcementbar_footer() {
 	</div>
 	
 	<script nonce="' . $random_hex . '">
-		// Initialize announcement bar
-		if (typeof jQuery !== "undefined" && typeof AnnouncementBar !== "undefined") {
-			jQuery(document).ready(function($) {
+		// Initialize announcement bar (vanilla JS, no jQuery required)
+		if (typeof AnnouncementBar !== "undefined") {
+			if (document.readyState === "loading") {
+				document.addEventListener("DOMContentLoaded", function() {
+					AnnouncementBar.init({
+						dismissible: ' . ($dismissible ? 'true' : 'false') . ',
+						version: "' . htmlspecialchars($dismiss_version, ENT_QUOTES, 'UTF-8') . '"
+					});
+				});
+			} else {
 				AnnouncementBar.init({
 					dismissible: ' . ($dismissible ? 'true' : 'false') . ',
 					version: "' . htmlspecialchars($dismiss_version, ENT_QUOTES, 'UTF-8') . '"
 				});
-			});
+			}
 		}
 	</script>
 	<!-- EOF AnnouncementBar HTML -->
