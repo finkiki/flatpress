@@ -1,0 +1,120 @@
+/**
+ * Announcement Bar CSS
+ * Provides styling for the sticky top announcement bar
+ */
+
+.announcement-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease-in-out;
+}
+
+.announcement-bar.hidden {
+	transform: translateY(-100%);
+}
+
+.announcement-bar-content {
+	flex: 1;
+	text-align: center;
+	padding: 0 15px;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+.announcement-bar-content a {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.announcement-bar-content a:hover {
+	opacity: 0.8;
+}
+
+.announcement-bar-dismissible {
+	padding-right: 50px;
+}
+
+.announcement-bar-close {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: transparent;
+	border: none;
+	color: inherit;
+	font-size: 24px;
+	line-height: 1;
+	cursor: pointer;
+	padding: 5px 10px;
+	opacity: 0.7;
+	transition: opacity 0.2s ease;
+}
+
+.announcement-bar-close:hover,
+.announcement-bar-close:focus {
+	opacity: 1;
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+.announcement-bar-close:active {
+	opacity: 0.5;
+}
+
+/* Push body content down when bar is visible */
+body.has-announcement-bar {
+	padding-top: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	.announcement-bar {
+		font-size: 13px;
+	}
+	
+	.announcement-bar-content {
+		padding: 0 10px;
+	}
+	
+	.announcement-bar-dismissible {
+		padding-right: 40px;
+	}
+	
+	.announcement-bar-close {
+		right: 5px;
+		font-size: 20px;
+		padding: 3px 8px;
+	}
+}
+
+@media (max-width: 480px) {
+	.announcement-bar {
+		font-size: 12px;
+	}
+	
+	.announcement-bar-content {
+		padding: 0 8px;
+	}
+}
+
+/* Ensure proper contrast for accessibility */
+.announcement-bar {
+	/* Defaults will be overridden by inline styles */
+	background-color: #0066cc;
+	color: #ffffff;
+}
+
+/* Print styles - hide announcement bar when printing */
+@media print {
+	.announcement-bar {
+		display: none !important;
+	}
+}

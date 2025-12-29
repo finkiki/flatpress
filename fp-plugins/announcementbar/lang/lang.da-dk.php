@@ -1,0 +1,47 @@
+<?php
+$lang['admin']['plugin']['submenu']['announcementbar'] = 'Meddelelsesbjælke';
+$lang['admin']['plugin']['announcementbar'] = array(
+	'head' => 'Meddelelsesbjælke konfiguration',
+	'desc' => 'Konfigurer en fast top meddelelse/bekendtgørelsesbjælke, der kan vises på din side med planlægning, synlighedsregler og afviselige muligheder.',
+	'general' => 'Generelle indstillinger',
+	'enabled' => 'Aktiver meddelelsesbjælke',
+	'enabled_long' => 'Marker for at vise meddelelsesbjælken på din side.',
+	'content' => 'Meddelelsesindhold',
+	'content_long' => 'Indtast din meddelelsesbesked. Understøtter BBCode og HTML markup.',
+	'visibility' => 'Synlighedsindstillinger',
+	'visibility_mode' => 'Visningstilstand',
+	'visibility_all' => 'Vis på alle sider',
+	'visibility_include' => 'Vis kun på angivne stier',
+	'visibility_exclude' => 'Skjul på angivne stier',
+	'visibility_mode_long' => 'Vælg, hvor meddelelsesbjælken skal vises.',
+	'visibility_patterns' => 'URL-mønstre',
+	'visibility_patterns_long' => 'Indtast ét mønster pr. linje. Brug * som jokertegn.',
+	'dismissible_section' => 'Afviselige indstillinger',
+	'dismissible' => 'Tillad besøgende at lukke',
+	'dismissible_long' => 'Hvis aktiveret, kan besøgende lukke meddelelsesbjælken.',
+	'dismiss_version' => 'Beskedversion',
+	'dismiss_version_long' => 'Skift denne værdi for at vise bjælken igen.',
+	'scheduling' => 'Planlægning',
+	'schedule_enabled' => 'Aktiver planlægning',
+	'schedule_enabled_long' => 'Vis kun meddelelsesbjælken i et bestemt tidsvindue.',
+	'schedule_start' => 'Startdato/-tid',
+	'schedule_start_long' => 'Meddelelsesbjælken vises ikke før denne dato/tid.',
+	'schedule_end' => 'Slutdato/-tid',
+	'schedule_end_long' => 'Meddelelsesbjælken vises ikke efter denne dato/tid.',
+	'styling' => 'Styling',
+	'bg_color' => 'Baggrundsfarve',
+	'text_color' => 'Tekstfarve',
+	'font_size' => 'Skriftstørrelse (px)',
+	'font_size_long' => 'Skriftstørrelse i pixels (10-24).',
+	'padding' => 'Polstring (px)',
+	'padding_long' => 'Vertikal polstring i pixels (5-30).',
+	'height' => 'Højde',
+	'height_long' => 'Minimumshøjde i pixels eller "auto".',
+	'submit' => 'Gem konfiguration',
+	'msgs' => array(
+		1 => 'Meddelelsesbjælke konfiguration gemt med succes.',
+		-1 => 'Meddelelsesbjælke konfiguration ikke gemt.'
+	)
+);
+$lang['plugin']['announcementbar'] = array('close' => 'Luk meddelelse');
+?>

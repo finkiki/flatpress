@@ -1,0 +1,47 @@
+<?php
+$lang['admin']['plugin']['submenu']['announcementbar'] = 'Vrstica za obvestila';
+$lang['admin']['plugin']['announcementbar'] = array(
+	'head' => 'Konfiguracija vrstice za obvestila',
+	'desc' => 'Konfigurirajte fiksno zgornje obvestilo/vrstico za obvestila, ki se lahko prikaže na vaši strani s časovnim načrtovanjem, pravili vidnosti in možnostmi zavrnitve.',
+	'general' => 'Splošne nastavitve',
+	'enabled' => 'Omogoči vrstico za obvestila',
+	'enabled_long' => 'Označite za prikaz vrstice za obvestila na vaši strani.',
+	'content' => 'Vsebina obvestila',
+	'content_long' => 'Vnesite sporočilo obvestila. Podpira BBCode in HTML označevanje.',
+	'visibility' => 'Nastavitve vidnosti',
+	'visibility_mode' => 'Način prikaza',
+	'visibility_all' => 'Prikaži na vseh straneh',
+	'visibility_include' => 'Prikaži samo na določenih poteh',
+	'visibility_exclude' => 'Skrij na določenih poteh',
+	'visibility_mode_long' => 'Izberite, kje naj se prikaže vrstica za obvestila.',
+	'visibility_patterns' => 'Vzorci URL',
+	'visibility_patterns_long' => 'Vnesite en vzorec na vrstico. Uporabite * kot nadomestni znak.',
+	'dismissible_section' => 'Nastavitve zavrnitve',
+	'dismissible' => 'Dovoli obiskovalcem, da zaprejo',
+	'dismissible_long' => 'Če je omogočeno, lahko obiskovalci zaprejo vrstico za obvestila.',
+	'dismiss_version' => 'Različica sporočila',
+	'dismiss_version_long' => 'Spremenite to vrednost, da znova prikažete vrstico.',
+	'scheduling' => 'Načrtovanje',
+	'schedule_enabled' => 'Omogoči načrtovanje',
+	'schedule_enabled_long' => 'Prikažite vrstico za obvestila samo v določenem časovnem oknu.',
+	'schedule_start' => 'Datum/čas začetka',
+	'schedule_start_long' => 'Vrstica za obvestila se ne bo prikazala pred tem datumom/časom.',
+	'schedule_end' => 'Datum/čas konca',
+	'schedule_end_long' => 'Vrstica za obvestila se ne bo prikazala po tem datumu/času.',
+	'styling' => 'Oblikovanje',
+	'bg_color' => 'Barva ozadja',
+	'text_color' => 'Barva besedila',
+	'font_size' => 'Velikost pisave (px)',
+	'font_size_long' => 'Velikost pisave v pikslih (10-24).',
+	'padding' => 'Polnilo (px)',
+	'padding_long' => 'Navpično polnilo v pikslih (5-30).',
+	'height' => 'Višina',
+	'height_long' => 'Minimalna višina v pikslih ali "auto".',
+	'submit' => 'Shrani konfiguracijo',
+	'msgs' => array(
+		1 => 'Konfiguracija vrstice za obvestila je bila uspešno shranjena.',
+		-1 => 'Konfiguracija vrstice za obvestila ni bila shranjena.'
+	)
+);
+$lang['plugin']['announcementbar'] = array('close' => 'Zapri obvestilo');
+?>

@@ -1,0 +1,47 @@
+<?php
+$lang['admin']['plugin']['submenu']['announcementbar'] = 'お知らせバー';
+$lang['admin']['plugin']['announcementbar'] = array(
+	'head' => 'お知らせバー設定',
+	'desc' => 'スケジュール設定、表示ルール、閉じるオプション付きの固定トップ通知/お知らせバーを設定します。',
+	'general' => '一般設定',
+	'enabled' => 'お知らせバーを有効にする',
+	'enabled_long' => 'サイトにお知らせバーを表示するにはチェックしてください。',
+	'content' => 'お知らせ内容',
+	'content_long' => 'お知らせメッセージを入力してください。BBCodeとHTMLマークアップをサポートしています。',
+	'visibility' => '表示設定',
+	'visibility_mode' => '表示モード',
+	'visibility_all' => 'すべてのページに表示',
+	'visibility_include' => '指定したパスのみに表示',
+	'visibility_exclude' => '指定したパスで非表示',
+	'visibility_mode_long' => 'お知らせバーを表示する場所を選択してください。',
+	'visibility_patterns' => 'URLパターン',
+	'visibility_patterns_long' => '1行に1つのパターンを入力してください。*をワイルドカードとして使用します。',
+	'dismissible_section' => '閉じる設定',
+	'dismissible' => '訪問者が閉じることを許可',
+	'dismissible_long' => '有効にすると、訪問者はお知らせバーを閉じることができます。',
+	'dismiss_version' => 'メッセージバージョン',
+	'dismiss_version_long' => 'この値を変更すると、以前に閉じた訪問者にバーを再表示できます。',
+	'scheduling' => 'スケジュール',
+	'schedule_enabled' => 'スケジュールを有効にする',
+	'schedule_enabled_long' => '特定の時間枠でのみお知らせバーを表示します。',
+	'schedule_start' => '開始日時',
+	'schedule_start_long' => 'この日時より前にはお知らせバーは表示されません。',
+	'schedule_end' => '終了日時',
+	'schedule_end_long' => 'この日時より後にはお知らせバーは表示されません。',
+	'styling' => 'スタイリング',
+	'bg_color' => '背景色',
+	'text_color' => 'テキスト色',
+	'font_size' => 'フォントサイズ（px）',
+	'font_size_long' => 'ピクセル単位のフォントサイズ（10-24）。',
+	'padding' => 'パディング（px）',
+	'padding_long' => 'ピクセル単位の垂直パディング（5-30）。',
+	'height' => '高さ',
+	'height_long' => 'ピクセル単位の最小高さ、または「auto」。',
+	'submit' => '設定を保存',
+	'msgs' => array(
+		1 => 'お知らせバー設定が正常に保存されました。',
+		-1 => 'お知らせバー設定が保存されませんでした。'
+	)
+);
+$lang['plugin']['announcementbar'] = array('close' => 'お知らせを閉じる');
+?>
