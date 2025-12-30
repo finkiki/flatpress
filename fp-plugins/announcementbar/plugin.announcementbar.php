@@ -134,12 +134,24 @@ function plugin_announcementbar_check_schedule($options) {
 		return true;
 	}
 	
+	// Get current time
 	$now = time();
+	
+	// Apply timezone offset from FlatPress configuration
+	global $fp_config;
+	$timeoffset = 0;
+	if (isset($fp_config['locale']['timeoffset'])) {
+		$timeoffset = (float)$fp_config['locale']['timeoffset'];
+	}
+	$timeoffset_seconds = $timeoffset * 3600; // Convert hours to seconds
+	
+	// Adjust current time by timezone offset
+	$now_adjusted = $now + $timeoffset_seconds;
 	
 	// Check start time
 	if (!empty($options['schedule_start'])) {
 		$start = strtotime($options['schedule_start']);
-		if ($start !== false && $now < $start) {
+		if ($start !== false && $now_adjusted < $start) {
 			return false;
 		}
 	}
@@ -147,7 +159,7 @@ function plugin_announcementbar_check_schedule($options) {
 	// Check end time
 	if (!empty($options['schedule_end'])) {
 		$end = strtotime($options['schedule_end']);
-		if ($end !== false && $now > $end) {
+		if ($end !== false && $now_adjusted > $end) {
 			return false;
 		}
 	}

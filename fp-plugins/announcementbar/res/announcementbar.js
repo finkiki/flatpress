@@ -39,7 +39,7 @@ var AnnouncementBar = (function() {
 		
 		// Check if dismissed
 		if (config.dismissible && isDismissed()) {
-			bar.classList.add('hidden');
+			bar.style.display = 'none';
 			return;
 		}
 		
@@ -50,7 +50,10 @@ var AnnouncementBar = (function() {
 		document.body.classList.add('has-announcement-bar');
 		
 		// Adjust body padding to prevent content from being hidden
-		adjustBodyPadding(bar);
+		// Use setTimeout to ensure bar is fully rendered before calculating height
+		setTimeout(function() {
+			adjustBodyPadding(bar);
+		}, 0);
 		
 		// Set up close button if dismissible
 		if (config.dismissible) {
@@ -59,7 +62,9 @@ var AnnouncementBar = (function() {
 		
 		// Re-adjust padding on window resize
 		window.addEventListener('resize', function() {
-			adjustBodyPadding(bar);
+			if (!bar.classList.contains('hidden')) {
+				adjustBodyPadding(bar);
+			}
 		});
 	}
 	
@@ -103,9 +108,20 @@ var AnnouncementBar = (function() {
 	 * Dismiss the announcement bar
 	 */
 	function dismissBar(bar) {
+		// Animate the bar out
+		bar.style.transform = 'translateY(-100%)';
 		bar.classList.add('hidden');
+		
+		// Remove body padding with animation
 		document.body.classList.remove('has-announcement-bar');
-		document.body.style.paddingTop = '';
+		document.body.style.transition = 'padding-top 0.3s ease-in-out';
+		document.body.style.paddingTop = '0';
+		
+		// Clean up transition after animation
+		setTimeout(function() {
+			document.body.style.transition = '';
+			bar.style.display = 'none';
+		}, 300);
 		
 		// Save dismissal state
 		saveDismissed();
