@@ -59,6 +59,12 @@
 	z-index: 10;
 	min-width: 44px;
 	min-height: 44px;
+	pointer-events: auto;
+	/* Ensure button is always clickable */
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 }
 
 .announcement-bar-close:hover,

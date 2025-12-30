@@ -65,8 +65,8 @@ var AnnouncementBar = (function() {
 		// Add body class to account for bar height
 		document.body.classList.add('has-announcement-bar');
 		
-		// ALWAYS set up close button if it exists, regardless of dismissible setting
-		setupCloseButton(barElement);
+		// Set up close button FIRST before any other operations
+		setupCloseButton();
 		
 		// Adjust body padding to prevent content from being hidden
 		// Use setTimeout to ensure bar is fully rendered before calculating height
@@ -97,90 +97,68 @@ var AnnouncementBar = (function() {
 	
 	/**
 	 * Set up the close button click handler
+	 * Ultra-simplified approach for maximum compatibility
 	 */
-	function setupCloseButton(bar) {
-		// Find the close button
-		var closeBtn = bar.querySelector('.announcement-bar-close');
-		if (!closeBtn) {
-			console.warn('AnnouncementBar: Close button element not found in bar');
+	function setupCloseButton() {
+		if (!barElement) {
+			console.error('AnnouncementBar: barElement is null in setupCloseButton');
 			return;
 		}
 		
-		console.log('AnnouncementBar: Close button found, attaching handlers');
+		// Find the close button
+		var closeBtn = barElement.querySelector('.announcement-bar-close');
+		if (!closeBtn) {
+			console.log('AnnouncementBar: No close button found (bar may not be dismissible)');
+			return;
+		}
 		
-		// Create a simple, direct handler
-		var handleClose = function(e) {
+		console.log('AnnouncementBar: Close button found, setting up handler');
+		
+		// Use the simplest possible approach - direct onclick assignment
+		// This is the most reliable cross-browser method
+		closeBtn.onclick = function(e) {
+			console.log('AnnouncementBar: Close button CLICKED!');
 			if (e) {
-				e.preventDefault();
-				e.stopPropagation();
+				try {
+					e.preventDefault();
+					e.stopPropagation();
+				} catch (err) {
+					// Ignore errors
+				}
 			}
-			console.log('AnnouncementBar: Close button activated');
 			dismissBar();
 			return false;
 		};
 		
-		// Attach handler in EVERY possible way
-		closeBtn.onclick = handleClose;
-		closeBtn.onmousedown = handleClose;
-		closeBtn.ontouchstart = handleClose;
-		
-		// Also use addEventListener
-		try {
-			closeBtn.addEventListener('click', handleClose, true);
-			closeBtn.addEventListener('mousedown', handleClose, true);
-			closeBtn.addEventListener('touchstart', handleClose, true);
-			closeBtn.addEventListener('touchend', handleClose, true);
-		} catch (e) {
-			console.error('AnnouncementBar: Error attaching event listeners', e);
-		}
-		
-		// Keyboard support
-		closeBtn.addEventListener('keydown', function(e) {
-			if (e.key === 'Enter' || e.key === ' ' || e.keyCode === 13 || e.keyCode === 32) {
-				e.preventDefault();
-				e.stopPropagation();
-				console.log('AnnouncementBar: Close button keyboard activation');
-				dismissBar();
-				return false;
-			}
-		}, true);
-		
-		console.log('AnnouncementBar: All close button handlers attached');
+		console.log('AnnouncementBar: Close button handler set up successfully');
 	}
 	
 	/**
 	 * Dismiss the announcement bar
 	 */
 	function dismissBar() {
-		console.log('AnnouncementBar: dismissBar() called');
+		console.log('AnnouncementBar: ===== dismissBar() CALLED =====');
 		
 		if (!barElement) {
 			console.error('AnnouncementBar: barElement is null');
 			return;
 		}
 		
-		console.log('AnnouncementBar: Hiding bar immediately');
+		console.log('AnnouncementBar: Hiding bar NOW');
 		
-		// Immediately hide the bar (no animation to avoid any issues)
+		// IMMEDIATELY hide the bar (no animation, no delay)
 		barElement.style.display = 'none';
+		console.log('AnnouncementBar: Bar display set to none');
 		
 		// Remove body padding immediately
 		document.body.classList.remove('has-announcement-bar');
 		document.body.style.paddingTop = '0';
+		console.log('AnnouncementBar: Body padding reset to 0');
 		
 		// Save dismissal state
 		saveDismissed();
-		console.log('AnnouncementBar: Bar hidden and dismissal saved');
 		
-		// Focus management - move focus to main content
-		try {
-			var mainContent = document.querySelector('main, #content, body');
-			if (mainContent && mainContent.focus) {
-				mainContent.focus();
-			}
-		} catch (e) {
-			// Ignore focus errors
-		}
+		console.log('AnnouncementBar: ===== BAR DISMISSED SUCCESSFULLY =====');
 	}
 	
 	/**
