@@ -120,7 +120,10 @@ class admin_plugin_announcementbar extends AdminPanelAction {
 	function onsubmit($data = null) {
 		if (!isset($_POST['announcement-conf'])) {
 			$this->smarty->assign('success', -1);
-			return 2;
+			// Reload options for display
+			$options = plugin_announcementbar_getoptions();
+			$this->smarty->assign('options', $options);
+			return 0;
 		}
 		
 		// Sanitize and save options
@@ -161,7 +164,7 @@ class admin_plugin_announcementbar extends AdminPanelAction {
 		
 		$this->smarty->assign('success', 1);
 		$this->smarty->assign('options', $options);
-		return 2;
+		return 0;
 	}
 }
 
