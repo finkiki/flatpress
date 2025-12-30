@@ -31,6 +31,11 @@ var AnnouncementBar = (function() {
 			return;
 		}
 		
+		// Move bar to the very beginning of body to prevent overlapping content
+		if (bar.parentNode !== document.body || document.body.firstChild !== bar) {
+			document.body.insertBefore(bar, document.body.firstChild);
+		}
+		
 		// Get version from data attribute if present
 		var dataVersion = bar.getAttribute('data-dismiss-version');
 		if (dataVersion) {
@@ -62,7 +67,7 @@ var AnnouncementBar = (function() {
 		
 		// Re-adjust padding on window resize
 		window.addEventListener('resize', function() {
-			if (!bar.classList.contains('hidden')) {
+			if (!bar.classList.contains('hidden') && bar.style.display !== 'none') {
 				adjustBodyPadding(bar);
 			}
 		});
@@ -87,21 +92,30 @@ var AnnouncementBar = (function() {
 	function setupCloseButton(bar) {
 		var closeBtn = bar.querySelector('.announcement-bar-close');
 		if (!closeBtn) {
+			console.warn('AnnouncementBar: Close button not found');
 			return;
 		}
 		
+		// Use both click and touchend for better mobile support
 		closeBtn.addEventListener('click', function(e) {
 			e.preventDefault();
+			e.stopPropagation();
 			dismissBar(bar);
-		});
+		}, false);
+		
+		closeBtn.addEventListener('touchend', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			dismissBar(bar);
+		}, false);
 		
 		// Keyboard support
 		closeBtn.addEventListener('keydown', function(e) {
-			if (e.key === 'Enter' || e.key === ' ') {
+			if (e.key === 'Enter' || e.key === ' ' || e.keyCode === 13 || e.keyCode === 32) {
 				e.preventDefault();
 				dismissBar(bar);
 			}
-		});
+		}, false);
 	}
 	
 	/**
