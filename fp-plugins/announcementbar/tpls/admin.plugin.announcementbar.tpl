@@ -1,5 +1,3 @@
-{config_load file="lang.conf" section=$lang}
-
 {if $success}
 	<div class="alert {if $success > 0}alert-success{else}alert-error{/if}">
 		{if $success > 0}
