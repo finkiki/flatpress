@@ -1,0 +1,36 @@
+/*
+===================
+Leggero CSS Styles
+===================
+Ispired by: http://pluxml.org theme default
+-------------------
+
+Name: Leggero
+Author: NoWhereMan & drudo
+Version: 0.1
+Module: style.css
+
+Modified for Beargerro
+by darreng and dartarrow
+*/
+
+
+
+/* imports common style ruleset */
+@import url(common.css);
+@import url(globals.css);
+
+/* imports column (where widgets usually go) rules */
+@import url(column.css);
+
+#comments li.comment-admin {
+	/*padding:1em*/
+    border: 3px solid #41aa76; 
+
+}
+
+#comments li.comment-admin strong.comment-name { font-size:140% }
+
+#widget-searchbox form {
+	text-align: center;
+}
