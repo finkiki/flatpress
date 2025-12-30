@@ -11,7 +11,7 @@
 <h2>{$plang.head}</h2>
 <p>{$plang.desc}</p>
 
-<form method="post" id="announcement-form">
+{html_form}
 	
 	<fieldset class="fieldset-group">
 		<legend>{$plang.general}</legend>
@@ -132,4 +132,4 @@
 	<div class="form-group">
 		<input type="submit" name="announcement-conf" value="{$plang.submit}" class="btn btn-primary">
 	</div>
-</form>
+{/html_form}
