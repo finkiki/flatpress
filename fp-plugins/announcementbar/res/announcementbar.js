@@ -28,12 +28,8 @@ var AnnouncementBar = (function() {
 		
 		var bar = document.getElementById('announcement_bar');
 		if (!bar) {
+			console.error('AnnouncementBar: Bar element not found');
 			return;
-		}
-		
-		// Move bar to the very beginning of body to prevent overlapping content
-		if (bar.parentNode !== document.body || document.body.firstChild !== bar) {
-			document.body.insertBefore(bar, document.body.firstChild);
 		}
 		
 		// Get version from data attribute if present
@@ -48,22 +44,27 @@ var AnnouncementBar = (function() {
 			return;
 		}
 		
+		// Move bar to the very beginning of body to prevent overlapping content
+		if (bar.parentNode !== document.body || document.body.firstChild !== bar) {
+			document.body.insertBefore(bar, document.body.firstChild);
+		}
+		
 		// Show the bar
 		bar.style.display = 'flex';
 		
 		// Add body class to account for bar height
 		document.body.classList.add('has-announcement-bar');
 		
+		// Set up close button BEFORE adjusting padding (ensure element is in DOM)
+		if (config.dismissible) {
+			setupCloseButton(bar);
+		}
+		
 		// Adjust body padding to prevent content from being hidden
 		// Use setTimeout to ensure bar is fully rendered before calculating height
 		setTimeout(function() {
 			adjustBodyPadding(bar);
 		}, 0);
-		
-		// Set up close button if dismissible
-		if (config.dismissible) {
-			setupCloseButton(bar);
-		}
 		
 		// Re-adjust padding on window resize
 		window.addEventListener('resize', function() {
@@ -92,36 +93,66 @@ var AnnouncementBar = (function() {
 	function setupCloseButton(bar) {
 		var closeBtn = bar.querySelector('.announcement-bar-close');
 		if (!closeBtn) {
-			console.warn('AnnouncementBar: Close button not found');
+			console.error('AnnouncementBar: Close button element not found in bar');
 			return;
 		}
 		
-		// Use both click and touchend for better mobile support
-		closeBtn.addEventListener('click', function(e) {
-			e.preventDefault();
-			e.stopPropagation();
-			dismissBar(bar);
-		}, false);
+		console.log('AnnouncementBar: Setting up close button handlers');
 		
-		closeBtn.addEventListener('touchend', function(e) {
+		// Primary click handler
+		var clickHandler = function(e) {
 			e.preventDefault();
 			e.stopPropagation();
+			console.log('AnnouncementBar: Close button clicked');
 			dismissBar(bar);
-		}, false);
+			return false;
+		};
+		
+		// Attach multiple event types for maximum compatibility
+		closeBtn.onclick = clickHandler;
+		closeBtn.addEventListener('click', clickHandler, true); // Use capture phase
+		closeBtn.addEventListener('mousedown', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			console.log('AnnouncementBar: Close button mousedown');
+			dismissBar(bar);
+			return false;
+		}, true);
+		
+		// Touch support for mobile
+		closeBtn.addEventListener('touchstart', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			console.log('AnnouncementBar: Close button touchstart');
+			dismissBar(bar);
+			return false;
+		}, true);
 		
 		// Keyboard support
 		closeBtn.addEventListener('keydown', function(e) {
 			if (e.key === 'Enter' || e.key === ' ' || e.keyCode === 13 || e.keyCode === 32) {
 				e.preventDefault();
+				e.stopPropagation();
+				console.log('AnnouncementBar: Close button keyboard');
 				dismissBar(bar);
+				return false;
 			}
-		}, false);
+		}, true);
+		
+		console.log('AnnouncementBar: Close button handlers attached successfully');
 	}
 	
 	/**
 	 * Dismiss the announcement bar
 	 */
 	function dismissBar(bar) {
+		console.log('AnnouncementBar: dismissBar called');
+		
+		if (!bar) {
+			console.error('AnnouncementBar: Bar element is null in dismissBar');
+			return;
+		}
+		
 		// Animate the bar out
 		bar.style.transform = 'translateY(-100%)';
 		bar.classList.add('hidden');
@@ -135,10 +166,12 @@ var AnnouncementBar = (function() {
 		setTimeout(function() {
 			document.body.style.transition = '';
 			bar.style.display = 'none';
+			console.log('AnnouncementBar: Bar hidden');
 		}, 300);
 		
 		// Save dismissal state
 		saveDismissed();
+		console.log('AnnouncementBar: Dismissal saved');
 		
 		// Focus management - move focus to main content
 		var mainContent = document.querySelector('main, #content, body');
