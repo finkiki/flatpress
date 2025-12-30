@@ -142,7 +142,6 @@ class admin_plugin_announcementbar extends AdminPanelAction {
 		
 		// Dismissible
 		$options['dismissible'] = isset($_POST['dismissible']);
-		$options['dismiss_version'] = isset($_POST['dismiss_version']) ? sanitize_text_field($_POST['dismiss_version']) : '1';
 		
 		// Schedule
 		$options['schedule_enabled'] = isset($_POST['schedule_enabled']);

@@ -66,7 +66,6 @@ function plugin_announcementbar_getoptions() {
 		'visibility_mode' => 'all', // all, include, exclude
 		'visibility_patterns' => '',
 		'dismissible' => false,
-		'dismiss_version' => '1',
 		'schedule_enabled' => false,
 		'schedule_start' => '',
 		'schedule_end' => '',
@@ -268,7 +267,6 @@ function plugin_announcementbar_footer() {
 	$font_size = isset($options['font_size']) ? $options['font_size'] : '14';
 	$padding = isset($options['padding']) ? $options['padding'] : '12';
 	$dismissible = !empty($options['dismissible']);
-	$dismiss_version = isset($options['dismiss_version']) ? $options['dismiss_version'] : '1';
 	
 	$random_hex = RANDOM_HEX;
 	
@@ -286,7 +284,6 @@ function plugin_announcementbar_footer() {
 	<div id="announcement_bar" 
 		 class="announcement-bar' . ($dismissible ? ' announcement-bar-dismissible' : '') . '" 
 		 style="' . htmlspecialchars($inline_style, ENT_QUOTES, 'UTF-8') . '"
-		 data-dismiss-version="' . htmlspecialchars($dismiss_version, ENT_QUOTES, 'UTF-8') . '"
 		 role="banner"
 		 aria-label="Announcement">
 		<div class="announcement-bar-content">
@@ -311,14 +308,12 @@ function plugin_announcementbar_footer() {
 			if (document.readyState === "loading") {
 				document.addEventListener("DOMContentLoaded", function() {
 					AnnouncementBar.init({
-						dismissible: ' . ($dismissible ? 'true' : 'false') . ',
-						version: "' . htmlspecialchars($dismiss_version, ENT_QUOTES, 'UTF-8') . '"
+						dismissible: ' . ($dismissible ? 'true' : 'false') . '
 					});
 				});
 			} else {
 				AnnouncementBar.init({
-					dismissible: ' . ($dismissible ? 'true' : 'false') . ',
-					version: "' . htmlspecialchars($dismiss_version, ENT_QUOTES, 'UTF-8') . '"
+					dismissible: ' . ($dismissible ? 'true' : 'false') . '
 				});
 			}
 		}

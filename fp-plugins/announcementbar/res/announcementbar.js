@@ -8,7 +8,6 @@ var AnnouncementBar = (function() {
 	
 	var config = {
 		dismissible: false,
-		version: '1',
 		cookieName: 'announcementbar_dismissed',
 		storageKey: 'announcementbar_dismissed'
 	};
@@ -38,13 +37,6 @@ var AnnouncementBar = (function() {
 			return;
 		}
 		
-		// Get version from data attribute if present
-		var dataVersion = barElement.getAttribute('data-dismiss-version');
-		if (dataVersion) {
-			config.version = dataVersion;
-		}
-		
-		console.log('AnnouncementBar: Version:', config.version);
 		console.log('AnnouncementBar: Dismissible:', config.dismissible);
 		
 		// Check if dismissed
@@ -136,46 +128,40 @@ var AnnouncementBar = (function() {
 	 * Check if the bar has been dismissed
 	 */
 	function isDismissed() {
-		var dismissedVersion = getDismissedVersion();
-		return dismissedVersion === config.version;
-	}
-	
-	/**
-	 * Get the dismissed version from storage
-	 */
-	function getDismissedVersion() {
 		// Try localStorage first (preferred)
 		if (supportsLocalStorage()) {
 			try {
-				return localStorage.getItem(config.storageKey) || '';
+				var stored = localStorage.getItem(config.storageKey);
+				return stored === 'true';
 			} catch (e) {
 				// Fall through to cookie
 			}
 		}
 		
 		// Fall back to cookie
-		return getCookie(config.cookieName) || '';
+		var cookieValue = getCookie(config.cookieName);
+		return cookieValue === 'true';
 	}
 	
 	/**
 	 * Save the dismissed state
 	 */
 	function saveDismissed() {
-		console.log('AnnouncementBar: Saving dismissed state, version:', config.version);
+		console.log('AnnouncementBar: Saving dismissed state permanently');
 		
 		// Try localStorage first (preferred)
 		if (supportsLocalStorage()) {
 			try {
-				localStorage.setItem(config.storageKey, config.version);
+				localStorage.setItem(config.storageKey, 'true');
 				console.log('AnnouncementBar: Saved to localStorage');
 			} catch (e) {
 				console.error('AnnouncementBar: localStorage save failed', e);
 			}
 		}
 		
-		// Also set cookie as fallback
+		// Also set cookie as fallback (expires in 10 years)
 		try {
-			setCookie(config.cookieName, config.version, 365);
+			setCookie(config.cookieName, 'true', 3650);
 			console.log('AnnouncementBar: Saved to cookie');
 		} catch (e) {
 			console.error('AnnouncementBar: Cookie save failed', e);

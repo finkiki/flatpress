@@ -61,12 +61,6 @@
 			</label>
 			<div class="help-text">{$plang.dismissible_long}</div>
 		</div>
-		
-		<div class="form-group">
-			<label for="dismiss_version">{$plang.dismiss_version}</label>
-			<input type="text" name="dismiss_version" id="dismiss_version" value="{$options.dismiss_version|default:'1'|escape:'html'}">
-			<div class="help-text">{$plang.dismiss_version_long}</div>
-		</div>
 	</fieldset>
 	
 	<fieldset class="fieldset-group">
