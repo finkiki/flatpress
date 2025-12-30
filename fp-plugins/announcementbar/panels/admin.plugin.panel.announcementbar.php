@@ -165,13 +165,6 @@ class admin_plugin_announcementbar extends AdminPanelAction {
 	}
 }
 
-/**
- * Sanitize text field.
- */
-function sanitize_text_field($str) {
-	return trim(strip_tags($str));
-}
-
 // Register the admin panel
 admin_addpanelaction('plugin', 'announcementbar', true);
 ?>
