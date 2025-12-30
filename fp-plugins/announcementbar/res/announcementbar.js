@@ -54,45 +54,21 @@ var AnnouncementBar = (function() {
 			return;
 		}
 		
-		// Move bar to the very beginning of body to prevent overlapping content
-		if (barElement.parentNode !== document.body || document.body.firstChild !== barElement) {
-			document.body.insertBefore(barElement, document.body.firstChild);
-		}
-		
-		// Show the bar
+		// Show the bar (no need to move it, wp_head places it correctly)
 		barElement.style.display = 'flex';
 		
-		// Add body class to account for bar height
-		document.body.classList.add('has-announcement-bar');
-		
-		// Set up close button FIRST before any other operations
+		// Set up close button
 		setupCloseButton();
 		
-		// Adjust body padding to prevent content from being hidden
-		// Use setTimeout to ensure bar is fully rendered before calculating height
-		setTimeout(function() {
-			adjustBodyPadding(barElement);
-		}, 0);
+		// No need to adjust body padding with sticky positioning
+		// The bar naturally pushes content down
 		
-		// Re-adjust padding on window resize
+		// Re-adjust on window resize (for future features)
 		window.addEventListener('resize', function() {
 			if (barElement && barElement.style.display !== 'none') {
-				adjustBodyPadding(barElement);
+				// Future: could recalculate something here if needed
 			}
 		});
-	}
-	
-	/**
-	 * Adjust body padding to account for announcement bar height
-	 */
-	function adjustBodyPadding(bar) {
-		if (!bar || bar.style.display === 'none') {
-			document.body.style.paddingTop = '';
-			return;
-		}
-		
-		var barHeight = bar.offsetHeight;
-		document.body.style.paddingTop = barHeight + 'px';
 	}
 	
 	/**
@@ -149,11 +125,6 @@ var AnnouncementBar = (function() {
 		// IMMEDIATELY hide the bar (no animation, no delay)
 		barElement.style.display = 'none';
 		console.log('AnnouncementBar: Bar display set to none');
-		
-		// Remove body padding immediately
-		document.body.classList.remove('has-announcement-bar');
-		document.body.style.paddingTop = '0';
-		console.log('AnnouncementBar: Body padding reset to 0');
 		
 		// Save dismissal state
 		saveDismissed();

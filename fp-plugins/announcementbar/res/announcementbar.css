@@ -4,12 +4,12 @@
  */
 
 .announcement-bar {
-	position: fixed;
+	position: sticky;
 	top: 0;
 	left: 0;
 	right: 0;
 	width: 100%;
-	z-index: 9999;
+	z-index: 99999;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -76,11 +76,6 @@
 
 .announcement-bar-close:active {
 	opacity: 0.5;
-}
-
-/* Push body content down when bar is visible */
-body.has-announcement-bar {
-	padding-top: 0;
 }
 
 /* Responsive adjustments */

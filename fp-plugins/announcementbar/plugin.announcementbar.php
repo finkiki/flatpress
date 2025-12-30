@@ -327,7 +327,9 @@ function plugin_announcementbar_footer() {
 ';
 }
 
-add_action('wp_footer', 'plugin_announcementbar_footer', 0);
+// Use wp_head instead of wp_footer to inject bar early in page structure
+// This prevents the bar from being added at the bottom and then moved via JS
+add_action('wp_head', 'plugin_announcementbar_footer', 9999);
 
 // Load admin panel if in admin context
 if (class_exists('AdminPanelAction')) {
