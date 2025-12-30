@@ -38,10 +38,8 @@ $lang['admin']['plugin']['announcementbar'] = array(
 	'height' => 'Yükseklik',
 	'height_long' => 'Piksel cinsinden minimum yükseklik veya "auto".',
 	'submit' => 'Yapılandırmayı kaydet',
-	'msgs' => array(
-		1 => 'Duyuru çubuğu yapılandırması başarıyla kaydedildi.',
-		-1 => 'Duyuru çubuğu yapılandırması kaydedilmedi.'
-	)
+	'msg_success' => 'Duyuru çubuğu yapılandırması başarıyla kaydedildi.',
+	'msg_error' => 'Duyuru çubuğu yapılandırması kaydedilmedi.'
 );
 $lang['plugin']['announcementbar'] = array('close' => 'Duyuruyu kapat');
 ?>

@@ -3,9 +3,9 @@
 {if $success}
 	<div class="alert {if $success > 0}alert-success{else}alert-error{/if}">
 		{if $success > 0}
-			{#announcementbar.msgs.1#}
+			{$lang.admin.plugin.announcementbar.msg_success}
 		{else}
-			{#announcementbar.msgs.-1#}
+			{$lang.admin.plugin.announcementbar.msg_error}
 		{/if}
 	</div>
 {/if}

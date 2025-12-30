@@ -44,10 +44,8 @@ $lang['admin']['plugin']['announcementbar'] = array(
 	'height_long' => 'Minimum height in pixels, or "auto" for automatic height.',
 	
 	'submit' => 'Save configuration',
-	'msgs' => array(
-		1 => 'Announcement bar configuration successfully saved.',
-		-1 => 'Announcement bar configuration not saved.'
-	)
+	'msg_success' => 'Announcement bar configuration successfully saved.',
+	'msg_error' => 'Announcement bar configuration not saved.'
 );
 
 $lang['plugin']['announcementbar'] = array(

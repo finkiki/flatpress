@@ -44,10 +44,8 @@ $lang['admin']['plugin']['announcementbar'] = array(
 	'height_long' => 'Altura mínima en píxeles, o "auto" para altura automática.',
 	
 	'submit' => 'Guardar configuración',
-	'msgs' => array(
-		1 => 'Configuración de la barra de anuncios guardada correctamente.',
-		-1 => 'Configuración de la barra de anuncios no guardada.'
-	)
+	'msg_success' => 'Configuración de la barra de anuncios guardada correctamente.',
+	'msg_error' => 'Configuración de la barra de anuncios no guardada.'
 );
 
 $lang['plugin']['announcementbar'] = array(

@@ -38,10 +38,8 @@ $lang['admin']['plugin']['announcementbar'] = array(
 	'height' => 'Výška',
 	'height_long' => 'Minimální výška v pixelech nebo "auto".',
 	'submit' => 'Uložit konfiguraci',
-	'msgs' => array(
-		1 => 'Konfigurace panelu oznámení byla úspěšně uložena.',
-		-1 => 'Konfigurace panelu oznámení nebyla uložena.'
-	)
+	'msg_success' => 'Konfigurace panelu oznámení byla úspěšně uložena.',
+	'msg_error' => 'Konfigurace panelu oznámení nebyla uložena.'
 );
 $lang['plugin']['announcementbar'] = array('close' => 'Zavřít oznámení');
 ?>

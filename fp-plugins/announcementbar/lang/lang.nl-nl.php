@@ -38,10 +38,8 @@ $lang['admin']['plugin']['announcementbar'] = array(
 	'height' => 'Hoogte',
 	'height_long' => 'Minimale hoogte in pixels, of "auto".',
 	'submit' => 'Configuratie opslaan',
-	'msgs' => array(
-		1 => 'Aankondigingsbalk configuratie succesvol opgeslagen.',
-		-1 => 'Aankondigingsbalk configuratie niet opgeslagen.'
-	)
+	'msg_success' => 'Aankondigingsbalk configuratie succesvol opgeslagen.',
+	'msg_error' => 'Aankondigingsbalk configuratie niet opgeslagen.'
 );
 $lang['plugin']['announcementbar'] = array('close' => 'Aankondiging sluiten');
 ?>

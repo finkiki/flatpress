@@ -44,10 +44,8 @@ $lang['admin']['plugin']['announcementbar'] = array(
 	'height_long' => 'Mindesthöhe in Pixel oder "auto" für automatische Höhe.',
 	
 	'submit' => 'Konfiguration speichern',
-	'msgs' => array(
-		1 => 'Ankündigungsleiste-Konfiguration erfolgreich gespeichert.',
-		-1 => 'Ankündigungsleiste-Konfiguration nicht gespeichert.'
-	)
+	'msg_success' => 'Ankündigungsleiste-Konfiguration erfolgreich gespeichert.',
+	'msg_error' => 'Ankündigungsleiste-Konfiguration nicht gespeichert.'
 );
 
 $lang['plugin']['announcementbar'] = array(

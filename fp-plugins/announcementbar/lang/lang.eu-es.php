@@ -38,10 +38,8 @@ $lang['admin']['plugin']['announcementbar'] = array(
 	'height' => 'Altuera',
 	'height_long' => 'Gutxieneko altuera pixeletan edo "auto".',
 	'submit' => 'Gorde konfigurazioa',
-	'msgs' => array(
-		1 => 'Iragarki-barraren konfigurazioa ongi gorde da.',
-		-1 => 'Iragarki-barraren konfigurazioa ez da gorde.'
-	)
+	'msg_success' => 'Iragarki-barraren konfigurazioa ongi gorde da.',
+	'msg_error' => 'Iragarki-barraren konfigurazioa ez da gorde.'
 );
 $lang['plugin']['announcementbar'] = array('close' => 'Itxi iragarkia');
 ?>

@@ -38,10 +38,8 @@ $lang['admin']['plugin']['announcementbar'] = array(
 	'height' => 'Višina',
 	'height_long' => 'Minimalna višina v pikslih ali "auto".',
 	'submit' => 'Shrani konfiguracijo',
-	'msgs' => array(
-		1 => 'Konfiguracija vrstice za obvestila je bila uspešno shranjena.',
-		-1 => 'Konfiguracija vrstice za obvestila ni bila shranjena.'
-	)
+	'msg_success' => 'Konfiguracija vrstice za obvestila je bila uspešno shranjena.',
+	'msg_error' => 'Konfiguracija vrstice za obvestila ni bila shranjena.'
 );
 $lang['plugin']['announcementbar'] = array('close' => 'Zapri obvestilo');
 ?>

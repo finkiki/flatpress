@@ -38,10 +38,8 @@ $lang['admin']['plugin']['announcementbar'] = array(
 	'height' => 'Altura',
 	'height_long' => 'Altura mínima em pixels, ou "auto".',
 	'submit' => 'Salvar configuração',
-	'msgs' => array(
-		1 => 'Configuração da barra de anúncios salva com sucesso.',
-		-1 => 'Configuração da barra de anúncios não salva.'
-	)
+	'msg_success' => 'Configuração da barra de anúncios salva com sucesso.',
+	'msg_error' => 'Configuração da barra de anúncios não salva.'
 );
 $lang['plugin']['announcementbar'] = array('close' => 'Fechar anúncio');
 ?>

@@ -38,10 +38,8 @@ $lang['admin']['plugin']['announcementbar'] = array(
 	'height' => 'Højde',
 	'height_long' => 'Minimumshøjde i pixels eller "auto".',
 	'submit' => 'Gem konfiguration',
-	'msgs' => array(
-		1 => 'Meddelelsesbjælke konfiguration gemt med succes.',
-		-1 => 'Meddelelsesbjælke konfiguration ikke gemt.'
-	)
+	'msg_success' => 'Meddelelsesbjælke konfiguration gemt med succes.',
+	'msg_error' => 'Meddelelsesbjælke konfiguration ikke gemt.'
 );
 $lang['plugin']['announcementbar'] = array('close' => 'Luk meddelelse');
 ?>

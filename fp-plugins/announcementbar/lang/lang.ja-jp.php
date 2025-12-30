@@ -38,10 +38,8 @@ $lang['admin']['plugin']['announcementbar'] = array(
 	'height' => '高さ',
 	'height_long' => 'ピクセル単位の最小高さ、または「auto」。',
 	'submit' => '設定を保存',
-	'msgs' => array(
-		1 => 'お知らせバー設定が正常に保存されました。',
-		-1 => 'お知らせバー設定が保存されませんでした。'
-	)
+	'msg_success' => 'お知らせバー設定が正常に保存されました。',
+	'msg_error' => 'お知らせバー設定が保存されませんでした。'
 );
 $lang['plugin']['announcementbar'] = array('close' => 'お知らせを閉じる');
 ?>
