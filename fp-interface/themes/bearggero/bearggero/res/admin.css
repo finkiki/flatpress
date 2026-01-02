@@ -7,11 +7,178 @@ Module: admin.css
 Description: Admin panel styles
 */
 
-#admin-container,
-#admin-panel {
+body[class*="admin-"] {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 	font-size: 14px;
 	line-height: 1.6;
 }
 
-/* Basic admin styling - most admin styles come from FlatPress core */
+#admin-main {
+	max-width: 1200px;
+	margin: 2rem auto;
+	padding: 0 1rem;
+}
+
+.admin-entry {
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	padding: 2rem;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.admin-nav {
+	list-style: none;
+	margin: 0 0 1.5rem 0;
+	padding: 0;
+	display: flex;
+	gap: 1rem;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 0.5rem;
+}
+
+.admin-nav li {
+	margin: 0;
+	padding: 0;
+}
+
+.admin-nav a {
+	color: #2c5f8d;
+	text-decoration: none;
+	padding: 0.5rem 1rem;
+	display: block;
+	border-radius: 4px;
+	transition: background 0.3s;
+}
+
+.admin-nav a:hover {
+	background: rgba(44, 95, 141, 0.1);
+}
+
+.admin-title {
+	margin: 0 0 1.5rem 0;
+	font-size: 2rem;
+	color: #333;
+	border-bottom: 2px solid #2c5f8d;
+	padding-bottom: 0.5rem;
+}
+
+.admin-body {
+	line-height: 1.6;
+}
+
+/* Admin forms */
+.admin-body form {
+	margin: 1rem 0;
+}
+
+.admin-body fieldset {
+	margin: 1rem 0;
+	padding: 1rem;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+.admin-body legend {
+	padding: 0 0.5rem;
+	font-weight: bold;
+}
+
+.admin-body input[type="text"],
+.admin-body input[type="email"],
+.admin-body input[type="password"],
+.admin-body textarea,
+.admin-body select {
+	width: 100%;
+	max-width: 500px;
+	padding: 0.5rem;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 14px;
+	font-family: inherit;
+}
+
+.admin-body input[type="submit"],
+.admin-body input[type="button"],
+.admin-body button {
+	background: #2c5f8d;
+	color: #fff;
+	border: none;
+	padding: 0.5rem 1.5rem;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+	transition: background 0.3s;
+}
+
+.admin-body input[type="submit"]:hover,
+.admin-body input[type="button"]:hover,
+.admin-body button:hover {
+	background: #1a3a5a;
+}
+
+/* Admin tables */
+.admin-body table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 1rem 0;
+}
+
+.admin-body th,
+.admin-body td {
+	padding: 0.75rem;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+.admin-body th {
+	background: rgba(44, 95, 141, 0.1);
+	font-weight: bold;
+}
+
+/* Admin messages */
+.admin-body .success,
+.admin-body .notifications {
+	background: #d4edda;
+	color: #155724;
+	border: 1px solid #c3e6cb;
+	padding: 1rem;
+	margin: 1rem 0;
+	border-radius: 4px;
+}
+
+.admin-body .error,
+.admin-body .errors {
+	background: #f8d7da;
+	color: #721c24;
+	border: 1px solid #f5c6cb;
+	padding: 1rem;
+	margin: 1rem 0;
+	border-radius: 4px;
+}
+
+.admin-body .warning,
+.admin-body .warnings {
+	background: #fff3cd;
+	color: #856404;
+	border: 1px solid #ffeaa7;
+	padding: 1rem;
+	margin: 1rem 0;
+	border-radius: 4px;
+}
+
+/* Hide site header navigation in admin */
+body[class*="admin-"] #site-header {
+	display: none;
+}
+
+/* Simplify footer in admin */
+body[class*="admin-"] #site-footer {
+	margin-top: 2rem;
+	background: transparent;
+	padding: 1rem 0;
+}
+
+body[class*="admin-"] .footer-widgets-area {
+	display: none;
+}

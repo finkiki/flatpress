@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="{$fp_config.locale.lang}">
-<head>
-	<title>{$admin_title}</title>
-	<meta http-equiv="Content-Type" content="text/html; charset={$fp_config.locale.charset}">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	{action hook=admin_head}
-</head>
+{include file="cpheader.tpl"}
 
-<body id="admin-body">
-	<div id="admin-container">
-		{$admin_content}
+<div id="admin-main">
+	
+	<div class="admin-entry">
+		
+		<ul class="admin-nav">
+			<li><a href="{$smarty.const.BLOG_BASEURL}">{$lang.admin.general.startpage}</a></li>
+			<li><a href="{$smarty.const.BLOG_BASEURL}login.php?do=logout">{$lang.admin.general.logout}</a></li>
+		</ul>
+		
+		{page}
+			<h1 class="admin-title">{$subject}</h1>
+			<div class="admin-body">{controlpanel}</div>
+		{/page}
+		
 	</div>
-</body>
-</html>
+	
+</div>
+
+{include file="footer.tpl"}
