@@ -9,6 +9,12 @@ Smarty 5 now always runs in multibyte mode. Make sure you use the PHP [multibyte
   - No code changes required with new, stable Smarty version.
   - FlatPress automatically loads the latest PSR-4 stub.
   - The new Smarty Modifier ``|ver``  uses a new core function, ``utils_asset_ver()``, to assign the FlatPress version to Java scripts and stylesheets. This ensures that the visitor's browser only uses the updated files. ([#629](https://github.com/flatpressblog/flatpress/issues/629))
+- New Bearggero theme:
+  - Modern, responsive theme with full Smarty 5.7.0 compatibility
+  - Features header navigation menu with mobile toggle
+  - Responsive design with touch-friendly interface
+  - Multiple widget areas (navigation, sidebar, footer)
+  - Dark mode support and accessibility features
 - Caching:
   - Fewer race conditions thanks to local cache, optionally supported by APCu. ([#667](https://github.com/flatpressblog/flatpress/issues/667), [#673](https://github.com/flatpressblog/flatpress/pull/673), [#675](https://github.com/flatpressblog/flatpress/pull/675), [#679](https://github.com/flatpressblog/flatpress/pull/679), [#687](https://github.com/flatpressblog/flatpress/pull/687), [#690](https://github.com/flatpressblog/flatpress/pull/690), [#701](https://github.com/flatpressblog/flatpress/pull/701), [#729](https://github.com/flatpressblog/flatpress/pull/729), [#730](https://github.com/flatpressblog/flatpress/pull/730))
 
