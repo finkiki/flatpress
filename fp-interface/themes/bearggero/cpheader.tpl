@@ -8,8 +8,8 @@
 	{action hook=admin_head}
 </head>
 
-{if !isset($panel)}{assign var=panel value=""}{/if}
-{if !isset($action)}{assign var=action value=""}{/if}
+{if !isset($panel)} {assign var=panel value=""} {/if}
+{if !isset($action)} {assign var=action value=""} {/if}
 <body class="{"admin-$panel-$action"|tag:admin_body_class}">
 	<div id="page-container">
 		<div id="content-wrapper">
