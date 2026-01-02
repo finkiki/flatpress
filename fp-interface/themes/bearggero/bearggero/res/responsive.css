@@ -1,0 +1,270 @@
+/*
+===================
+Bearggero CSS Styles
+===================
+
+Module: responsive.css
+Description: Responsive design and mobile styles
+*/
+
+/* Mobile First Approach - Base styles for mobile */
+
+/* Touch-friendly spacing */
+@media (max-width: 768px) {
+	/* Increase touch targets */
+	a, button, input[type="submit"], input[type="button"] {
+		min-height: 44px;
+		min-width: 44px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	/* Adjust spacing for mobile */
+	#content-wrapper {
+		padding: 0.5rem;
+	}
+	
+	/* Single column layout on mobile */
+	#main-content {
+		flex-direction: column;
+		gap: 1rem;
+	}
+	
+	#primary {
+		flex: 1 1 100%;
+		width: 100%;
+	}
+	
+	#sidebar {
+		flex: 1 1 100%;
+		width: 100%;
+	}
+	
+	/* Mobile header adjustments */
+	.header-inner {
+		flex-direction: column;
+		align-items: stretch;
+	}
+	
+	.site-branding {
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+	
+	.site-title {
+		font-size: 1.5rem;
+	}
+	
+	.site-subtitle {
+		font-size: 0.85rem;
+	}
+	
+	/* Mobile navigation */
+	.menu-toggle {
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+	
+	.menu-wrapper {
+		display: none;
+		flex-direction: column;
+		width: 100%;
+		margin-top: 1rem;
+		background: rgba(0,0,0,0.1);
+		border-radius: 4px;
+		padding: 0.5rem 0;
+	}
+	
+	.menu-wrapper.is-open {
+		display: flex;
+	}
+	
+	.nav-menu,
+	.nav-widget ul {
+		flex-direction: column;
+		gap: 0;
+		width: 100%;
+	}
+	
+	.nav-menu li,
+	.nav-widget ul li {
+		width: 100%;
+	}
+	
+	.nav-menu a,
+	.nav-widget ul a {
+		padding: 0.75rem 1rem;
+		width: 100%;
+		border-bottom: 1px solid rgba(255,255,255,0.1);
+	}
+	
+	.nav-menu li:last-child a,
+	.nav-widget ul li:last-child a {
+		border-bottom: none;
+	}
+	
+	/* Mobile entry styles */
+	.entry {
+		padding: 1rem;
+		margin-bottom: 1rem;
+	}
+	
+	.entry-title {
+		font-size: 1.4rem;
+	}
+	
+	.entry-meta {
+		flex-direction: column;
+		gap: 0.5rem;
+		font-size: 0.85rem;
+	}
+	
+	/* Mobile widget styles */
+	.widget {
+		padding: 1rem;
+		margin-bottom: 1rem;
+	}
+	
+	.widget-title {
+		font-size: 1.1rem;
+	}
+	
+	/* Mobile footer */
+	.footer-widgets-area {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+	
+	/* Mobile forms */
+	input[type="text"],
+	input[type="email"],
+	input[type="url"],
+	textarea {
+		font-size: 16px; /* Prevents zoom on iOS */
+	}
+	
+	/* Mobile tables - scroll horizontally */
+	table {
+		display: block;
+		overflow-x: auto;
+		white-space: nowrap;
+	}
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+	#primary {
+		flex: 1 1 60%;
+	}
+	
+	#sidebar {
+		flex: 1 1 35%;
+	}
+	
+	.footer-widgets-area {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	
+	.site-title {
+		font-size: 1.6rem;
+	}
+}
+
+/* Desktop styles */
+@media (min-width: 1025px) {
+	.menu-toggle {
+		display: none;
+	}
+	
+	.menu-wrapper {
+		display: flex !important;
+	}
+	
+	/* Hover effects on desktop */
+	.entry:hover {
+		box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+		transform: translateY(-2px);
+		transition: all 0.3s ease;
+	}
+	
+	.widget:hover {
+		box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+	}
+}
+
+/* Large desktop */
+@media (min-width: 1400px) {
+	:root {
+		--max-width: 1400px;
+	}
+	
+	.site-title {
+		font-size: 2rem;
+	}
+	
+	.entry-title {
+		font-size: 2rem;
+	}
+}
+
+/* Landscape phone */
+@media (max-width: 768px) and (orientation: landscape) {
+	.header-inner {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	
+	.site-branding {
+		margin-bottom: 0;
+		text-align: left;
+	}
+	
+	.menu-toggle {
+		width: auto;
+		min-width: 120px;
+	}
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+	:root {
+		--primary-color: #000;
+		--link-color: #000;
+		--border-color: #000;
+	}
+	
+	.entry,
+	.widget,
+	.static-page {
+		border: 2px solid #000;
+	}
+}
+
+/* Print-specific responsive adjustments */
+@media print {
+	#main-content {
+		flex-direction: column;
+	}
+	
+	#primary {
+		width: 100%;
+	}
+	
+	#sidebar {
+		display: none;
+	}
+}
