@@ -44,7 +44,7 @@
 					<strong>{views}</strong> {$lang.postviews.views}
 				{/if}
 				
-				{if isset($comments) && !(in_array('commslock', $categories) && !isset($comments))}
+				{if isset($comments) && !(in_array('commslock', $categories) && !$comments)}
 					<a href="{$id|link:comments_link}{if isset($comments) && $comments > 0}#comments{else}#addcomment{/if}">
 						{$comments|tag:comments_number}
 					</a>
