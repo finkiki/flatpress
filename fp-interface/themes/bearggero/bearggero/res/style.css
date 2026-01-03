@@ -502,7 +502,8 @@ Description: Modern responsive theme for FlatPress 1.5 RC
 	font-weight: 500;
 }
 
-.comment-content textarea {
+#comment-form-section textarea,
+.comment-form textarea {
 	width: 100%;
 	min-height: 150px;
 }
