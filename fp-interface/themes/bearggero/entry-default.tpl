@@ -5,7 +5,7 @@
 	
 	<header class="entry-header">
 		<h2 itemprop="name" class="entry-title">
-			<a href="{if !(in_array('commslock', $categories) && !(isset($comments) && $comments))}{$id|link:comments_link}{else}{$id|link:post_link}{/if}">
+			<a href="{if isset($comments) && !(in_array('commslock', $categories) && !$comments)}{$id|link:comments_link}{else}{$id|link:post_link}{/if}">
 				{$subject|tag:the_title}
 			</a>
 		</h2>
@@ -44,7 +44,7 @@
 					<strong>{views}</strong> {$lang.postviews.views}
 				{/if}
 				
-				{if isset($comments) && !(in_array('commslock', $categories) && !$comments)}
+				{if isset($comments) && !(in_array('commslock', $categories) && !isset($comments))}
 					<a href="{$id|link:comments_link}{if isset($comments) && $comments > 0}#comments{else}#addcomment{/if}">
 						{$comments|tag:comments_number}
 					</a>

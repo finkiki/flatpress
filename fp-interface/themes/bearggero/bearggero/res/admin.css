@@ -108,6 +108,89 @@ body[class*="admin-"]::before {
 	line-height: 1.6;
 }
 
+/* Admin tab menu - styled to match main theme */
+#admin-tabmenu {
+	list-style: none;
+	margin: 0 0 0.5rem 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0;
+	background: var(--primary-color);
+	border-radius: 4px 4px 0 0;
+	overflow: hidden;
+}
+
+#admin-tabmenu li {
+	margin: 0;
+	padding: 0;
+	flex: 0 0 auto;
+}
+
+#admin-tabmenu a {
+	display: block;
+	padding: 0.75rem 1.5rem;
+	color: rgba(255, 255, 255, 0.8);
+	text-decoration: none;
+	font-weight: 500;
+	transition: all 0.3s;
+	border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#admin-tabmenu a:hover {
+	background: rgba(255, 255, 255, 0.1);
+	color: var(--header-text);
+}
+
+#admin-tabmenu a.admin-tab-current {
+	background: var(--bg-color);
+	color: var(--primary-color);
+	font-weight: 600;
+}
+
+/* Admin submenu - styled to match main theme */
+#admin-submenu {
+	list-style: none;
+	margin: 0 0 1.5rem 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	background: rgba(44, 95, 141, 0.05);
+	padding: 0.5rem;
+	border-radius: 0 0 4px 4px;
+}
+
+#admin-submenu li {
+	margin: 0;
+	padding: 0;
+}
+
+#admin-submenu a {
+	display: block;
+	padding: 0.5rem 1rem;
+	color: var(--link-color);
+	text-decoration: none;
+	background: var(--bg-color);
+	border: 1px solid var(--border-color);
+	border-radius: 4px;
+	font-weight: 500;
+	transition: all 0.3s;
+}
+
+#admin-submenu a:hover {
+	background: var(--primary-color);
+	color: var(--header-text);
+	border-color: var(--primary-color);
+}
+
+#admin-submenu a.active {
+	background: var(--primary-color);
+	color: var(--header-text);
+	border-color: var(--primary-color);
+	font-weight: 600;
+}
+
 /* Admin content area */
 #admin-content h1,
 #admin-content h2 {
@@ -355,5 +438,24 @@ body[class*="admin-"] .site-info a {
 	
 	.admin-title {
 		font-size: 1.5rem;
+	}
+	
+	/* Stack admin tab menu on mobile */
+	#admin-tabmenu {
+		flex-direction: column;
+	}
+	
+	#admin-tabmenu a {
+		border-right: none;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	}
+	
+	#admin-tabmenu li:last-child a {
+		border-bottom: none;
+	}
+	
+	/* Stack submenu on mobile */
+	#admin-submenu {
+		flex-direction: column;
 	}
 }
