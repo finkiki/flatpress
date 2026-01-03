@@ -25,7 +25,7 @@
 						{include file="shared:commentadminctrls.tpl"}
 						
 						<div class="comment-meta">
-							<a href="{$entryid|link:comments_link}#{$id}" title="Permalink to {$name}'s comment">
+							<a href="{$entryid|link:comments_link}#{$id}" title="Permalink to {$name|escape:'html'}'s comment">
 								{$date|date_format_daily} {$lang.entryauthor.at} {$date|date_format:"`$fp_config.locale.timeformat`"}
 							</a>
 						</div>
