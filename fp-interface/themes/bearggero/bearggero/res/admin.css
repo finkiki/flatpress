@@ -7,10 +7,20 @@ Module: admin.css
 Description: Admin panel styles
 */
 
+/* Import common styles for admin */
+@import url('common.css');
+
+/* Admin body styling */
 body[class*="admin-"] {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 	font-size: 14px;
 	line-height: 1.6;
+	background: #f5f5f5;
+}
+
+/* Override some common styles for admin */
+body[class*="admin-"] #page-container {
+	background-color: #f5f5f5;
 }
 
 #admin-main {
@@ -27,6 +37,7 @@ body[class*="admin-"] {
 	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+/* Admin navigation */
 .admin-nav {
 	list-style: none;
 	margin: 0 0 1.5rem 0;
@@ -67,28 +78,50 @@ body[class*="admin-"] {
 	line-height: 1.6;
 }
 
+/* Admin content area */
+#admin-content h1,
+#admin-content h2 {
+	color: #333;
+}
+
+#admin-content h2 {
+	border-bottom: 1px solid #ddd;
+	margin: 0.5em 0;
+	padding-bottom: 0.5em;
+}
+
 /* Admin forms */
-.admin-body form {
+.admin-body form,
+#admin-content form {
 	margin: 1rem 0;
 }
 
-.admin-body fieldset {
+.admin-body fieldset,
+#admin-content fieldset {
 	margin: 1rem 0;
 	padding: 1rem;
 	border: 1px solid #ddd;
 	border-radius: 4px;
+	background: #fafafa;
 }
 
-.admin-body legend {
+.admin-body legend,
+#admin-content legend {
 	padding: 0 0.5rem;
 	font-weight: bold;
+	color: #2c5f8d;
 }
 
 .admin-body input[type="text"],
 .admin-body input[type="email"],
 .admin-body input[type="password"],
 .admin-body textarea,
-.admin-body select {
+.admin-body select,
+#admin-content input[type="text"],
+#admin-content input[type="email"],
+#admin-content input[type="password"],
+#admin-content textarea,
+#admin-content select {
 	width: 100%;
 	max-width: 500px;
 	padding: 0.5rem;
@@ -96,11 +129,16 @@ body[class*="admin-"] {
 	border-radius: 4px;
 	font-size: 14px;
 	font-family: inherit;
+	background: #fff;
 }
 
 .admin-body input[type="submit"],
 .admin-body input[type="button"],
-.admin-body button {
+.admin-body button,
+#admin-content input[type="submit"],
+#admin-content input[type="button"],
+#admin-content button,
+.buttonbar input {
 	background: #2c5f8d;
 	color: #fff;
 	border: none;
@@ -113,32 +151,45 @@ body[class*="admin-"] {
 
 .admin-body input[type="submit"]:hover,
 .admin-body input[type="button"]:hover,
-.admin-body button:hover {
+.admin-body button:hover,
+#admin-content input[type="submit"]:hover,
+#admin-content input[type="button"]:hover,
+#admin-content button:hover,
+.buttonbar input:hover {
 	background: #1a3a5a;
 }
 
 /* Admin tables */
-.admin-body table {
+.admin-body table,
+#admin-content table {
 	width: 100%;
 	border-collapse: collapse;
 	margin: 1rem 0;
+	background: #fff;
 }
 
 .admin-body th,
-.admin-body td {
+.admin-body td,
+#admin-content th,
+#admin-content td {
 	padding: 0.75rem;
 	text-align: left;
 	border-bottom: 1px solid #ddd;
 }
 
-.admin-body th {
+.admin-body th,
+#admin-content th {
 	background: rgba(44, 95, 141, 0.1);
 	font-weight: bold;
 }
 
 /* Admin messages */
 .admin-body .success,
-.admin-body .notifications {
+.admin-body .notifications,
+#admin-content .success,
+#admin-content .notifications,
+.notifications,
+.enabled {
 	background: #d4edda;
 	color: #155724;
 	border: 1px solid #c3e6cb;
@@ -148,7 +199,10 @@ body[class*="admin-"] {
 }
 
 .admin-body .error,
-.admin-body .errors {
+.admin-body .errors,
+#admin-content .error,
+#admin-content .errors,
+.errors {
 	background: #f8d7da;
 	color: #721c24;
 	border: 1px solid #f5c6cb;
@@ -158,13 +212,24 @@ body[class*="admin-"] {
 }
 
 .admin-body .warning,
-.admin-body .warnings {
+.admin-body .warnings,
+#admin-content .warning,
+#admin-content .warnings,
+.warnings {
 	background: #fff3cd;
 	color: #856404;
 	border: 1px solid #ffeaa7;
 	padding: 1rem;
 	margin: 1rem 0;
 	border-radius: 4px;
+}
+
+/* Lists */
+.admin-body ul,
+.admin-body ol,
+#admin-content ul,
+#admin-content ol {
+	margin-left: 2rem;
 }
 
 /* Hide site header navigation in admin */
@@ -181,4 +246,25 @@ body[class*="admin-"] #site-footer {
 
 body[class*="admin-"] .footer-widgets-area {
 	display: none;
+}
+
+/* Responsive admin */
+@media (max-width: 768px) {
+	#admin-main {
+		margin: 1rem auto;
+		padding: 0 0.5rem;
+	}
+	
+	.admin-entry {
+		padding: 1rem;
+	}
+	
+	.admin-nav {
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	
+	.admin-title {
+		font-size: 1.5rem;
+	}
 }

@@ -404,6 +404,109 @@ Description: Modern responsive theme for FlatPress 1.5 RC
 	margin-top: 2rem;
 }
 
+.comments-area {
+	margin: 2rem 0;
+}
+
+.comments-title {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	color: var(--primary-color);
+	border-bottom: 2px solid var(--border-color);
+	padding-bottom: 0.5rem;
+}
+
+.comment-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.comment {
+	margin-bottom: 2rem;
+	padding: 1.5rem;
+	background: var(--bg-color);
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.comment-admin {
+	background: rgba(44, 95, 141, 0.05);
+	border-left: 4px solid var(--primary-color);
+}
+
+.comment-author {
+	margin-bottom: 0.5rem;
+}
+
+.comment-name {
+	font-weight: bold;
+	color: var(--text-color);
+	font-size: 1.1rem;
+}
+
+.comment-name a {
+	color: var(--link-color);
+	text-decoration: none;
+}
+
+.comment-name a:hover {
+	text-decoration: underline;
+}
+
+.comment-meta {
+	font-size: 0.9rem;
+	color: #666;
+	margin-bottom: 1rem;
+}
+
+.comment-meta a {
+	color: #666;
+	text-decoration: none;
+}
+
+.comment-meta a:hover {
+	color: var(--link-color);
+}
+
+.comment-content {
+	line-height: 1.6;
+	margin-top: 1rem;
+}
+
+.comment-content p {
+	margin: 0.5rem 0;
+}
+
+/* Comment form */
+#comment-form-section {
+	background: var(--bg-color);
+	padding: 2rem;
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	margin-top: 2rem;
+}
+
+#comment-userdata {
+	margin-bottom: 1.5rem;
+}
+
+#comment-userdata p {
+	margin-bottom: 1rem;
+}
+
+#comment-userdata label {
+	display: block;
+	margin-bottom: 0.25rem;
+	font-weight: 500;
+}
+
+.comment-content textarea {
+	width: 100%;
+	min-height: 150px;
+}
+
 /* Forms */
 fieldset {
 	border: 1px solid var(--border-color);
