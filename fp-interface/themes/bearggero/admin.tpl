@@ -1,21 +1,25 @@
 {include file="cpheader.tpl"}
 
-<div id="admin-main">
-	
-	<div class="admin-entry">
+		<div id="cpmain">
+			
+
+		<div class="entry">
 		
-		<ul class="admin-nav">
+		<ul id="admin-small-nav">
 			<li><a href="{$smarty.const.BLOG_BASEURL}">{$lang.admin.general.startpage}</a></li>
 			<li><a href="{$smarty.const.BLOG_BASEURL}login.php?do=logout">{$lang.admin.general.logout}</a></li>
 		</ul>
 		
 		{page}
-			<h1 class="admin-title">{$subject}</h1>
-			<div class="admin-body">{controlpanel}</div>
+				<h1 class="title">{$subject}</h1>
+				<div class="body">{controlpanel}</div>
 		{/page}
+		</div>
 		
-	</div>
+		</div>
 	
-</div>
-
 {include file="footer.tpl"}
+
+
+
+
