@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.7.0, created on 2026-01-04 08:45:54
+/* Smarty version 5.7.0, created on 2026-01-04 10:07:45
   from 'file:widgets.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.7.0',
-  'unifunc' => 'content_695a28c2195538_54364892',
+  'unifunc' => 'content_695a3bf17e3434_91826367',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0c8bf0f6361adf4a423349a83f7afc11eaf5df17' => 
     array (
       0 => 'widgets.tpl',
-      1 => 1767515761,
+      1 => 1767521041,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_695a28c2195538_54364892 (\Smarty\Template $_smarty_tpl) {
+function content_695a3bf17e3434_91826367 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/home/runner/work/flatpress/flatpress/fp-interface/themes/leggero';
 ?>		
 		<div id="column">

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.7.0, created on 2026-01-04 08:45:54
+/* Smarty version 5.7.0, created on 2026-01-04 10:07:45
   from 'shared:errorlist.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.7.0',
-  'unifunc' => 'content_695a28c218f092_77105300',
+  'unifunc' => 'content_695a3bf17dce91_65744117',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ed321f02c9e61ff5622cba6c8d692817008b7911' => 
     array (
       0 => 'errorlist.tpl',
-      1 => 1767515761,
+      1 => 1767521041,
       2 => 'shared',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_695a28c218f092_77105300 (\Smarty\Template $_smarty_tpl) {
+function content_695a3bf17dce91_65744117 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '.';
 ?><div id="errorlist">
 		<?php if ((true && ($_smarty_tpl->hasVariable('error') && null !== ($_smarty_tpl->getValue('error') ?? null)))) {?>

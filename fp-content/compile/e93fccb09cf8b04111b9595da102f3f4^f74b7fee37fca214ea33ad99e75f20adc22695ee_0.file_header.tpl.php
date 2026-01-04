@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.7.0, created on 2026-01-04 08:45:54
+/* Smarty version 5.7.0, created on 2026-01-04 10:07:45
   from 'file:header.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.7.0',
-  'unifunc' => 'content_695a28c216a5c5_37454875',
+  'unifunc' => 'content_695a3bf17afb03_77370030',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f74b7fee37fca214ea33ad99e75f20adc22695ee' => 
     array (
       0 => 'header.tpl',
-      1 => 1767515761,
+      1 => 1767521041,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_695a28c216a5c5_37454875 (\Smarty\Template $_smarty_tpl) {
+function content_695a3bf17afb03_77370030 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/home/runner/work/flatpress/flatpress/fp-interface/themes/leggero';
 ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="<?php echo $_smarty_tpl->getValue('fp_config')['locale']['lang'];?>
