@@ -695,12 +695,24 @@ class FPDB_CommentList {
 
 	function &getComment() {
 		if (!$this->hasMore()) {
-			return false;
+			$false = false;
+			return $false;
 		}
 
 		$id = array_shift($this->list);
 
 		$comment = comment_parse($this->entryid, $id);
+		
+		// If comment parsing failed, skip this comment and try the next one
+		if ($comment === false || !is_array($comment)) {
+			// Recursively try the next comment if available
+			if ($this->hasMore()) {
+				return $this->getComment();
+			}
+			$false = false;
+			return $false;
+		}
+		
 		$couplet = array(
 			&$id,
 			&$comment
@@ -929,8 +941,20 @@ function smarty_block_comment($params, $content, &$smarty, &$repeat) {
 
 		$couplet = &$q->comments->getComment();
 
+		// Validate couplet structure
+		if (!is_array($couplet) || count($couplet) < 2) {
+			$repeat = false;
+			return $content;
+		}
+
 		$id = &$couplet [0];
 		$comment = &$couplet [1];
+
+		// Validate comment data before processing
+		if (!is_array($comment) || empty($comment)) {
+			$repeat = false;
+			return $content;
+		}
 
 		foreach ($comment as $k => $v) {
 			$kk = str_replace('-', '_', $k);
