@@ -1,0 +1,241 @@
+/*
+===================
+Bearggero CSS Styles
+===================
+
+Module: common.css
+Description: Common styles and resets
+*/
+
+/* CSS Reset and Base Styles */
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+
+a {
+	color: var(--link-color, #2c5f8d);
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+a:hover {
+	color: var(--link-hover, #1a3a5a);
+}
+
+/* Lists */
+ul, ol {
+	margin-top: 0;
+	margin-bottom: 1rem;
+	padding-left: 2rem;
+}
+
+/* Images and Media */
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	border: none;
+}
+
+iframe,
+embed,
+object,
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Responsive iframe wrapper */
+.iframe-wrapper,
+.video-wrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 aspect ratio */
+	height: 0;
+	overflow: hidden;
+	margin-bottom: 1rem;
+}
+
+.iframe-wrapper iframe,
+.video-wrapper iframe,
+.iframe-wrapper embed,
+.video-wrapper embed,
+.iframe-wrapper object,
+.video-wrapper object {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* Tables */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 1rem;
+}
+
+th, td {
+	padding: 0.75rem;
+	text-align: left;
+	border-bottom: 1px solid var(--border-color, #ddd);
+}
+
+th {
+	font-weight: 600;
+	background-color: rgba(0,0,0,0.05);
+}
+
+/* Blockquotes */
+blockquote {
+	margin: 1rem 0;
+	padding: 1rem 1.5rem;
+	border-left: 4px solid var(--primary-color, #2c5f8d);
+	background-color: rgba(0,0,0,0.03);
+	font-style: italic;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* Code */
+code, pre {
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 0.9em;
+}
+
+code {
+	padding: 0.2rem 0.4rem;
+	background-color: rgba(0,0,0,0.05);
+	border-radius: 3px;
+}
+
+pre {
+	padding: 1rem;
+	background-color: rgba(0,0,0,0.05);
+	border: 1px solid var(--border-color, #ddd);
+	border-radius: 4px;
+	overflow-x: auto;
+	margin-bottom: 1rem;
+}
+
+pre code {
+	padding: 0;
+	background-color: transparent;
+}
+
+/* Horizontal Rule */
+hr {
+	border: none;
+	border-top: 1px solid var(--border-color, #ddd);
+	margin: 2rem 0;
+}
+
+/* Accessibility */
+.sr-only,
+.screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* Focus styles for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+	outline: 2px solid var(--primary-color, #2c5f8d);
+	outline-offset: 2px;
+}
+
+/* Skip to content link */
+.skip-link {
+	position: absolute;
+	top: -40px;
+	left: 0;
+	background: var(--primary-color, #2c5f8d);
+	color: white;
+	padding: 8px;
+	text-decoration: none;
+	z-index: 100;
+}
+
+.skip-link:focus {
+	top: 0;
+}
+
+/* Clearfix */
+.clearfix::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Print styles */
+@media print {
+	body {
+		font-size: 12pt;
+		line-height: 1.5;
+	}
+	
+	#site-header,
+	#site-footer,
+	#sidebar,
+	.navigation,
+	.menu-toggle {
+		display: none;
+	}
+	
+	a[href]:after {
+		content: " (" attr(href) ")";
+	}
+	
+	.entry,
+	.page-content {
+		page-break-inside: avoid;
+	}
+}
