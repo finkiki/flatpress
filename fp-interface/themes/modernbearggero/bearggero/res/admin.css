@@ -9,6 +9,7 @@ Description: Admin panel styles matching the main theme
 
 /* Import common styles for admin */
 @import url('common.css');
+@import url('responsive.css');
 
 /* Use same CSS variables as main theme */
 :root {
@@ -21,8 +22,21 @@ Description: Admin panel styles matching the main theme
 	--link-hover: #1a3a5a;
 	--header-bg: #2c5f8d;
 	--header-text: #fff;
+	--footer-bg: #333;
+	--footer-text: #fff;
 	--max-width: 1200px;
 	--spacing-unit: 1rem;
+}
+
+/* Dark mode support - same as main theme */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg-color: #1a1a1a;
+		--text-color: #e0e0e0;
+		--border-color: #444;
+		--header-bg: #1a3a5a;
+		--footer-bg: #111;
+	}
 }
 
 /* Admin body styling - use same background as main theme */
@@ -413,7 +427,8 @@ body[class*="admin-"] .footer-widgets-area {
 
 body[class*="admin-"] .site-info {
 	text-align: center;
-	color: #666;
+	color: var(--footer-text);
+	opacity: 0.8;
 }
 
 body[class*="admin-"] .site-info a {

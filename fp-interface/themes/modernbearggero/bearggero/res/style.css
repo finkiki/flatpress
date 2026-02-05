@@ -537,21 +537,25 @@ select {
 
 input[type="submit"],
 input[type="button"],
-button {
+button,
+.buttonbar input {
 	background: var(--primary-color);
-	color: #fff;
+	color: var(--header-text);
 	border: none;
 	padding: 0.5rem 1.5rem;
 	border-radius: 4px;
 	cursor: pointer;
 	font-size: 1rem;
-	transition: background 0.3s;
+	transition: all 0.3s;
 }
 
 input[type="submit"]:hover,
 input[type="button"]:hover,
-button:hover {
+button:hover,
+.buttonbar input:hover {
 	background: var(--link-hover);
+	transform: translateY(-1px);
+	box-shadow: 0 2px 4px rgba(44, 95, 141, 0.3);
 }
 
 /* Utility Classes */
