@@ -18,6 +18,7 @@ Description: Modern responsive theme for FlatPress 1.5 RC
 	--primary-color: #2c5f8d;
 	--secondary-color: #5a9fd4;
 	--text-color: #333;
+	--text-color-muted: #666;
 	--bg-color: #fff;
 	--border-color: #ddd;
 	--link-color: #2c5f8d;
@@ -39,6 +40,7 @@ Description: Modern responsive theme for FlatPress 1.5 RC
 	:root {
 		--bg-color: #1a1a1a;
 		--text-color: #e0e0e0;
+		--text-color-muted: #999;
 		--border-color: #444;
 		--header-bg: #1a3a5a;
 		--footer-bg: #111;
@@ -267,7 +269,7 @@ Description: Modern responsive theme for FlatPress 1.5 RC
 	flex-wrap: wrap;
 	gap: 1rem;
 	font-size: 0.9rem;
-	color: #666;
+	color: var(--text-color-muted);
 }
 
 .entry-meta li {
@@ -461,12 +463,12 @@ Description: Modern responsive theme for FlatPress 1.5 RC
 
 .comment-meta {
 	font-size: 0.9rem;
-	color: #666;
+	color: var(--text-color-muted);
 	margin-bottom: 1rem;
 }
 
 .comment-meta a {
-	color: #666;
+	color: var(--text-color-muted);
 	text-decoration: none;
 }
 

@@ -16,6 +16,7 @@ Description: Admin panel styles matching the main theme
 	--primary-color: #2c5f8d;
 	--secondary-color: #5a9fd4;
 	--text-color: #333;
+	--text-color-muted: #666;
 	--bg-color: #fff;
 	--border-color: #ddd;
 	--link-color: #2c5f8d;
@@ -37,6 +38,7 @@ Description: Admin panel styles matching the main theme
 	:root {
 		--bg-color: #1a1a1a;
 		--text-color: #e0e0e0;
+		--text-color-muted: #999;
 		--border-color: #444;
 		--header-bg: #1a3a5a;
 		--footer-bg: #111;
@@ -431,8 +433,7 @@ body[class*="admin-"] .footer-widgets-area {
 
 body[class*="admin-"] .site-info {
 	text-align: center;
-	color: var(--footer-text);
-	opacity: 0.8;
+	color: var(--text-color-muted);
 }
 
 body[class*="admin-"] .site-info a {
