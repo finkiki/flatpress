@@ -9,20 +9,40 @@ Description: Admin panel styles matching the main theme
 
 /* Import common styles for admin */
 @import url('common.css');
+@import url('responsive.css');
 
 /* Use same CSS variables as main theme */
 :root {
 	--primary-color: #2c5f8d;
 	--secondary-color: #5a9fd4;
 	--text-color: #333;
+	--text-color-muted: #666;
 	--bg-color: #fff;
 	--border-color: #ddd;
 	--link-color: #2c5f8d;
 	--link-hover: #1a3a5a;
 	--header-bg: #2c5f8d;
 	--header-text: #fff;
+	--footer-bg: #333;
+	--footer-text: #fff;
 	--max-width: 1200px;
 	--spacing-unit: 1rem;
+	--shadow-color: rgba(44, 95, 141, 0.1);
+	--shadow-color-strong: rgba(44, 95, 141, 0.3);
+	--bg-tint: rgba(44, 95, 141, 0.05);
+	--bg-tint-light: rgba(44, 95, 141, 0.02);
+}
+
+/* Dark mode support - same as main theme */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg-color: #1a1a1a;
+		--text-color: #e0e0e0;
+		--text-color-muted: #999;
+		--border-color: #444;
+		--header-bg: #1a3a5a;
+		--footer-bg: #111;
+	}
 }
 
 /* Admin body styling - use same background as main theme */
@@ -62,7 +82,7 @@ body[class*="admin-"]::before {
 	border: 1px solid var(--border-color);
 	border-radius: 8px;
 	padding: 2rem;
-	box-shadow: 0 2px 8px rgba(44, 95, 141, 0.1);
+	box-shadow: 0 2px 8px var(--shadow-color);
 }
 
 /* Admin navigation - styled like main site nav */
@@ -156,7 +176,7 @@ body[class*="admin-"]::before {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.5rem;
-	background: rgba(44, 95, 141, 0.05);
+	background: var(--bg-tint);
 	padding: 0.5rem;
 	border-radius: 0 0 4px 4px;
 }
@@ -215,7 +235,7 @@ body[class*="admin-"]::before {
 	padding: 1.5rem;
 	border: 1px solid var(--border-color);
 	border-radius: 8px;
-	background: rgba(44, 95, 141, 0.02);
+	background: var(--bg-tint-light);
 }
 
 .admin-body legend,
@@ -259,7 +279,7 @@ body[class*="admin-"]::before {
 #admin-content select:focus {
 	border-color: var(--primary-color);
 	outline: none;
-	box-shadow: 0 0 0 3px rgba(44, 95, 141, 0.1);
+	box-shadow: 0 0 0 3px var(--shadow-color);
 }
 
 .admin-body input[type="submit"],
@@ -289,7 +309,7 @@ body[class*="admin-"]::before {
 .buttonbar input:hover {
 	background: var(--link-hover);
 	transform: translateY(-1px);
-	box-shadow: 0 2px 4px rgba(44, 95, 141, 0.3);
+	box-shadow: 0 2px 4px var(--shadow-color-strong);
 }
 
 /* Admin tables - styled to match main theme */
@@ -322,7 +342,7 @@ body[class*="admin-"]::before {
 
 .admin-body tr:hover,
 #admin-content tr:hover {
-	background: rgba(44, 95, 141, 0.05);
+	background: var(--bg-tint);
 }
 
 /* Admin messages - styled to match main theme colors */
@@ -413,7 +433,7 @@ body[class*="admin-"] .footer-widgets-area {
 
 body[class*="admin-"] .site-info {
 	text-align: center;
-	color: #666;
+	color: var(--text-color-muted);
 }
 
 body[class*="admin-"] .site-info a {
