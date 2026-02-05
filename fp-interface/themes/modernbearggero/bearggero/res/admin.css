@@ -25,6 +25,20 @@ Description: Admin panel styles matching the main theme
 	--spacing-unit: 1rem;
 }
 
+/* Dark mode support for admin */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg-color: #1a1a1a;
+		--text-color: #e0e0e0;
+		--border-color: #444;
+		--header-bg: #1a3a5a;
+		--primary-color: #5a9fd4;
+		--secondary-color: #7db8e8;
+		--link-color: #7db8e8;
+		--link-hover: #a8d0f0;
+	}
+}
+
 /* Admin body styling - use same background as main theme */
 body[class*="admin-"] {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -156,9 +170,20 @@ body[class*="admin-"]::before {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.5rem;
-	background: rgba(44, 95, 141, 0.05);
 	padding: 0.5rem;
 	border-radius: 0 0 4px 4px;
+}
+
+@media (prefers-color-scheme: light) {
+	#admin-submenu {
+		background: rgba(44, 95, 141, 0.05);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	#admin-submenu {
+		background: rgba(90, 159, 212, 0.15);
+	}
 }
 
 #admin-submenu li {
@@ -215,7 +240,20 @@ body[class*="admin-"]::before {
 	padding: 1.5rem;
 	border: 1px solid var(--border-color);
 	border-radius: 8px;
-	background: rgba(44, 95, 141, 0.02);
+}
+
+@media (prefers-color-scheme: light) {
+	.admin-body fieldset,
+	#admin-content fieldset {
+		background: rgba(44, 95, 141, 0.02);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.admin-body fieldset,
+	#admin-content fieldset {
+		background: rgba(90, 159, 212, 0.08);
+	}
 }
 
 .admin-body legend,
@@ -322,7 +360,21 @@ body[class*="admin-"]::before {
 
 .admin-body tr:hover,
 #admin-content tr:hover {
-	background: rgba(44, 95, 141, 0.05);
+	transition: background 0.2s;
+}
+
+@media (prefers-color-scheme: light) {
+	.admin-body tr:hover,
+	#admin-content tr:hover {
+		background: rgba(44, 95, 141, 0.05);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.admin-body tr:hover,
+	#admin-content tr:hover {
+		background: rgba(90, 159, 212, 0.15);
+	}
 }
 
 /* Admin messages - styled to match main theme colors */
@@ -372,6 +424,43 @@ body[class*="admin-"]::before {
 	box-shadow: 0 2px 4px rgba(255, 193, 7, 0.1);
 }
 
+/* Dark mode notification messages */
+@media (prefers-color-scheme: dark) {
+	.admin-body .success,
+	.admin-body .notifications,
+	#admin-content .success,
+	#admin-content .notifications,
+	.notifications,
+	.enabled {
+		background: #1a4d2e;
+		color: #90ee90;
+		border: 1px solid #28a745;
+		border-left: 4px solid #28a745;
+	}
+	
+	.admin-body .error,
+	.admin-body .errors,
+	#admin-content .error,
+	#admin-content .errors,
+	.errors {
+		background: #4d1a1a;
+		color: #ffb3b3;
+		border: 1px solid #dc3545;
+		border-left: 4px solid #dc3545;
+	}
+	
+	.admin-body .warning,
+	.admin-body .warnings,
+	#admin-content .warning,
+	#admin-content .warnings,
+	.warnings {
+		background: #4d4520;
+		color: #ffe066;
+		border: 1px solid #ffc107;
+		border-left: 4px solid #ffc107;
+	}
+}
+
 /* Lists */
 .admin-body ul,
 .admin-body ol,
@@ -413,7 +502,8 @@ body[class*="admin-"] .footer-widgets-area {
 
 body[class*="admin-"] .site-info {
 	text-align: center;
-	color: #666;
+	color: var(--text-color);
+	opacity: 0.7;
 }
 
 body[class*="admin-"] .site-info a {
