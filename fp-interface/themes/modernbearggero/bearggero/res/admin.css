@@ -111,17 +111,18 @@ body[class*="admin-"]::before {
 	line-height: 1.6;
 }
 
-/* Admin tab menu - inspired by Leggero V2 with better contrast */
+/* Admin tab menu - styled to match admin-submenu for consistency */
 #admin-tabmenu {
 	list-style: none;
 	margin: 1em 0 0 0;
 	padding: 0.5em;
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0;
-	background: #000;
+	display: inline-block;
+	background: #e6e6e6;
 	border-radius: 5px;
-	overflow: visible;
+	width: 95%;
+	max-width: fit-content;
+	position: relative;
+	left: 5px;
 }
 
 #admin-tabmenu li {
@@ -134,24 +135,25 @@ body[class*="admin-"]::before {
 
 #admin-tabmenu a {
 	display: inline-block;
-	padding: 0.5em 1em;
+	padding: 0 1em;
 	margin: 0.1em;
-	color: #fff;
+	color: #000;
 	text-decoration: none;
 	font-weight: normal;
 	line-height: 2em;
 	transition: all 0.3s;
-	border-radius: 2px;
+	border-radius: 3px;
 }
 
-#admin-tabmenu a:hover {
-	background: #ddd;
-	color: #000;
+#admin-tabmenu a:hover,
+#admin-tabmenu a.admin-tab-current {
+	background: #555;
+	color: #eee;
+	padding: 0.3em 1em;
+	text-decoration: none;
 }
 
 #admin-tabmenu a.admin-tab-current {
-	background: #ddd;
-	color: #000;
 	font-weight: bold;
 }
 
