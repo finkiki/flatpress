@@ -111,14 +111,14 @@ body[class*="admin-"]::before {
 	line-height: 1.6;
 }
 
-/* Admin tab menu - styled to match admin-submenu for consistency */
+/* Admin tab menu - IDENTICAL styling to admin-submenu */
 #admin-tabmenu {
 	list-style: none;
-	margin: 1em 0 0 0;
+	margin: 0 0 1.5rem 0;
 	padding: 0.5em;
 	display: inline-block;
 	background: #e6e6e6;
-	border-radius: 5px;
+	border-radius: 0 0 5px 5px;
 	width: 95%;
 	max-width: fit-content;
 	position: relative;
@@ -129,8 +129,7 @@ body[class*="admin-"]::before {
 	margin: 0;
 	padding: 0;
 	display: inline;
-	font-size: 85%;
-	font-weight: normal;
+	font-size: 80%;
 }
 
 #admin-tabmenu a {
@@ -140,7 +139,6 @@ body[class*="admin-"]::before {
 	color: #000;
 	text-decoration: none;
 	font-weight: normal;
-	line-height: 2em;
 	transition: all 0.3s;
 	border-radius: 3px;
 }
