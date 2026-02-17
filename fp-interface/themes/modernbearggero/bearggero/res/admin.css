@@ -125,18 +125,19 @@ body[class*="admin-"]::before {
 	line-height: 1.6;
 }
 
-/* Admin tab menu - IDENTICAL styling to admin-submenu */
+/* Admin tab menu - Primary navigation bar */
 #admin-tabmenu {
 	list-style: none;
-	margin: 0 0 1.5rem 0;
+	margin: 0 0 0 0;
 	padding: 0.5em;
-	display: inline-block;
-	background: #e6e6e6;
-	border-radius: 0 0 5px 5px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem;
+	background: var(--header-bg);
+	border-radius: 5px 5px 0 0;
 	width: 95%;
 	max-width: fit-content;
 	position: relative;
-	left: 5px;
 }
 
 #admin-tabmenu li {
@@ -150,7 +151,7 @@ body[class*="admin-"]::before {
 	display: inline-block;
 	padding: 0 1em;
 	margin: 0.1em;
-	color: #000;
+	color: var(--header-text);
 	text-decoration: none;
 	font-weight: normal;
 	transition: all 0.3s;
@@ -159,8 +160,8 @@ body[class*="admin-"]::before {
 
 #admin-tabmenu a:hover,
 #admin-tabmenu a.admin-tab-current {
-	background: #555;
-	color: #eee;
+	background: var(--secondary-color);
+	color: var(--header-text);
 	padding: 0.3em 1em;
 	text-decoration: none;
 }
@@ -176,11 +177,11 @@ body[class*="admin-"]::before {
 	padding: 0.5em;
 	display: inline-block;
 	background: #e6e6e6;
+	border-top: 2px solid var(--primary-color);
 	border-radius: 0 0 5px 5px;
 	width: 95%;
 	max-width: fit-content;
 	position: relative;
-	left: 5px;
 }
 
 #admin-submenu li {
@@ -203,8 +204,8 @@ body[class*="admin-"]::before {
 
 #admin-submenu a:hover,
 #admin-submenu a.active {
-	background: #555;
-	color: #eee;
+	background: var(--primary-color);
+	color: var(--header-text);
 	padding: 0.3em 1em;
 	text-decoration: none;
 }
@@ -455,6 +456,17 @@ body[class*="admin-"]::before {
 		color: #ffe066;
 		border: 1px solid #ffc107;
 		border-left: 4px solid #ffc107;
+	}
+}
+
+/* Dark mode overrides for admin menus */
+@media (prefers-color-scheme: dark) {
+	#admin-submenu {
+		background: #2a2a2a;
+	}
+	
+	#admin-submenu a {
+		color: var(--text-color);
 	}
 }
 
