@@ -239,18 +239,37 @@ Description: Responsive design and mobile styles
 	}
 }
 
-/* High contrast mode */
+/* High contrast mode - adapt for both light and dark modes */
 @media (prefers-contrast: high) {
 	:root {
-		--primary-color: #000;
-		--link-color: #000;
-		--border-color: #000;
+		--border-color: currentColor;
 	}
 	
 	.entry,
 	.widget,
 	.static-page {
-		border: 2px solid #000;
+		border: 2px solid currentColor;
+	}
+}
+
+/* High contrast in light mode */
+@media (prefers-contrast: high) and (prefers-color-scheme: light) {
+	:root {
+		--primary-color: #000;
+		--link-color: #000;
+		--text-color: #000;
+		--bg-color: #fff;
+	}
+}
+
+/* High contrast in dark mode */
+@media (prefers-contrast: high) and (prefers-color-scheme: dark) {
+	:root {
+		--primary-color: #fff;
+		--link-color: #fff;
+		--text-color: #fff;
+		--bg-color: #000;
+		--border-color: #fff;
 	}
 }
 

@@ -16,6 +16,7 @@ html {
 	font-size: 100%;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
+	color-scheme: light dark;
 }
 
 body {
@@ -119,7 +120,18 @@ th, td {
 
 th {
 	font-weight: 600;
-	background-color: rgba(0,0,0,0.05);
+}
+
+@media (prefers-color-scheme: light) {
+	th {
+		background-color: rgba(0,0,0,0.05);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	th {
+		background-color: rgba(255,255,255,0.08);
+	}
 }
 
 /* Blockquotes */
@@ -127,8 +139,19 @@ blockquote {
 	margin: 1rem 0;
 	padding: 1rem 1.5rem;
 	border-left: 4px solid var(--primary-color, #2c5f8d);
-	background-color: rgba(0,0,0,0.03);
 	font-style: italic;
+}
+
+@media (prefers-color-scheme: light) {
+	blockquote {
+		background-color: rgba(0,0,0,0.03);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	blockquote {
+		background-color: rgba(255,255,255,0.05);
+	}
 }
 
 blockquote p:last-child {
@@ -143,17 +166,35 @@ code, pre {
 
 code {
 	padding: 0.2rem 0.4rem;
-	background-color: rgba(0,0,0,0.05);
 	border-radius: 3px;
 }
 
 pre {
 	padding: 1rem;
-	background-color: rgba(0,0,0,0.05);
 	border: 1px solid var(--border-color, #ddd);
 	border-radius: 4px;
 	overflow-x: auto;
 	margin-bottom: 1rem;
+}
+
+@media (prefers-color-scheme: light) {
+	code {
+		background-color: rgba(0,0,0,0.05);
+	}
+	
+	pre {
+		background-color: rgba(0,0,0,0.05);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	code {
+		background-color: rgba(255,255,255,0.1);
+	}
+	
+	pre {
+		background-color: rgba(255,255,255,0.1);
+	}
 }
 
 pre code {
