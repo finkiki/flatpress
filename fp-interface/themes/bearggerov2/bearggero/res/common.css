@@ -1,0 +1,465 @@
+/*
+===================
+Bearggero
+===================
+Ispired by: Leggero
+-------------------
+
+Name: Bearggero
+Author: Darreng and dartarrow
+Version: 0.1
+Module: common.css
+*/
+
+
+
+/* ===== GENERAL (redefinition HTML tag) ===== */
+html {
+    font-size: 85%;
+    font-family: 'Lucida Grande', 'Trebuchet MS', arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0
+}
+
+body {
+	font-size: 100%;
+	padding: 0;
+	text-align:center;
+	color: black;
+	background: #f1f4f9;
+	background-color: #eee;
+	background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.2) 35px, rgba(255,255,255,.2) 70px);
+	min-height: 100vh;
+	}
+
+hr { display: none }
+
+p { margin: .5em 0 }
+
+img { border: none; max-width: 100%; height: auto }
+
+blockquote {
+    width: 90%;
+    color: #666;
+    margin: 1em 1em;
+    padding: 0 10px;
+    border-left: 5px solid #bbb
+}
+
+pre, code {
+    font-family: Lucida Console, Monaco, monospace;
+    font-size: 90%;
+}
+
+pre {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #efefef;
+
+    overflow: auto;
+    width: 90%;
+    margin: 1em 1em;
+    padding: 5px 10px;
+    
+    /* fix overflow in IE */
+    min-height: 40px; 
+    height: auto !important; 
+    height: 40px; 
+}
+
+ul, li, ol { margin: 0; padding: 0 }
+
+/* === Form === */
+form { margin: 1em 0 }
+
+fieldset {
+    margin: 0 0 1em 0;
+    padding: .5em;
+    border: #ddd solid 1px
+}
+
+legend {
+    color: #666666;
+    font-size: 80%;
+    font-style: oblique
+}
+
+input, textarea, select {
+    padding: .2em;
+    border: 1px solid #999;
+    color: #222;
+    background-color: #eee;
+}
+
+input:hover, input:focus, textarea:hover, textarea:focus {
+    border: 1px solid #AA1111;
+    background-color: #fff
+}
+
+textarea {
+    font-size: 100%;
+    font-family: 'Lucida Grande', 'Trebuchet MS', arial, Helvetica, sans-serif;
+    width: 99%;
+    margin-top: .1em;
+    margin-bottom: 1em
+}
+
+
+
+/* ===== LINKS GENERAL ===== */
+a:link, a:visited {
+    color: #aa4142;
+    font-weight: bold;
+    text-decoration: none
+}
+
+a:hover {
+    color: #c15340;
+    text-decoration: underline
+}
+
+
+
+/* ===== HEADERS TAGS ===== */
+h1 {
+    /* Title of the blog */
+    font-size: 3em;
+    letter-spacing: 2px;
+    margin: 1em 0 0 0
+}
+
+h2 { } /* see h2.date */
+
+h3 {
+    /* Titles of the entry */
+    font-family: 'Helvetica', georgia, garamond, times, 'times new roman', serif;
+    font-style: italic;
+    font-size: 1.5em;
+    color: #333333;
+    margin: 0
+}
+
+h4 { font-size: 1.2em; }
+
+
+
+/* ===== DIV CONTAINER ALL ELEMENTS BLOCK ===== */
+#body-container {
+	text-align: left;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 10px 16px;
+	min-height:100%;
+	box-sizing: border-box;
+	/*border: solid 1px #ccc;*/
+	/*background-color: white*/
+}
+
+
+
+/* ===== HEAD ===== */
+#head {
+	font-family: 'rub';
+	padding: 15px 16px;
+	margin: 10px;
+	background: url('../imgs/bannerpic2.png') no-repeat right top;
+	/* background-color: rgb(170, 65, 65); */
+	background-color: #732c2c;
+
+	border: #bbb 1px solid;
+	border-bottom: 10px #2c5073 solid;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	gap: 12px;
+}
+
+#head a { color: white; text-decoration: none; } 
+
+	.subtitle {
+		font-size: 100%;
+		font-style: oblique;
+		color: #F1F1F1;
+		margin: .5em 0 0 0
+	}
+#titles {
+	flex: 1 1 240px;
+	font-family:'Helvetica';
+}
+#menus {
+	flex: 1 1 320px;
+	text-align:right;
+}
+
+
+/* ===== DIV CONTAINER "MAIN" ===== */
+#outer-container {
+    position: relative;
+    height: 1%;
+    margin: 0px;
+    padding: 0px;
+    border-top: 1px solid white; /* problem with I.E. */
+    background-color: white
+}
+
+
+
+/* ===== MAIN ===== */
+#main h4 { margin: 2em 0 0 0}
+
+#main {
+	float:none;
+	position: relative;
+	width: 100%;
+	max-width: 100%;
+	font-size: 20px;
+	font-family:'Archer Light';
+	color:#686868;
+	padding: 0 10px;
+	margin: 12px 0;
+	box-sizing: border-box;
+}
+
+#main p { line-height: 1.5em; margin-top: 1.2em; }
+
+#main img { margin: 0px; }
+
+/* === List === */
+#main ul {
+    list-style-type: disc;
+    padding: 0 0 0 1.6em
+}
+
+#main ol {
+    list-style-position: inside;
+    padding: 0 1.6em 0 1.6em
+}
+
+    #commentform fieldset p { margin: 0 0 .5em 0 }
+    
+    #comments li {
+        margin:0;
+        padding: 5px;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        background: #efefef
+    }
+    
+    /* === Class of main block === */
+    h2.date {
+        font-size: 0.5em;
+        color: #aaa;
+    }
+    
+    .date { /* date under titles of the entry */
+        font-size: 80%;
+        font-style: oblique;
+        color: gray;
+        margin: .2em 0 .8em 0
+    }
+    
+    /* .entry class */
+    .entry {
+        margin: 0 0 1.5em 0;
+        padding: 15px 25px 15px 25px;
+        overflow: auto; /* floating images fix IE<7*/
+        border: solid 1px #ccc;
+        background-color: white
+    }
+    #comments 
+    {
+        margin: 0 0 1.5em 0;
+        padding: 15px 25px 15px 25px !important;
+        overflow: auto; /* floating images fix IE<7*/
+        border: solid 1px #ccc;
+        background-color:#4176aa;
+
+    }
+    .commentName {
+        display:inline-block;
+        width:50%;
+    }
+
+    #commentHeader .date {
+        display:inline-block;
+        width:46%;
+        text-align:right;
+    }
+    #commentform { 
+        margin: 0 0 1.5em 0;
+        padding: 15px 25px 15px 25px;
+        overflow: auto; /* floating images fix IE<7*/
+        border: solid 1px #ccc;
+        background-color: white
+    }
+
+    #main h3 {
+        display:inline-block;
+        width:70%;
+    }
+    #main>.entry {
+        overflow: hidden; /* rest of the world :) */
+    }
+    /* end of .entry */
+    
+    #main ul.entry-footer { /*  entry footer */
+        clear: both;
+        font-size: 80%;
+        color: gray;
+        list-style-type: none;
+        text-align: right;
+        display:inline-block;
+        width:28%;
+        padding-left:0;
+    }
+    #peopleTable img {
+        width:150px;
+    }
+
+    #peopleTable td {
+        border-top:1px solid #bbb; 
+    }
+    /* give an image a class of hdImg for the image to take up the width of a container */
+    .hdImg {
+        width:100%;
+        overflow-x:auto;
+    }
+    /* Iframes defaulted to fill entire width of the container if you want something else override using HTML tags and style them */
+    iframe {
+        width:100%;
+        height:600px;
+    }
+	/* Needed for buttons to be on the same horizontal line*/
+	nav{
+		display:flex;
+		flex-wrap:wrap;
+		gap:8px;
+		justify-content:flex-end;
+		align-items:center;
+	}
+	/*Menu links */
+	nav a{
+		background: linear-gradient(to bottom, #3a6a98 0%, #2c5073 80%);
+        border-bottom: 2px solid #3c1717;
+		display: inline-block;
+		outline: none;
+		text-align: center;
+		font: 14px Arial, Helvetica, sans-serif;
+		padding: 12px 14px;
+		min-width: 50px;
+		border-radius: 2px;
+		box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		text-shadow:0px -1px 0px #7a2a1d;
+		margin-right: 0;
+		margin-bottom: 6px;
+    }
+    nav a:hover {
+        background: #2c5073;
+
+    }
+    /* Changed to keep our button/link style */
+    #submit {
+        display: block;
+        width:80px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align:center;
+        background-color:#4176aa;
+        border:1px solid #2c5073;
+        color:#f1f9f9;
+        font-family:arial;
+        font-size:15px;
+        padding:9px 23px;
+        text-decoration:none;
+
+    }
+
+    .readmore {
+        display: block;
+        width:80px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align:center;
+        background-color:#4176aa;
+        border:1px solid #2c5073;
+        color:#f1f9f9;
+        font-family:arial;
+        font-size:15px;
+        padding:9px 23px;
+        text-decoration:none;
+        /*text-shadow:0px -1px 0px #7a2a1d;*/
+    }
+    .readmore a{ 
+        color:#f1f9f9;
+    }
+
+   .admincontrols { /* [edit] and [delete] */
+        font-size: 80%;
+        text-align: right;
+    }
+    
+    .buttonbar { text-align: center }
+    
+    .buttonbar input {
+        text-align: center;
+        margin: .1em .5em;
+        padding: 0 1em
+    }
+    
+	.navigation { /* next entries & previous entries link */
+		font-size: 80%;
+		margin-bottom: 5em
+	}
+
+@media (max-width: 900px) {
+	#head {
+		padding: 12px;
+		margin: 8px;
+	}
+	#titles, #menus {
+		text-align: center;
+	}
+	nav {
+		justify-content: center;
+	}
+	#main {
+		font-size: 18px;
+	}
+}
+
+@media (max-width: 600px) {
+	#main {
+		padding: 0 6px;
+	}
+	.entry {
+		padding: 12px 16px;
+	}
+	nav a {
+		flex: 1 1 140px;
+	}
+	#main h3,
+	#main ul.entry-footer {
+		width: 100%;
+		display: block;
+		text-align: left;
+	}
+	#footer {
+		padding: 12px 6px;
+	}
+}
+
+
+/* ===== FOOTER ===== */
+#footer {
+	clear: both;
+	font-size: 80%;
+	color: #555;
+	padding: 10px;
+	border-top: #bbb 1px solid;
+	position: relative;
+	margin: 20px auto 0;
+	width: 100%;
+	box-sizing: border-box;
+	text-align:center;
+}
